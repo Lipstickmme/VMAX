@@ -10,48 +10,110 @@ const { contactForm } = require('./layout');
 
 const COMPANY = 'VMAX Machine Ltd';
 
-/* Reusable interior page header. Black plate, oversized title, image beside. */
+/* ---------- Shared pieces ---------------------------------------------- */
+
+/* Interior page header: copy on the left, a framed picture on the right. */
 function pageHeader({ eyebrow, title, sub, image, alt }) {
   return `
   <header class="page-header">
-    <div class="page-header-inner">
-      <span class="eyebrow">${eyebrow}</span>
-      <h1 data-reveal>${title}</h1>
-      ${sub ? `<p data-reveal>${sub}</p>` : ''}
+    <div class="wrap page-header-grid">
+      <div class="page-header-copy">
+        <span class="eyebrow">${eyebrow}</span>
+        <h1 data-reveal>${title}</h1>
+        ${sub ? `<p data-reveal>${sub}</p>` : ''}
+      </div>
+      <div class="page-header-media" data-reveal data-para="-22">${media(image, { alt: alt || title, eager: true })}</div>
     </div>
-    <div class="page-header-media">${media(image, { alt: alt || title, className: 'media-fill', eager: true })}</div>
   </header>`;
 }
 
+/* A slider. The hero and the yard gallery are the same component with
+   different slides, so behaviour stays in one place in /js/main.js. */
+function slider({ id, slides, count = true, ratio = '' }) {
+  return `
+      <div class="slider" id="${id}" data-slider>
+        <div class="slider-track"${ratio ? ` style="aspect-ratio:${ratio}"` : ''}>
+          ${slides.map((s, i) => `<div class="slide${i === 0 ? ' is-active' : ''}" data-slide-index="${i}">${s}</div>`).join('\n          ')}
+        </div>
+        ${count ? `<span class="slider-count" data-slider-count>01 / ${String(slides.length).padStart(2, '0')}</span>` : ''}
+        <div class="slider-ui">
+          <div class="slider-dots" role="tablist" aria-label="Slides">
+            ${slides.map((s, i) => `<button class="dot${i === 0 ? ' is-active' : ''}" data-slide="${i}" aria-label="Slide ${i + 1}"></button>`).join('\n            ')}
+          </div>
+          <div class="slider-arrows">
+            <button type="button" data-slider-prev aria-label="Previous slide">&lsaquo;</button>
+            <button type="button" data-slider-next aria-label="Next slide">&rsaquo;</button>
+          </div>
+        </div>
+      </div>`;
+}
+
 /* ---------- Machine card ------------------------------------------------
-   The unit the whole site is built from: photograph, model, and the four
-   numbers a buyer actually compares. Deliberately a tall rectangle on a
-   desktop grid and a wide one on a phone, never a square. The same markup
-   is produced in the browser by /js/machines.js, so the two cannot drift. */
+   The unit the site is built from: photograph, model, and the four numbers a
+   buyer compares. A tall rounded pane on a desktop grid, a wide one on a
+   phone, never a square. The same markup is produced in the browser by
+   /js/main.js, so the two cannot drift. */
 function specRow(spec) {
   return `<li class="spec"><span class="spec-ico">${icon(spec.icon)}</span><span class="spec-val"><span class="spec-k">${esc(spec.label)}</span>${esc(spec.value)}</span></li>`;
 }
 
 function machineCard(m) {
   const img = images.resolveName(m.imageName, m.name);
-  const condition = m.condition === 'New' ? 'is-new' : 'is-used';
   return `
       <a class="mcard" href="/machines/${esc(m.id)}" data-category="${esc(m.category)}" data-condition="${esc(m.condition)}" data-reveal>
+        <div class="mcard-flags">
+          <span class="flag ${m.condition === 'New' ? 'is-new' : 'is-used'}">${esc(m.condition)}</span>
+          <span class="flag-stock">${esc(m.status)}</span>
+        </div>
         <div class="mcard-media">${media(img, { alt: m.name, className: 'media-machine' })}</div>
         <div class="mcard-body">
-          <div class="mcard-flags">
-            <span class="flag ${condition}">${esc(m.condition)}</span>
-            <span class="flag-stock">${esc(m.status)}</span>
-          </div>
           <h3>${esc(m.model)}</h3>
           <p class="mcard-type">${esc(m.category.replace(/s$/, ''))}</p>
           <ul class="specs">${(m.specs || []).map(specRow).join('')}</ul>
-          <span class="mcard-go">View machine <span class="arw">&rsaquo;</span></span>
+          <span class="mcard-go">View machine <span class="go-pill">${icon('arrow')}</span></span>
         </div>
       </a>`;
 }
 
-/* ---------- Landing ---------- */
+/* ---------- Analytics tiles ---------------------------------------------
+   Stat first, plot second. The number is the headline, the little chart is
+   context beneath it, and the value is always written out rather than left
+   to be read off the bars. One series each, so no legend is needed; the bars
+   are ink and only the most recent one carries the accent. */
+function spark(values) {
+  // Scaled between the series' own low and high rather than from zero, so the
+  // shape of twelve months is readable in 60 pixels. The number above the plot
+  // carries the value, so the bars are shape, not measurement.
+  const max = Math.max(...values);
+  const min = Math.min(...values);
+  const span = Math.max(1, max - min);
+  return `<div class="spark" aria-hidden="true">${values
+    .map((v, i) => `<i style="height:${Math.round(20 + ((v - min) / span) * 80)}%;transition-delay:${i * 45}ms"${i === values.length - 1 ? ' class="is-last"' : ''}></i>`)
+    .join('')}</div>`;
+}
+
+function kpi({ label, value, suffix = '', delta, foot, values, tinted = false }) {
+  return `
+        <article class="kpi${tinted ? ' is-tinted' : ''}" data-reveal>
+          <div class="kpi-top">
+            <span class="kpi-label">${esc(label)}</span>
+            ${delta ? `<span class="kpi-delta">${icon('trend')}${esc(delta)}</span>` : ''}
+          </div>
+          <div class="kpi-value"><span data-count="${value}" data-suffix="${esc(suffix)}">0</span></div>
+          ${foot ? `<p class="kpi-foot">${esc(foot)}</p>` : ''}
+          ${values ? spark(values) : ''}
+        </article>`;
+}
+
+function meterRow({ label, value }) {
+  return `
+          <div class="meter-row">
+            <div class="meter-head"><span class="m-k">${esc(label)}</span><span class="m-v"><span data-count="${value}" data-suffix="%">0</span></span></div>
+            <div class="meter"><span data-meter="${value}"></span></div>
+          </div>`;
+}
+
+/* ---------- Landing ------------------------------------------------------ */
 
 const CATEGORY_ICONS = {
   'Wheel Loaders': 'bucket',
@@ -66,65 +128,104 @@ const CATEGORY_ICONS = {
 
 const categories = Array.from(new Set(machines.map((m) => m.category)));
 
+const heroSlides = images.heroSlides.map((img, i) =>
+  media(img, { alt: `VMAX machines at work ${i + 1}`, className: 'media-fill', eager: i === 0 })
+);
+
 const heroSection = `
   <section class="hero" id="top" data-chapter="VMAX">
-    <div class="hero-slides" id="hero-slides" aria-hidden="true">
-      ${images.heroSlides
-        .map((img, i) => (img.src
-          ? `<div class="slide${i === 0 ? ' is-active' : ''}" style="background-image:url('${img.src}')"></div>`
-          : `<div class="slide is-empty${i === 0 ? ' is-active' : ''}"><span class="media-plate"><span class="media-file">${esc(img.name)}</span><span class="media-hint">Hero photograph</span></span></div>`))
-        .join('\n      ')}
-    </div>
-    <div class="hero-scrim" aria-hidden="true"></div>
-    <div class="hero-inner">
+    <div class="wrap hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow hero-tag" data-reveal>New &amp; used heavy plant &middot; parts &middot; service &middot; hire</span>
-        <h1 data-reveal>Move more.<br /><em>Stop less.</em></h1>
+        <span class="eyebrow" data-reveal>New &amp; used heavy plant</span>
+        <h1 data-reveal>Move more.<br /><span class="mark">Stop less.</span></h1>
         <p class="hero-sub" data-reveal>Loaders, excavators, dozers, haulers and graders, sold with the parts and field service that keep them working.</p>
         <div class="hero-actions" data-reveal>
           <a href="/machines" class="btn">Browse machines <span class="arw">&rsaquo;</span></a>
-          <a href="#contact" class="btn ghost">Request a quote <span class="arw">&rsaquo;</span></a>
+          <a href="#quote" class="btn ghost">Request a quote <span class="arw">&rsaquo;</span></a>
         </div>
-        <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Background slides">
-          ${images.heroSlides.map((img, i) => `<button class="dot${i === 0 ? ' is-active' : ''}" data-slide="${i}" aria-label="Slide ${i + 1}"></button>`).join('\n          ')}
+        <div class="hero-facts" data-reveal>
+          <div class="hero-fact"><div class="v"><span data-count="${machines.length * 4}">0</span></div><div class="k">Machines in stock</div></div>
+          <div class="hero-fact"><div class="v"><span data-count="9400">0</span></div><div class="k">Parts lines held</div></div>
+          <div class="hero-fact"><div class="v">Same day</div><div class="k">Breakdown response</div></div>
+        </div>
+      </div>
+      <div class="hero-media" data-reveal data-para="-30">
+        ${slider({ id: 'hero-slider', slides: heroSlides })}
+        <div class="hero-chip">
+          <span class="ring">${icon('shield')}</span>
+          <div>
+            <div class="v">140-point checked</div>
+            <div class="k">Every used machine</div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="hero-readout" aria-label="VMAX at a glance">
-      <div class="cell"><span class="k">Machines in stock</span><span class="v">${machines.length * 4}</span></div>
-      <div class="cell"><span class="k">Parts lines held</span><span class="v">9,400</span></div>
-      <div class="cell"><span class="k">Mobile service vans</span><span class="v">18</span></div>
-      <div class="cell"><span class="k">Breakdown response</span><span class="v">Same day</span></div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      ${[0, 1].map(() => `<span>${categories.join('</span><span>')}</span>`).join('')}
     </div>
-  </section>`;
+  </div>`;
 
 const categorySection = `
-  <section class="band band-yellow" id="categories" data-chapter="Categories">
+  <section class="band" id="categories" data-chapter="Classes">
     <div class="wrap">
-      <div class="section-head compact" data-reveal>
+      <div class="section-head" data-reveal>
         <span class="eyebrow">01 / What we sell</span>
         <h2>Every class of machine on one yard.</h2>
+        <p>Pick a class to see what is on the ground this week, or tell us the job and we will size it for you.</p>
       </div>
-      <div class="cat-grid">
+      <div class="cat-row" data-reveal>
         ${categories.map((c) => {
           const count = machines.filter((m) => m.category === c).length;
           return `
-        <a class="cat" href="/machines?category=${encodeURIComponent(c)}" data-reveal>
+        <a class="cat" href="/machines?category=${encodeURIComponent(c)}">
           <span class="cat-ico">${icon(CATEGORY_ICONS[c] || 'machine')}</span>
           <span class="cat-name">${esc(c)}</span>
-          <span class="cat-count">${count} in stock <span class="arw">&rsaquo;</span></span>
+          <span class="cat-count">${count}</span>
         </a>`;
         }).join('')}
       </div>
     </div>
   </section>`;
 
+const analyticsSection = `
+  <section class="band band-tint" id="numbers" data-chapter="Numbers">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">02 / The numbers</span>
+        <h2>What the yard actually delivers.</h2>
+        <p>Figures we are held to by the fleets that buy from us, tracked month by month.</p>
+      </div>
+      <div class="kpi-grid">
+        ${kpi({ label: 'Machines delivered', value: 2400, suffix: '+', delta: '+18% YoY', foot: 'Since we opened the yard in 1995.', values: [42, 48, 45, 53, 58, 55, 64, 69, 66, 74, 79, 86] })}
+        ${kpi({ label: 'First-visit fix rate', value: 96, suffix: '%', delta: '+4 pts', foot: 'Breakdowns closed without a second visit.', values: [78, 80, 83, 82, 86, 88, 87, 90, 91, 93, 94, 96], tinted: true })}
+        ${kpi({ label: 'Parts lines held', value: 9400, delta: '+1,200', foot: 'Stocked lines despatched the same day.', values: [55, 58, 61, 63, 62, 68, 71, 74, 78, 82, 88, 94] })}
+        ${kpi({ label: 'Average response', value: 4, suffix: ' hrs', delta: 'Same day', foot: 'From your call to a van on your site.', values: [92, 88, 84, 80, 74, 70, 66, 60, 54, 48, 42, 38] })}
+      </div>
+
+      <div class="kpi-wide glass" data-reveal>
+        <div>
+          <h3>Measured on the machines we look after.</h3>
+          <p class="kpi-foot">Rolling twelve months across the fleets on a VMAX service plan. We publish these because the sale is the easy half.</p>
+          <a class="link-arrow" href="/services">How the support works <span class="arw">&rsaquo;</span></a>
+        </div>
+        <div class="meters">
+          ${meterRow({ label: 'Fleet availability on service plans', value: 97 })}
+          ${meterRow({ label: 'Stocked parts despatched same day', value: 92 })}
+          ${meterRow({ label: 'Deliveries on the agreed date', value: 95 })}
+        </div>
+      </div>
+    </div>
+  </section>`;
+
 const rangeSection = `
-  <section class="band band-light" id="range" data-chapter="Machines">
+  <section class="band" id="range" data-chapter="Machines">
     <div class="wrap">
       <div class="section-head with-action" data-reveal>
         <div>
-          <span class="eyebrow">02 / The range</span>
+          <span class="eyebrow">03 / The range</span>
           <h2>In the yard this week.</h2>
           <p>Every machine listed is one you can walk around, start and load with before you sign anything.</p>
         </div>
@@ -136,36 +237,32 @@ const rangeSection = `
     </div>
   </section>`;
 
-const whySection = `
-  <section class="band band-dark" id="why" data-chapter="Why VMAX">
-    <div class="wrap why-grid">
-      <div class="why-copy" data-reveal>
-        <span class="eyebrow">03 / Why VMAX</span>
-        <h2>The sale is the easy half.</h2>
-        <p>Anyone can hand over a machine. What decides your cost per hour for the next ten thousand hours is the parts on the shelf, the technician in the van and the answer you get at seven in the morning.</p>
-        <ul class="why-list">
-          <li><span class="why-ico">${icon('shield')}</span><div><b>140-point certified used</b><span>Written inspection report before you pay a deposit.</span></div></li>
-          <li><span class="why-ico">${icon('parts')}</span><div><b>9,400 parts lines held</b><span>Same-day despatch on everything stocked.</span></div></li>
-          <li><span class="why-ico">${icon('service')}</span><div><b>18 mobile service vans</b><span>Stocked for the machines on our own books.</span></div></li>
-          <li><span class="why-ico">${icon('finance')}</span><div><b>Finance on real residuals</b><span>Quoted against what we would pay for it back.</span></div></li>
-        </ul>
+const gallerySection = `
+  <section class="band band-paper" id="yard" data-chapter="The yard">
+    <div class="wrap">
+      <div class="section-head centred" data-reveal>
+        <span class="eyebrow">04 / Inside the yard</span>
+        <h2>Come and see it run.</h2>
+        <p>Fifteen acres of machines, a workshop with the lifting gear to do the job properly, and a parts counter that answers the phone.</p>
       </div>
-      <div class="why-media" data-reveal>${media(images.yard, { alt: 'The VMAX yard', className: 'media-fill' })}</div>
-    </div>
-    <div class="stats-strip" data-reveal>
-      <div class="stat"><div class="num" data-count="2400" data-suffix="+">0</div><div class="lbl">Machines delivered</div></div>
-      <div class="stat"><div class="num" data-count="31" data-suffix="">0</div><div class="lbl">Years trading</div></div>
-      <div class="stat"><div class="num" data-count="96" data-suffix="%">0</div><div class="lbl">First-visit fix rate</div></div>
-      <div class="stat"><div class="num" data-count="18" data-suffix="">0</div><div class="lbl">Service vans</div></div>
+      <div data-reveal>
+        ${slider({
+          id: 'yard-slider',
+          ratio: '21 / 9',
+          slides: [images.fleet, images.workshop, images.parts, images.yard].map((img, i) =>
+            media(img, { alt: `The VMAX yard ${i + 1}`, className: 'media-fill' })
+          ),
+        })}
+      </div>
     </div>
   </section>`;
 
 const servicesSection = `
-  <section class="band band-light" id="services" data-chapter="Services">
+  <section class="band" id="services" data-chapter="Services">
     <div class="wrap">
       <div class="section-head with-action" data-reveal>
         <div>
-          <span class="eyebrow">04 / Support</span>
+          <span class="eyebrow">05 / Support</span>
           <h2>Sold, supplied, serviced.</h2>
           <p>Eight departments behind every machine that leaves the yard.</p>
         </div>
@@ -178,17 +275,17 @@ const servicesSection = `
           <span class="svc-code">${esc(s.code)}</span>
           <h3>${esc(s.title)}</h3>
           <p>${esc(s.summary)}</p>
-          <span class="svc-go" aria-hidden="true">&rsaquo;</span>
+          <span class="svc-go">Read more <span class="arw">&rsaquo;</span></span>
         </a>`).join('')}
       </div>
     </div>
   </section>`;
 
 const contactSection = `
-  <section class="band band-yellow" id="contact" data-chapter="Contact">
+  <section class="band" id="quote" data-chapter="Quote">
     <div class="wrap contact-grid">
       <div class="contact-info" data-reveal>
-        <span class="eyebrow">05 / Talk to the desk</span>
+        <span class="eyebrow">06 / Talk to the desk</span>
         <h2>Tell us the job.<br />We will spec the machine.</h2>
         <p class="contact-lede">Give us the material, the hours and the ground conditions. You will get a machine recommendation, a price and a delivery date, not a brochure.</p>
         <div class="contact-detail">
@@ -202,11 +299,11 @@ const contactSection = `
   </section>`;
 
 const indexContent = [
-  '<nav class="chapter-rail" id="chapter-rail" aria-label="Page sections"></nav>',
   heroSection,
   categorySection,
+  analyticsSection,
   rangeSection,
-  whySection,
+  gallerySection,
   servicesSection,
   contactSection,
 ].join('\n');
@@ -222,7 +319,7 @@ const machinesContent = `
   })}
   <section class="section-pad">
     <div class="wrap">
-      <div class="filters" id="machine-filters" data-reveal>
+      <div class="filters" id="machine-filters" role="tablist" data-reveal>
         <button class="chip is-active" data-filter="All">All <span class="chip-n">${machines.length}</span></button>
         ${categories.map((c) => `<button class="chip" data-filter="${esc(c)}">${esc(c)} <span class="chip-n">${machines.filter((m) => m.category === c).length}</span></button>`).join('\n        ')}
       </div>
@@ -233,10 +330,14 @@ const machinesContent = `
     </div>
   </section>
   <section class="cta-band">
-    <div class="wrap cta-inner">
-      <h2>Not on the list?</h2>
-      <p>We source machines to order and take part-exchange against anything we sell.</p>
-      <a href="/contact" class="btn">Ask the sales desk <span class="arw">&rsaquo;</span></a>
+    <div class="wrap">
+      <div class="cta-inner" data-reveal>
+        <div>
+          <h2>Not on the list?</h2>
+          <p>We source machines to order and take part-exchange against anything we sell.</p>
+        </div>
+        <a href="/contact" class="btn">Ask the sales desk <span class="arw">&rsaquo;</span></a>
+      </div>
     </div>
   </section>`;
 
@@ -471,9 +572,9 @@ const notFoundContent = `
   <section class="notfound">
     <div class="wrap">
       <span class="eyebrow">Error 404</span>
-      <h1>Off the haul road.</h1>
+      <h1>Off the <span class="mark">haul road</span>.</h1>
       <p>This page has moved or never existed. The links below will get you back on site.</p>
-      <div class="hero-actions"><a href="/" class="btn">Back to home <span class="arw">&rsaquo;</span></a><a href="/machines" class="btn ghost">Browse machines</a></div>
+      <div class="hero-actions"><a href="/" class="btn">Back to home <span class="arw">&rsaquo;</span></a><a href="/machines" class="btn ghost">Browse machines <span class="arw">&rsaquo;</span></a></div>
     </div>
   </section>`;
 

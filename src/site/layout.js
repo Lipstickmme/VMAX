@@ -1,10 +1,10 @@
 'use strict';
 
 /**
- * Shared page layout. Pages provide their own <main> content; this module
- * wraps it with the head, nav, footer and chat widget so every page stays
- * consistent. Rendered at build time (scripts/build-pages.js) into static
- * HTML, so there is no client-side layout flash.
+ * Shared page layout. Pages provide their own content; this module wraps it
+ * with the head, the aurora, the nav, the footer and the chat widget so every
+ * page stays consistent. Rendered at build time (scripts/build-pages.js) into
+ * static HTML, so there is no client-side layout flash.
  */
 
 const images = require('./images');
@@ -16,12 +16,28 @@ const YEAR = new Date().getFullYear();
 const COMPANY = 'VMAX Machine Ltd';
 
 /**
+ * The layer the glass reads against.
+ *
+ * Frosted panes over flat white are grey boxes. Three wide, very faint yellow
+ * washes and a hairline grid sit fixed behind the whole site so every pane has
+ * something to refract, and they drift a little as the page scrolls.
+ */
+function aurora() {
+  return `
+  <div class="aurora" aria-hidden="true">
+    <span class="a1" data-para="-40"></span>
+    <span class="a2" data-para="26"></span>
+    <span class="a3" data-para="-18"></span>
+    <span class="grid"></span>
+  </div>`;
+}
+
+/**
  * The wordmark.
  *
  * No logo file ships with the site, so the mark is set in type until one is
- * dropped in as vmaxlogo (light) or vmaxlogo-black (dark). Typeset is the
- * default rather than the fallback: it is the same mark either way, and the
- * page never shows a gap where a logo should be.
+ * dropped in as vmaxlogo. Typeset is the default rather than the fallback: it
+ * is the same mark either way, and the page never shows a gap.
  */
 function wordmark({ tone = 'light', small = false } = {}) {
   const img = tone === 'dark' ? images.logoDark : images.logoLight;
@@ -75,7 +91,7 @@ function head({ title, description, noindex = false, styles = [] }) {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${title}</title>
   <meta name="description" content="${description}" />${noindex ? '\n  <meta name="robots" content="noindex, nofollow" />' : ''}
-  <meta name="theme-color" content="#111111" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -102,7 +118,7 @@ function nav(active = '') {
       ${link('/contact', 'Contact', 'contact')}
       <a class="nav-sheet-cta" href="/contact">Request a quote <span class="arw">&rsaquo;</span></a>
     </nav>
-    <a href="/contact" class="btn ghost nav-cta">Request a quote <span class="arw">&rsaquo;</span></a>
+    <a href="/contact" class="btn nav-cta">Request a quote <span class="arw">&rsaquo;</span></a>
     <button class="nav-toggle" id="navtoggle" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -148,8 +164,8 @@ function chatWidget() {
   return `
   <div class="chat" id="chat" aria-live="polite">
     <button class="chat-toggle" id="chat-toggle" aria-label="Open live chat" aria-expanded="false">
-      <svg class="i-open" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"/></svg>
-      <svg class="i-close" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      <svg class="i-open" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"/></svg>
+      <svg class="i-close" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
     <div class="chat-panel" id="chat-panel" hidden>
       <div class="chat-head">
@@ -166,7 +182,7 @@ function chatWidget() {
       <form class="chat-form" id="chat-form">
         <input type="text" id="chat-input" name="text" placeholder="Ask about a machine, part or hire" autocomplete="off" maxlength="2000" />
         <button type="submit" aria-label="Send message">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
         </button>
       </form>
     </div>
@@ -202,6 +218,7 @@ function page(opts) {
   return [
     head(opts),
     `<body class="${bodyClass}">`,
+    aurora(),
     `  <div class="scroll-progress" id="progress"></div>`,
     nav(active),
     content,
@@ -211,4 +228,4 @@ function page(opts) {
   ].join('\n');
 }
 
-module.exports = { page, nav, footer, chatWidget, head, contactForm, wordmark, media, icon, COMPANY };
+module.exports = { page, nav, footer, chatWidget, head, contactForm, wordmark, aurora, media, icon, COMPANY };

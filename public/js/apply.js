@@ -27,17 +27,22 @@
 
   function describe(role) {
     if (!role) {
-      titleEl.textContent = 'Speculative application';
-      subEl.textContent = 'Tell us what you have built and where you want to take it next.';
+      titleEl.textContent = 'Open application';
+      subEl.textContent = 'Tell us what you have worked on and what you want to be turning a spanner on next.';
       metaEl.innerHTML = '';
       return;
     }
     titleEl.textContent = role.title;
     subEl.textContent = role.summary;
-    metaEl.innerHTML = `
-      <div class="row"><div class="k">Team</div><div class="val">${M.esc(role.team)}</div></div>
-      <div class="row"><div class="k">Location</div><div class="val">${M.esc(role.location)}</div></div>
-      <div class="row"><div class="k">Contract</div><div class="val">${M.esc(role.type)}</div></div>`;
+    // Same three-column row as the contact details, icon included, so the
+    // panel matches the rest of the site rather than being a bare list.
+    const row = (ico, k, v) =>
+      `<div class="row"><span class="row-ico">${M.icon(ico)}</span><div class="k">${M.esc(k)}</div><div class="val">${M.esc(v)}</div></div>`;
+    metaEl.innerHTML = [
+      row('training', 'Team', role.team),
+      row('pin', 'Location', role.location),
+      row('clock', 'Contract', role.type),
+    ].join('');
   }
 
   function validate() {

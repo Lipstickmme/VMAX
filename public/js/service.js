@@ -16,12 +16,14 @@
     root.removeAttribute('data-loading');
     root.innerHTML = `
       <header class="page-header">
-        <div class="page-header-inner">
-          <span class="eyebrow">${esc(s.code)} / Services</span>
-          <h1 data-reveal>${esc(s.title)}</h1>
-          <p data-reveal>${esc(s.lede || s.summary)}</p>
+        <div class="wrap page-header-grid">
+          <div class="page-header-copy">
+            <span class="eyebrow">${esc(s.code)} / Services</span>
+            <h1 data-reveal>${esc(s.title)}</h1>
+            <p data-reveal>${esc(s.lede || s.summary)}</p>
+          </div>
+          <div class="page-header-media" data-reveal data-para="-22">${V.media(s.image, { alt: s.title, eager: true })}</div>
         </div>
-        <div class="page-header-media">${V.media(s.image, { alt: s.title, className: 'media-fill', eager: true })}</div>
       </header>
 
       <section class="section-pad">
@@ -30,13 +32,14 @@
             ${(s.body || [s.summary]).map((para) => `<p>${esc(para)}</p>`).join('')}
             <ul class="feature-list">${(s.capabilities || []).map((c) => `<li>${V.icon('check')}<span>${esc(c)}</span></li>`).join('')}</ul>
           </div>
-          <aside data-reveal>
+          <aside class="detail-aside" data-reveal>
             <div class="fact-block">
               ${(s.deliverables || []).map((d) => `<div class="fact"><span class="k">What you get</span><span class="v">${esc(d)}</span></div>`).join('')}
             </div>
             <div class="tag-row">
               ${(s.sectors || []).map((c) => `<span>${esc(c)}</span>`).join('')}
             </div>
+            <a href="/contact" class="btn sm" style="margin-top:18px">Talk to the desk <span class="arw">&rsaquo;</span></a>
           </aside>
         </div>
       </section>
@@ -53,10 +56,14 @@
       </section>` : ''}
 
       <section class="cta-band">
-        <div class="wrap cta-inner" data-reveal>
-          <h2>Need this on your fleet?</h2>
-          <p>Tell us what you are running and we will come back with a plan and a price.</p>
-          <a href="/contact" class="btn">Talk to the desk <span class="arw">&rsaquo;</span></a>
+        <div class="wrap">
+          <div class="cta-inner" data-reveal>
+            <div>
+              <h2>Need this on your fleet?</h2>
+              <p>Tell us what you are running and we will come back with a plan and a price.</p>
+            </div>
+            <a href="/contact" class="btn">Talk to the desk <span class="arw">&rsaquo;</span></a>
+          </div>
         </div>
       </section>`;
     V.observeReveals();
@@ -75,7 +82,7 @@
         <section class="notfound">
           <div class="wrap">
             <span class="eyebrow">Not found</span>
-            <h1>No such service.</h1>
+            <h1>No such <span class="mark">service</span>.</h1>
             <p>That department is not one of ours, or the link has changed.</p>
             <div class="hero-actions"><a href="/services" class="btn">All services <span class="arw">&rsaquo;</span></a></div>
           </div>

@@ -176,6 +176,9 @@ async function until(check, what, timeout = 10000) {
     await visitor.fill('#contact-form-message', 'A 22 tonne excavator over a canal, tight headroom.');
     await visitor.click('#contact-form [data-submit]');
     await until(() => sb.db.enquiries.rows.length === 1, 'the enquiry to reach the database');
+    // Wait for the confirmation the visitor actually sees before navigating:
+    // leaving while the POST is still in flight aborts it in the browser.
+    await visitor.waitForSelector('#contact-form .form-status.ok');
 
     // The same form on the landing page has to reach the same inbox.
     await visitor.goto(`${base}/`, { waitUntil: 'networkidle' });
@@ -184,6 +187,7 @@ async function until(check, what, timeout = 10000) {
     await visitor.fill('#home-contact-form-message', 'Quay wall replacement, 320m, live berth.');
     await visitor.click('#home-contact-form [data-submit]');
     await until(() => sb.db.enquiries.rows.length === 2, 'the landing-page enquiry to reach the database');
+    await visitor.waitForSelector('#home-contact-form .form-status.ok');
     assert.ok(
       sb.db.enquiries.rows.some((r) => r.email === 'j.deroo@havenbouw.nl'),
       'landing page enquiry stored'

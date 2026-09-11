@@ -104,6 +104,15 @@ const ICONS = {
     desk: D('<path d="m4.6 12.6 4.8 4.8L19.4 7.2"/>'),
     mob: M('<path d="m4.4 12.8 5 5L19.6 6.8"/>'),
   },
+  /* ---- small interface marks ---- */
+  arrow: {
+    desk: D('<path d="M4.5 12h14"/><path d="m12.8 5.6 6.4 6.4-6.4 6.4"/>'),
+    mob: M('<path d="M4.8 12h13.4"/><path d="m12.6 6.2 5.8 5.8-5.8 5.8"/>'),
+  },
+  trend: {
+    desk: D('<path d="M3.6 16.6 9 11.2l3.4 3.4 7-7"/><path d="M15.4 7.6h4v4"/>'),
+    mob: M('<path d="M3.6 16.6 9 11.2l3.4 3.4 7-7"/><path d="M15.4 7.6h4v4"/>'),
+  },
 };
 
 /** Both drawings for one icon, ready to drop into markup. */

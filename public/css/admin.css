@@ -449,19 +449,33 @@
 .admin-settings-form .form-status.bad { color: #c0392b; }
 
 /* =========================================================================
-   VMAX: square the desk off and put the site's yellow on the controls, so
-   staff moving between /admin and the public pages stay in one place.
+   VMAX: the desk follows the site. Rounded panes, a glass bar, yellow on the
+   controls, and black kept to type.
    ========================================================================= */
-.admin-card, .admin-list, .admin-detail, .admin-split, .admin-row, .admin-bubble,
-.admin-settings input, .admin-settings textarea, .admin-reply textarea { border-radius: 0 !important; }
-.admin-bar { background: var(--black); border-bottom: 4px solid var(--yellow); color: var(--white); }
-.admin-brand, .admin-brand span { color: var(--white); }
-.admin-brand .brand-type.is-small { color: var(--white); }
-.admin-who { color: rgba(255, 255, 255, .7); }
-.admin-signout { color: var(--yellow); border-color: rgba(255, 255, 255, .4); }
-.admin-signout:hover { background: var(--yellow); color: var(--black); border-color: var(--yellow); }
-.admin-tab.is-active { color: var(--black); border-bottom-color: var(--yellow); }
-.admin-card { border: 3px solid var(--black); box-shadow: 8px 8px 0 var(--yellow); }
-.admin-card h1 { text-transform: uppercase; font-weight: 900; letter-spacing: -0.02em; }
-.admin-row.is-active { border-left: 4px solid var(--yellow); }
-.admin-bubble.out { background: var(--yellow); color: var(--black); }
+.admin-card, .admin-list, .admin-detail, .admin-row, .admin-bubble,
+.admin-settings input, .admin-settings textarea, .admin-reply textarea,
+.admin-tab, .admin-signout { border-radius: 14px; }
+.admin-bar {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: saturate(1.6) blur(18px);
+  -webkit-backdrop-filter: saturate(1.6) blur(18px);
+  border-bottom: 1px solid rgba(18, 18, 18, 0.08);
+  box-shadow: 0 10px 30px -26px rgba(18, 18, 18, .6);
+}
+.admin-brand, .admin-brand span { color: var(--ink); }
+.admin-who { color: var(--muted); }
+.admin-signout { color: var(--ink); border-color: rgba(18, 18, 18, .18); }
+.admin-signout:hover { background: var(--yellow); border-color: var(--yellow); color: var(--ink); }
+.admin-tab.is-active { color: var(--ink); background: var(--yellow-wash); border-bottom-color: var(--yellow); }
+.admin-card {
+  border: 1px solid rgba(18, 18, 18, 0.08);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: saturate(1.6) blur(20px);
+  -webkit-backdrop-filter: saturate(1.6) blur(20px);
+  box-shadow: 0 40px 80px -46px rgba(18, 18, 18, .5);
+}
+.admin-card h1 { letter-spacing: -0.03em; }
+.admin-row.is-active { border-left: 3px solid var(--yellow); background: var(--yellow-wash); }
+.admin-bubble.out { background: linear-gradient(135deg, var(--yellow-2), var(--yellow)); color: var(--ink); }
+.page-admin { background: var(--paper); }
