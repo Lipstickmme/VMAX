@@ -447,3 +447,21 @@
 .admin-settings-form .form-status { min-height: 20px; font-size: 14px; }
 .admin-settings-form .form-status.ok { color: #1d7a4c; }
 .admin-settings-form .form-status.bad { color: #c0392b; }
+
+/* =========================================================================
+   VMAX: square the desk off and put the site's yellow on the controls, so
+   staff moving between /admin and the public pages stay in one place.
+   ========================================================================= */
+.admin-card, .admin-list, .admin-detail, .admin-split, .admin-row, .admin-bubble,
+.admin-settings input, .admin-settings textarea, .admin-reply textarea { border-radius: 0 !important; }
+.admin-bar { background: var(--black); border-bottom: 4px solid var(--yellow); color: var(--white); }
+.admin-brand, .admin-brand span { color: var(--white); }
+.admin-brand .brand-type.is-small { color: var(--white); }
+.admin-who { color: rgba(255, 255, 255, .7); }
+.admin-signout { color: var(--yellow); border-color: rgba(255, 255, 255, .4); }
+.admin-signout:hover { background: var(--yellow); color: var(--black); border-color: var(--yellow); }
+.admin-tab.is-active { color: var(--black); border-bottom-color: var(--yellow); }
+.admin-card { border: 3px solid var(--black); box-shadow: 8px 8px 0 var(--yellow); }
+.admin-card h1 { text-transform: uppercase; font-weight: 900; letter-spacing: -0.02em; }
+.admin-row.is-active { border-left: 4px solid var(--yellow); }
+.admin-bubble.out { background: var(--yellow); color: var(--black); }

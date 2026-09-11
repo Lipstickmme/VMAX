@@ -149,7 +149,7 @@ exports.health = async (req, res) => {
 
   res.json({
     status: warnings.length ? 'degraded' : 'ok',
-    service: 'merkel-constructions',
+    service: 'vmax-machine-ltd',
     time: new Date().toISOString(),
     config: {
       supabaseUrl: Boolean(url),

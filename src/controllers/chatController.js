@@ -14,27 +14,39 @@ function autoReply(text) {
   const has = (...words) => words.some((w) => t.includes(w));
 
   if (has('hello', 'hi ', 'hey', 'good morning', 'good afternoon') || t === 'hi') {
-    return "Hi, you're through to Merkel Constructions. What are you building, and how can we help?";
+    return "Hi, you're through to VMAX Machine Ltd. Which machine, part or job can we help with?";
   }
-  if (has('career', 'job', 'hiring', 'vacancy', 'apply', 'position', 'role')) {
-    return 'We are hiring across structural, civil, mechanical and digital teams. You can see open roles on our Careers page, or tell me which discipline interests you.';
+  if (has('career', 'job', 'hiring', 'vacancy', 'apply', 'position', 'role', 'apprentice')) {
+    return 'We are hiring technicians, field service engineers, parts advisors and drivers. Open roles are on our Careers page, or tell me what you are on the tools with now.';
   }
-  if (has('quote', 'cost', 'price', 'fee', 'budget')) {
-    return 'Fees depend on scope and stage. If you share a short project brief along with your email, a principal engineer will come back to you with a considered response.';
+  if (has('price', 'cost', 'quote', 'how much', 'budget', 'finance', 'lease', 'hire purchase')) {
+    return 'Prices depend on specification, hours and what you are part-exchanging. Leave your email with the model you are after and a sales engineer will come back with a written figure.';
   }
-  if (has('project', 'portfolio', 'work', 'reference', 'example')) {
-    return 'You can browse selected projects on our Projects page, spanning towers, bridges, industrial plant and transit. Is there a sector you would like to see?';
+  if (has('part', 'filter', 'undercarriage', 'bucket', 'attachment', 'breaker', 'teeth', 'cutting edge')) {
+    return 'We hold around 9,400 parts lines and despatch stocked items the same day. Give me the model and serial number and the parts desk will confirm availability.';
   }
-  if (has('bridge', 'structural', 'seismic', 'civil', 'mechanical', 'hvac', 'bim', 'digital twin', 'facade')) {
-    return 'That is squarely in our wheelhouse. Share a few details about the project and where it gets difficult, and we will point you to the right engineer.';
+  if (has('hire', 'rent', 'rental', 'lease')) {
+    return 'We hire by the week or the month and lease long term, both with servicing and breakdown cover included. What machine and how long do you need it for?';
   }
-  if (has('contact', 'call', 'phone', 'email', 'meet', 'speak')) {
-    return 'The fastest route is the contact page, or email studio@merkelconstructions.com. Leave your email here and we will reach out within two working days.';
+  if (has('service', 'repair', 'breakdown', 'broken', 'fault', 'down', 'leak', 'hydraulic')) {
+    return 'Our service controller can get a van to you, usually the same day. Tell me the machine, the site and what it is doing and I will pass it straight through.';
+  }
+  if (has('used', 'second hand', 'secondhand', 'low hour', 'trade in', 'part exchange', 'part-exchange')) {
+    return 'Every used machine we sell goes through a 140-point inspection and you get the report before paying a deposit. We also value part-exchange, and the valuation holds for thirty days.';
+  }
+  if (has('loader', 'excavator', 'digger', 'dozer', 'hauler', 'dumper', 'grader', 'telehandler', 'backhoe', 'roller', 'machine', 'stock')) {
+    return 'That is squarely what we sell. Tell me what you are moving, how many hours a week and what the ground is like, and we will spec the right size of machine.';
+  }
+  if (has('delivery', 'transport', 'low loader', 'lowloader', 'collect')) {
+    return 'We run our own low-loaders and handle abnormal load permits, so delivery comes with a date rather than an estimate. Where is the site?';
+  }
+  if (has('contact', 'call', 'phone', 'email', 'visit', 'yard', 'open')) {
+    return 'The fastest route is the contact page, or email contact@vmaxmachineltd.com. Leave your email here and the desk will come back to you.';
   }
   if (has('thanks', 'thank you', 'cheers', 'great')) {
     return 'Any time. Anything else I can help with?';
   }
-  return "Thanks for the message. A member of the studio will follow up. If you leave your email and a one-line brief, we'll route it to the right engineer.";
+  return "Thanks for the message. Someone on the desk will follow up. If you leave your email and a line on the job, we'll route it to the right person.";
 }
 
 /**
@@ -59,12 +71,12 @@ exports.postMessage = async (req, res, next) => {
     const now = new Date().toISOString();
     const messages = [{ role: 'user', text, at: now }];
 
-    // Stay quiet once a member of the studio has picked the conversation up.
+    // Stay quiet once a member of staff has picked the conversation up.
     let handedOver = false;
     try {
       handedOver = await chatStore.isHandedOver(sessionId);
     } catch (err) {
-      console.error('[merkel] chat handover check failed:', err.message);
+      console.error('[vmax] chat handover check failed:', err.message);
     }
 
     const reply = handedOver ? null : { role: 'agent', text: autoReply(text), at: new Date(Date.now() + 1).toISOString() };
@@ -75,7 +87,7 @@ exports.postMessage = async (req, res, next) => {
       await chatStore.append(sessionId, messages);
     } catch (err) {
       stored = false;
-      console.error('[merkel] failed to persist chat message:', err.message);
+      console.error('[vmax] failed to persist chat message:', err.message);
     }
 
     // Route the visitor's message to the inbox so a human can pick it up.
@@ -116,7 +128,7 @@ exports.notifyMessage = async (req, res, next) => {
         replied = true;
       }
     } catch (err) {
-      console.error('[merkel] failed to post chat reply:', err.message);
+      console.error('[vmax] failed to post chat reply:', err.message);
     }
 
     await notify.chatMessage(sessionId, text);
@@ -139,7 +151,7 @@ exports.getHistory = async (req, res, next) => {
       convo = await chatStore.load(sessionId);
     } catch (err) {
       // A storage fault should cost the visitor their history, not the widget.
-      console.error('[merkel] failed to load chat history:', err.message);
+      console.error('[vmax] failed to load chat history:', err.message);
     }
     return res.json({ sessionId, messages: convo.messages });
   } catch (err) {

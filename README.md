@@ -1,9 +1,14 @@
-# Merkel Constructions
+# VMAX Machine Ltd
 
-Corporate website and API server for **Merkel Constructions**, a multidisciplinary
-construction and engineering practice. A dependency-light Node/Express backend serves a
-multi-page frontend and a small JSON API that powers the content, plus a working
-live-chat endpoint.
+Website and API server for **VMAX Machine Ltd**, a heavy machinery dealer: new and
+certified used plant, parts, field service, hire and finance. A dependency-light
+Node/Express backend serves a multi-page frontend and a small JSON API that powers the
+content, plus a working live-chat endpoint.
+
+The site ships **without photography on purpose**. Every image slot names the file it
+wants (`vmax1`, `vmaxhero1`, `vmaxlogo`, ...) and draws a labelled plate until that file
+is dropped into `public/assets/`, so adding pictures is an upload, not an edit. See
+[Images](#images).
 
 ## Stack
 
@@ -22,45 +27,47 @@ live-chat endpoint.
 
 | URL              | Page                                                    |
 | ---------------- | ------------------------------------------------------- |
-| `/`              | Landing: six full-height chapters, ending in the enquiry form |
-| `/projects`      | Filterable project listing with images                  |
-| `/projects/:id`  | Full project page with image, overview and key facts    |
-| `/services`      | The eight disciplines, each linking to its own page      |
-| `/services/:id`  | One discipline: what it covers, what you get, where it shows |
-| `/careers`       | Open roles and studio culture                           |
+| `/`              | Landing: hero, machine classes, the range, why VMAX, services, quote form |
+| `/machines`      | Sales inventory, filterable by machine class            |
+| `/machines/:id`  | One machine: spec table, features, stock facts, next machine |
+| `/services`      | The eight departments, each linking to its own page     |
+| `/services/:id`  | One department: what it covers, what you get, which machines |
+| `/careers`       | Open roles in the workshop, field service, parts and transport |
 | `/apply`         | Recruitment form, with the role prefilled from the careers page |
-| `/contact`       | Dedicated contact page with image, form and live chat   |
-| `/admin`         | Studio desk: enquiries, live chat and studio mail (staff sign-in) |
+| `/contact`       | Quote request: contact details, form and live chat      |
+| `/admin`         | Sales desk: enquiries, applications, live chat and mail (staff sign-in) |
 | `404`            | Styled not-found page                                   |
 
-A live-chat widget is available on every page except the studio desk.
+A live-chat widget is available on every page except the sales desk.
 
 ## The landing page
 
-Six chapters, each a full viewport tall with its own photograph, read as one
-continuous surface: a single image is fixed behind the whole site and drifts as
-you scroll, and every section lays its own artwork and scrim over it. A rail on
-the right marks where you are. Section artwork settles into place as its chapter
-arrives, reveals inside a chapter arrive in sequence rather than together, and
-all of it stops under `prefers-reduced-motion`.
+Six plates, alternating black, white and yellow, read down the page like a spec
+sheet rather than a brochure. A rail on the right marks where you are and takes its
+colour from the plate it is over. Reveals inside a section arrive in sequence rather
+than together, and all of it stops under `prefers-reduced-motion`.
 
-| # | Chapter | Carries |
+| # | Section | Carries |
 | - | ------- | ------- |
-| 1 | Hero | Slideshow, the two calls to action, and the practice readout |
-| 2 | Capabilities | The four disciplines, from `/api/services` |
-| 3 | Practice | Counters for the numbers the studio is held to |
-| 4 | Leadership | The founding principal |
-| 5 | Selected work | Three featured projects, from `/api/projects` |
-| 6 | Contact | The enquiry form itself, not a link to one |
+| 1 | Hero | Slideshow, the two calls to action, and the yard readout |
+| 2 | Categories | Every machine class, each linking to a filtered list |
+| 3 | The range | Eight machine cards, built from `src/data/machines.json` |
+| 4 | Why VMAX | The support case, plus counters for the numbers behind it |
+| 5 | Services | The eight departments, each linking to its own page |
+| 6 | Contact | The quote form itself, not a link to one |
 
-The form in chapter 6 is the same component as the one on `/contact`: both post
-to `/api/contact`, so both land in `enquiries` and appear on the studio desk.
+Listings are rendered at **build time** rather than fetched, so the range, the
+inventory and every spec row are in the HTML and the site reads with JavaScript
+switched off. The filter on `/machines` then hides and shows what is already there.
+
+The form in section 6 is the same component as the one on `/contact`: both post to
+`/api/contact`, so both land in `enquiries` and appear on the sales desk.
 
 ## Careers and applications
 
 The apply link on `/careers` opens `/apply` with the role already selected, and the
 form posts to `/api/applications`. Applications land in the `applications` table and
-appear on the studio desk under their own tab, with the same triage states as an
+appear on the sales desk under their own tab, with the same triage states as an
 enquiry. A speculative application, with no role chosen, is accepted the same way; a
 role that has since closed is refused with a message rather than silently accepted.
 
@@ -112,7 +119,7 @@ Two halves of one conversation:
 │   ├── app.js                # local Express app: pages + API + static
 │   ├── api-app.js            # API-only Express app (used on Vercel)
 │   ├── routes/               # API routers, mounted under /api
-│   ├── controllers/          # projects, careers, leadership, contact, chat
+│   ├── controllers/          # machines, services, careers, contact, chat
 │   ├── middleware/           # error handling + in-memory rate limiter
 │   ├── utils/
 │   │   ├── config.js         # env resolution + own-address / loop detection
@@ -122,12 +129,12 @@ Two halves of one conversation:
 │   │   ├── chatStore.js      # per-session chat persistence
 │   │   ├── notify.js         # email (Resend) + webhook notifications
 │   │   └── webhookSignature.js # Svix-style signature verification
-│   ├── data/                 # services / projects / careers / leadership / images
-│   └── site/                 # build-time page source (layout.js, pages.js, images.js)
+│   ├── data/                 # machines / services / careers / images
+│   └── site/                 # build-time page source (layout, pages, images, icons, media)
 ├── public/                   # served frontend (HTML generated by the build)
-│   ├── css/                  # styles.css (site) + admin.css (studio desk)
-│   ├── js/                   # main, supabase-lite, chat, admin, per-page scripts
-│   └── assets/               # brand logos, hero slides, section imagery
+│   ├── css/                  # styles.css (site) + admin.css (sales desk)
+│   ├── js/                   # main, icons + media (generated), chat, admin, per-page
+│   └── assets/               # img/ and brand/: empty, with a README naming every file
 └── data/                     # local runtime storage (git-ignored)
 ```
 
@@ -138,14 +145,12 @@ Two halves of one conversation:
 | GET    | `/api/health`             | Which config the server sees, plus warnings   |
 | GET    | `/api/health?probe=1`     | The same, plus one read of every column the server uses |
 | GET    | `/api/public-config`      | Supabase URL + anon key for the browser       |
-| GET    | `/api/services`           | List engineering disciplines                  |
-| GET    | `/api/projects?sector=`   | Project listing, optional sector filter       |
-| GET    | `/api/projects/:id`       | Single project + the next project             |
+| GET    | `/api/services`           | List departments                              |
+| GET    | `/api/machines?category=&condition=` | Machine listing, optional filters  |
+| GET    | `/api/machines/:id`       | Single machine + the next machine             |
 | GET    | `/api/careers?team=`      | Open roles, optional team filter              |
-| GET    | `/api/leadership`         | Studio leadership (CEO)                        |
-| GET    | `/api/team`               | Studio principals                             |
 | POST   | `/api/contact`            | Submit an enquiry (validated + rate-limited)  |
-| GET    | `/api/site`               | The studio's contact details, editable from the desk |
+| GET    | `/api/site`               | The company contact details, editable from the desk |
 | POST   | `/api/applications`       | Submit a job application (validated + rate-limited) |
 | POST   | `/api/chat/message`       | Send a chat message, get an auto-reply (fallback path) |
 | POST   | `/api/chat/notify`        | Flag a browser-written message and post the holding reply |
@@ -188,24 +193,26 @@ npm run test:browser                    # CHROME_PATH=... if it is not on the de
 
 - Pages share one layout (`src/site/layout.js`) rendered to static HTML at build
   time, so the nav, footer and chat widget stay consistent with no client-side flash.
-- The site is light: off-white ground, ink type, one signal blue. Photography runs
-  at full strength, and where words sit over a picture the ground fades in behind
-  them rather than a dark sheet being laid over the picture. `--bg-rgb` is the one
-  token every one of those washes reads from, so the whole site's brightness is a
-  single edit.
-- The home hero runs a **photographic slideshow** (crossfade plus a slow Ken Burns
-  zoom) with clickable indicators; motion drops under `prefers-reduced-motion`.
-- Projects, careers and leadership content are rendered from the API, with embedded
-  seed data as a fallback so pages never render empty.
-- The brand wordmark is a transparent PNG keyed from the supplied logo card, with
-  the navy in the mark preserved by un-premultiplying it off the paper colour
-  rather than flattening every ink pixel to black.
+- **Three colours and nothing else:** safety yellow, black and white. Sections are
+  flat plates rather than cards floating over photography, edges are square, and
+  type is set large and heavy (Archivo for headings, Barlow for text, IBM Plex Mono
+  for spec labels and readouts).
+- **Every card is a rectangle.** On a desktop grid a machine card stands up, with
+  the photograph on top and four spec rows beneath it; on a phone it lies down,
+  picture to the left and the specs in a two-up block.
+- **Two icon sets ship, and CSS picks one.** `src/site/icons.js` draws each icon
+  twice: a fine line version for tablet width and up, and a heavier, simpler,
+  filled version for phones, where a 1.4px hairline is not really there. Both are
+  in the markup, so switching between them costs no request and no layout shift.
+- The icon set and the image placeholder are written out to `public/js/icons.js`
+  and `public/js/media.js` by the build, so a card drawn in the browser is
+  identical to one drawn at build time and the two cannot drift.
+- The home hero runs a photographic slideshow with clickable indicators; motion
+  drops under `prefers-reduced-motion`.
 - Headings reveal with transform and opacity, never a `clip-path` wipe: clipping a
   heading to nothing leaves it with no rendered area, and IntersectionObserver then
   never reports it visible, so the reveal never fires. A browser test asserts every
   `[data-reveal]` on the landing page ends up visible.
-- Section and project imagery lives in `public/assets/img/` as blueprint-style SVGs;
-  swap these for real photography when available.
 
 ## Deploying
 
@@ -263,19 +270,36 @@ without it, writes go to `/tmp` and do not survive between requests.
 
 ## Images
 
-Page-level artwork is a file drop, not a code change: put `merkel1` to `merkel5`
-into `public/assets/img/` (any of `.webp`, `.avif`, `.jpg`, `.jpeg`, `.png`) and the
-next build uses them. Names are matched without regard to case, and `.webp` wins
-when both a PNG and a WebP of the same name are present, so adding an optimised
-copy beside a heavy original is enough to serve it. `merkel1` becomes the underlay behind every page; the rest
-take a chapter each.
+No artwork ships with this repository. Adding it is a file drop, not a code change.
 
-`src/data/images.json` holds the mapping, where every slot names the file it prefers
-and the placeholder it falls back on, and `src/site/images.js` resolves them at build
-time. So the site never shows a broken image while artwork is still being collected,
-and the build prints which real files it picked up. Per-project images live in
-`src/data/projects.json` and the CEO portrait in `src/data/leadership.json`. See the
-table in [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md#step-1-add-your-images).
+Put files in `public/assets/img/` (logos in `public/assets/brand/`) using the names
+below. Any of `.webp`, `.avif`, `.jpg`, `.jpeg`, `.png` works, names are matched
+without regard to case, and `.webp` wins when both a PNG and a WebP of the same name
+are present, so adding an optimised copy beside a heavy original is enough to serve it.
+
+| Files | Where they appear |
+| ----- | ----------------- |
+| `vmax1` ... `vmax12` | One per machine, in the order they are listed in `src/data/machines.json` |
+| `vmaxhero1` ... `vmaxhero3` | The home hero slideshow |
+| `vmaxfleet`, `vmaxyard`, `vmaxworkshop`, `vmaxparts`, `vmaxcontact` | Section artwork |
+| `vmaxmachines`, `vmaxcareers` | Page headers |
+| `vmaxlogo` (light), `vmaxlogo-black` (dark) | Wordmark, in `public/assets/brand/` |
+| `favicon.png`, `favicon.ico`, `apple-touch-icon.png` | In `public/` |
+
+Until a file is there the page draws a **labelled plate** carrying the name it wants,
+hazard-striped and holding the exact box the photograph will occupy, so an outstanding
+upload reads as outstanding rather than as a broken page, and nothing reflows when the
+picture lands. The wordmark is the same idea: typeset until `vmaxlogo` exists.
+
+`src/data/images.json` holds the mapping, `src/site/images.js` resolves it, and the
+build prints both what it picked up and what it is still waiting for:
+
+```
+[build] awaiting 12 image(s) in public/assets: vmaxlogo, vmaxlogo-black, vmaxfleet, ...
+```
+
+`public/assets/img/README.txt` lists the same names beside the machine each one belongs
+to, so the folder explains itself to whoever is doing the uploading.
 
 ## Configuration
 

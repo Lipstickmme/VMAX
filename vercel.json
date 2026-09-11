@@ -6,7 +6,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/projects/:id", "destination": "/project.html" },
+    { "source": "/machines/:id", "destination": "/machine.html" },
     { "source": "/services/:id", "destination": "/service.html" }
   ],
   "headers": [

@@ -37,7 +37,7 @@ app.use((req, res, next) => {
   const start = Date.now();
   res.on('finish', () => {
     const ms = Date.now() - start;
-    console.log(`[merkel] ${req.method} ${req.originalUrl} -> ${res.statusCode} (${ms}ms)`);
+    console.log(`[vmax] ${req.method} ${req.originalUrl} -> ${res.statusCode} (${ms}ms)`);
   });
   next();
 });
@@ -66,9 +66,9 @@ app.use(
 const sendPage = (file) => (req, res) => res.sendFile(path.join(publicDir, file));
 
 app.get('/', sendPage('index.html'));
-app.get('/projects', sendPage('projects.html'));
-// Project detail pages resolve the id client-side from the path.
-app.get('/projects/:id', sendPage('project.html'));
+app.get('/machines', sendPage('machines.html'));
+// Machine detail pages resolve the id client-side from the path.
+app.get('/machines/:id', sendPage('machine.html'));
 app.get('/services', sendPage('services.html'));
 // Service detail pages resolve the id client-side from the path.
 app.get('/services/:id', sendPage('service.html'));

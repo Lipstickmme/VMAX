@@ -1,10 +1,12 @@
 'use strict';
 
 /* =========================================================================
-   Merkel Constructions shared frontend.
-   Exposes helpers on window.MERKEL for per-page scripts, drives shared UI
-   (nav, hero slideshow, reveals, counters, contact form) and hydrates the
-   home page. Data comes from the Express API with seed-data fallbacks.
+   VMAX Machine Ltd shared frontend.
+   Exposes helpers on window.VMAX for per-page scripts and drives the shared
+   UI: nav sheet, hero slideshow, scroll progress, section rail, reveals,
+   counters and the enquiry form. Listings are rendered at build time, so
+   this file hydrates rather than populates, and the site still reads with
+   JavaScript switched off.
    ========================================================================= */
 
 (function () {
@@ -22,29 +24,29 @@
     return res.json();
   }
 
-  const FALLBACK_SERVICES = [
-    { code: 'S-01', title: 'Structural Engineering', summary: 'Load-path analysis, seismic detailing and high-rise frame design that let architecture reach further with less material.', capabilities: ['Finite element analysis', 'Seismic & wind design', 'Steel, concrete & timber', 'Retrofit & assessment'] },
-    { code: 'S-02', title: 'Civil & Infrastructure', summary: 'Roads, bridges, drainage and site works engineered for a hundred-year horizon and a changing climate.', capabilities: ['Highway & transit', 'Stormwater & flood', 'Bridges & culverts', 'Land development'] },
-    { code: 'S-03', title: 'Mechanical Systems', summary: 'HVAC, process piping and thermal systems tuned for efficiency, redundancy and quiet, reliable operation.', capabilities: ['HVAC & ventilation', 'Process & plant', 'Energy modelling', 'Commissioning'] },
-    { code: 'S-04', title: 'Digital Engineering', summary: 'BIM coordination, parametric design and digital twins that keep every discipline working from one source of truth.', capabilities: ['BIM / VDC', 'Parametric design', 'Digital twins', 'Clash & 4D scheduling'] }
-  ];
-  const FALLBACK_PROJECTS = [
-    { id: 'helix-tower', name: 'Helix Tower', sector: 'Commercial', location: 'Hamburg, DE', year: 2025, metric: '184 m', metricLabel: 'structural height', image: '/assets/img/merkel3.webp', blurb: 'A diagrid super-structure that cut steel tonnage by 22 percent against a conventional frame.' },
-    { id: 'north-crossing', name: 'North Crossing', sector: 'Infrastructure', location: 'Aarhus, DK', year: 2024, metric: '410 m', metricLabel: 'cable-stayed span', image: '/assets/img/merkel1.webp', blurb: 'A twin-pylon bridge engineered for extreme fjord wind loading and marine durability.' },
-    { id: 'atlas-plant', name: 'Atlas Process Plant', sector: 'Industrial', location: 'Duisburg, DE', year: 2024, metric: '38%', metricLabel: 'energy reduction', image: '/assets/img/merkel4.webp', blurb: 'A heat-recovery redesign of a continuous process line, recommissioned with zero downtime.' },
-    { id: 'meridian-transit', name: 'Meridian Transit Hub', sector: 'Transit', location: 'Lyon, FR', year: 2023, metric: '60k / day', metricLabel: 'passenger capacity', image: '/assets/img/merkel2.webp', blurb: 'A long-span steel canopy and below-grade concourse delivered on a live rail corridor.' }
-  ];
+  /* Icon and image helpers come from /js/icons.js and /js/media.js, both
+     generated from the same modules the pages are built with, so a card drawn
+     here is identical to one drawn at build time. */
+  const icon = (name) => (window.VMAX_ICON ? window.VMAX_ICON(name) : '');
+  const media = (img, opts) => (window.VMAX_MEDIA ? window.VMAX_MEDIA.media(img, opts) : '');
 
-  function projectCard(p) {
+  /** One machine, as a card. Mirrors machineCard() in src/site/pages.js. */
+  function machineCard(m) {
+    const condition = m.condition === 'New' ? 'is-new' : 'is-used';
+    const specs = (m.specs || []).map((s) => `
+            <li class="spec"><span class="spec-ico">${icon(s.icon)}</span><span class="spec-val"><span class="spec-k">${esc(s.label)}</span>${esc(s.value)}</span></li>`).join('');
     return `
-      <a class="card" href="/projects/${esc(p.id)}" data-reveal>
-        <div class="thumb"><img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="meta"><span class="sector">${esc(p.sector)}</span><span>${esc(p.year)}</span></div>
-          <h3>${esc(p.name)}</h3>
-          <div class="loc">${esc(p.location)}</div>
-          <p>${esc(p.blurb)}</p>
-          <div class="metric"><b>${esc(p.metric)}</b><span>${esc(p.metricLabel)}</span></div>
+      <a class="mcard" href="/machines/${esc(m.id)}" data-category="${esc(m.category)}" data-condition="${esc(m.condition)}" data-reveal>
+        <div class="mcard-media">${media(m.image, { alt: m.name, className: 'media-machine' })}</div>
+        <div class="mcard-body">
+          <div class="mcard-flags">
+            <span class="flag ${condition}">${esc(m.condition)}</span>
+            <span class="flag-stock">${esc(m.status)}</span>
+          </div>
+          <h3>${esc(m.model)}</h3>
+          <p class="mcard-type">${esc(String(m.category || '').replace(/s$/, ''))}</p>
+          <ul class="specs">${specs}</ul>
+          <span class="mcard-go">View machine <span class="arw">&rsaquo;</span></span>
         </div>
       </a>`;
   }
@@ -62,22 +64,22 @@
       entries.forEach((e) => {
         if (!e.isIntersecting) return;
         const el = e.target;
-        const section = el.closest('.chapter, section, header') || document.body;
+        const section = el.closest('section, header, article') || document.body;
         const peers = $$('[data-reveal]', section);
         const step = Math.min(peers.indexOf(el), 5);
-        el.style.setProperty('--reveal-delay', (step * 90) + 'ms');
+        el.style.setProperty('--reveal-delay', (step * 70) + 'ms');
         el.classList.add('in');
         io.unobserve(el);
       });
-    }, { threshold: 0.06, rootMargin: '0px 0px -6% 0px' });
+    }, { threshold: 0.04, rootMargin: '0px 0px -4% 0px' });
     els.forEach((el) => io.observe(el));
   }
 
-  /* Studio contact details -------------------------------------------------
+  /* Contact details --------------------------------------------------------
      Pages are built with the values in src/data/site.json, so the static HTML
-     is already right. This only replaces them when the studio desk has changed
-     them, which is what lets an address change reach every page without a
-     deploy. */
+     is already right. This only replaces them when the desk has changed them
+     under Settings at /admin, which is what lets a new address or telephone
+     number reach every page without a deploy. */
   const site = { email: '', phone: '', address: '', hours: '' };
 
   const telHref = (value) => 'tel:' + String(value).replace(/[^+\d]/g, '');
@@ -94,9 +96,9 @@
         if (key === 'phone') el.href = telHref(value);
       }
     });
-    // The studio address and telephone are optional. A row appears only once
-    // there is something to put in it, so an unset detail is absent rather
-    // than an empty label.
+    // Address and telephone are optional. A row appears only once there is
+    // something to put in it, so an unset detail is absent rather than an
+    // empty label.
     $$('[data-site-row]').forEach((row) => {
       const key = row.getAttribute('data-site-row');
       const value = values[key];
@@ -110,8 +112,8 @@
   }
 
   async function hydrateSite() {
-    // Seed from the page itself, so a message that quotes the studio address
-    // is right even before the request comes back.
+    // Seed from the page itself, so a message that quotes the address is
+    // right even before the request comes back.
     $$('[data-site]').forEach((el) => {
       const key = el.getAttribute('data-site');
       if (!site[key]) site[key] = el.textContent.trim();
@@ -123,21 +125,14 @@
     }
   }
 
-  window.MERKEL = { $, $$, esc, fetchJSON, reduceMotion, projectCard, observeReveals, FALLBACK_PROJECTS, site };
+  window.VMAX = { $, $$, esc, fetchJSON, reduceMotion, machineCard, observeReveals, icon, media, site };
 
-  /* Nav, scroll progress, underlay parallax, chapter rail ----------------- */
+  /* Nav, scroll progress, section rail ----------------------------------- */
   const nav = $('#nav');
   const progress = $('#progress');
-  const underlay = $('.underlay-img');
-  const chapters = $$('.chapter[data-chapter]');
+  const sections = $$('[data-chapter]');
   let railLinks = [];
   let ticking = false;
-
-  /* The underlay drifts across the whole document rather than with raw scroll,
-     so the travel is the same on a short page and a long one. */
-  const UNDERLAY_TRAVEL = 70;
-  const MEDIA_TRAVEL = 80;
-  const media = $$('.chapter-media');
 
   function frame() {
     ticking = false;
@@ -147,31 +142,23 @@
 
     if (nav) nav.classList.toggle('scrolled', scrolled > 24);
     if (progress) progress.style.width = (pct * 100) + '%';
-    if (underlay && !reduceMotion) {
-      underlay.style.setProperty('--underlay-shift', (-UNDERLAY_TRAVEL * pct).toFixed(1) + 'px');
-    }
-
-    /* Artwork drifts against its section: at the top of the section the image
-       sits low, at the bottom it has risen, so the picture and the words are
-       never travelling at the same speed. */
-    if (!reduceMotion) {
-      for (let i = 0; i < media.length; i += 1) {
-        const layer = media[i];
-        const box = layer.parentElement.getBoundingClientRect();
-        if (box.bottom < -200 || box.top > window.innerHeight + 200) continue;
-        const progress = (window.innerHeight - box.top) / (window.innerHeight + box.height);
-        layer.style.setProperty('--media-shift', ((progress - 0.5) * MEDIA_TRAVEL).toFixed(1) + 'px');
-      }
-    }
 
     if (railLinks.length) {
       const middle = scrolled + window.innerHeight / 2;
       let active = 0;
-      chapters.forEach((section, i) => {
-        const top = section.offsetTop;
-        if (middle >= top) active = i;
+      sections.forEach((section, i) => {
+        if (middle >= section.offsetTop) active = i;
       });
       railLinks.forEach((a, i) => a.classList.toggle('is-active', i === active));
+      // The rail floats over black, white and yellow plates in turn. Tell it
+      // which it is over rather than picking one colour and losing it twice.
+      const plate = sections[active];
+      const rail = document.getElementById('chapter-rail');
+      if (rail && plate) {
+        const dark = plate.classList.contains('band-dark') || plate.classList.contains('hero');
+        rail.classList.toggle('on-dark', dark);
+        rail.classList.toggle('on-yellow', plate.classList.contains('band-yellow'));
+      }
     }
   }
 
@@ -183,46 +170,12 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
 
-  /* A restrained pointer tilt gives the glass surfaces physical depth without
-     changing layout. Touch and reduced-motion users keep the static view. */
-  if (!reduceMotion && window.matchMedia('(pointer: fine)').matches) {
-    const tiltTargets = $$('.hero-copy, .nav, .service, .project, .leadership-media');
-    tiltTargets.forEach((target) => {
-      target.addEventListener('pointermove', (event) => {
-        const box = target.getBoundingClientRect();
-        const x = (event.clientX - box.left) / box.width - 0.5;
-        const y = (event.clientY - box.top) / box.height - 0.5;
-        target.style.setProperty('--tilt-x', `${(-y * 3.5).toFixed(2)}deg`);
-        target.style.setProperty('--tilt-y', `${(x * 4.5).toFixed(2)}deg`);
-      });
-      target.addEventListener('pointerleave', () => {
-        target.style.setProperty('--tilt-x', '0deg');
-        target.style.setProperty('--tilt-y', '0deg');
-      });
-    });
-  }
-
-  /* Section artwork settles into place as its chapter arrives. */
-  function stageChapters() {
-    if (!chapters.length) return;
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-      chapters.forEach((c) => c.classList.add('is-onstage'));
-      return;
-    }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('is-onstage'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.2 });
-    chapters.forEach((c) => io.observe(c));
-  }
-
-  /* The rail is built from the sections themselves, so adding a chapter to
+  /* The rail is built from the sections themselves, so adding a section to
      src/site/pages.js adds its marker here with nothing else to update. */
   function buildRail() {
     const rail = $('#chapter-rail');
-    if (!rail || !chapters.length) return;
-    rail.innerHTML = chapters.map((section) => `
+    if (!rail || !sections.length) return;
+    rail.innerHTML = sections.map((section) => `
       <a href="#${esc(section.id)}" title="${esc(section.dataset.chapter)}">
         <span class="label">${esc(section.dataset.chapter)}</span>
         <span class="tick"></span>
@@ -255,7 +208,7 @@
     const slides = $$('.slide', wrap);
     const dots = $$('#hero-dots .dot');
     if (slides.length <= 1) return;
-    const DURATION = 5500;
+    const DURATION = 6000;
     let idx = 0, timer = null;
     const go = (n) => {
       idx = (n + slides.length) % slides.length;
@@ -276,11 +229,12 @@
     const animate = (el) => {
       const target = Number(el.dataset.count) || 0;
       const suffix = el.dataset.suffix || '';
-      if (reduceMotion) { el.textContent = target + suffix; return; }
+      const fmt = (n) => (target >= 1000 ? n.toLocaleString('en-GB') : String(n));
+      if (reduceMotion) { el.textContent = fmt(target) + suffix; return; }
       const dur = 1400, start = performance.now();
       const step = (now) => {
         const p = Math.min(1, (now - start) / dur);
-        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
+        el.textContent = fmt(Math.round(target * (1 - Math.pow(1 - p, 3)))) + suffix;
         if (p < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
@@ -288,38 +242,14 @@
     if (!('IntersectionObserver' in window)) { nums.forEach(animate); return; }
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => { if (e.isIntersecting) { animate(e.target); io.unobserve(e.target); } });
-    }, { threshold: 0.6 });
+    }, { threshold: 0.5 });
     nums.forEach((el) => io.observe(el));
   }
 
-  /* Home hydration: services + featured projects ------------------------- */
-  async function hydrateHome() {
-    const svcGrid = $('#services-grid');
-    if (svcGrid) {
-      let services = FALLBACK_SERVICES;
-      try { const d = await fetchJSON('/api/services'); services = d.services || services; } catch (e) {}
-      svcGrid.innerHTML = services.map((s, i) => `
-        <article class="service" data-reveal>
-          <div class="num">${String(i + 1).padStart(2, '0')}</div>
-          <div class="code">${esc(s.code || 'S-' + (i + 1))}</div>
-          <h3>${esc(s.title)}</h3>
-          <p>${esc(s.summary)}</p>
-          <ul>${(s.capabilities || []).map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
-        </article>`).join('');
-    }
-    const featured = $('#featured-projects');
-    if (featured) {
-      let projects = FALLBACK_PROJECTS;
-      try { const d = await fetchJSON('/api/projects'); projects = d.projects || projects; } catch (e) {}
-      featured.innerHTML = projects.slice(0, 3).map(projectCard).join('');
-    }
-    observeReveals();
-  }
-
-  /* Contact form --------------------------------------------------------- */
+  /* Enquiry form --------------------------------------------------------- */
 
   /** Wire every enquiry form on the page. Both post to the same endpoint, so
-      both land in `enquiries` and appear on the studio desk at /admin. */
+      both land in `enquiries` and appear on the desk at /admin. */
   function setupForms() {
     $$('[data-contact-form]').forEach(setupForm);
   }
@@ -335,9 +265,9 @@
     const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const setErr = (name, msg) => {
       const errEl = form.querySelector(`[data-err="${name}"]`);
-      const field = errEl ? errEl.closest('.field') : null;
+      const wrapper = errEl ? errEl.closest('.field') : null;
       if (errEl) errEl.textContent = msg || '';
-      if (field) field.classList.toggle('invalid', !!msg);
+      if (wrapper) wrapper.classList.toggle('invalid', !!msg);
     };
     const validate = () => {
       let ok = true;
@@ -369,7 +299,7 @@
       try {
         const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
         const data = await res.json().catch(() => ({}));
-        if (res.ok) { form.reset(); statusEl.className = 'form-status ok'; statusEl.textContent = data.message || 'Thank you. Your enquiry has reached our engineers.'; }
+        if (res.ok) { form.reset(); statusEl.className = 'form-status ok'; statusEl.textContent = data.message || 'Thank you. Your enquiry has reached the sales desk.'; }
         else if (res.status === 422 && data.fields) { Object.entries(data.fields).forEach(([k, v]) => setErr(k, v)); statusEl.className = 'form-status bad'; statusEl.textContent = 'Please correct the highlighted fields.'; }
         else if (res.status === 429) { statusEl.className = 'form-status bad'; statusEl.textContent = 'Too many attempts. Please wait a moment and try again.'; }
         else { statusEl.className = 'form-status bad'; statusEl.textContent = data.message || `Something went wrong. Please email ${site.email}.`; }
@@ -382,11 +312,9 @@
     const yr = $('#year'); if (yr) yr.textContent = new Date().getFullYear();
     hydrateSite();
     buildRail();
-    stageChapters();
     setupSlides();
     runCounters();
     setupForms();
-    hydrateHome();
     observeReveals();
     frame();
   });

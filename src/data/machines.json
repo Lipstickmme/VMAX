@@ -1,0 +1,338 @@
+[
+  {
+    "id": "vx-l350",
+    "model": "VX-L350",
+    "name": "VX-L350 Wheel Loader",
+    "category": "Wheel Loaders",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-4417",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax1",
+    "blurb": "Our largest production loader. Five-cubic-metre class buckets, locking differentials and a load-sensing hydraulic circuit built for quarry duty.",
+    "specs": [
+      { "icon": "emissions", "label": "Emissions", "value": "Stage V / Tier 4F" },
+      { "icon": "bucket", "label": "Bucket capacity", "value": "6.2 - 12.7 m³" },
+      { "icon": "weight", "label": "Operating weight", "value": "50,000 - 56,300 kg" },
+      { "icon": "payload", "label": "Payload", "value": "34,700 kg" }
+    ],
+    "features": [
+      "Load-sensing hydraulics with automatic bucket levelling",
+      "Locking front and rear differentials as standard",
+      "Reversible cooling fan for dust-heavy sites",
+      "Onboard weighing with ticket printing"
+    ],
+    "overview": "The VX-L350 is the machine we sell to quarries and bulk-handling yards that load all day and stop only to refuel. The powertrain is matched to a 6.2 to 12.7 cubic metre bucket range, so the same chassis handles blasted rock and light aggregate without a driveline change. Every unit leaves our workshop with a full pre-delivery inspection, a torque-checked driveline and a twelve-month powertrain warranty.",
+    "services": ["New Machine Sales", "Field Service and Maintenance"]
+  },
+  {
+    "id": "vx-l260",
+    "model": "VX-L260",
+    "name": "VX-L260 Wheel Loader",
+    "category": "Wheel Loaders",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-4402",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax2",
+    "blurb": "A mid-weight loader for concrete plants and recycling yards, with high lift geometry and a quick-coupler carriage.",
+    "specs": [
+      { "icon": "emissions", "label": "Emissions", "value": "Stage IIIA / Tier 3" },
+      { "icon": "bucket", "label": "Bucket capacity", "value": "5.3 - 10.2 m³" },
+      { "icon": "weight", "label": "Operating weight", "value": "34,000 - 39,000 kg" },
+      { "icon": "payload", "label": "Payload", "value": "23,800 kg" }
+    ],
+    "features": [
+      "High-lift boom option for tipping into 4 m walled bays",
+      "Hydraulic quick coupler with fork and grapple carriage",
+      "Wet multi-disc brakes with independent circuits",
+      "Rear-view camera and reversing radar"
+    ],
+    "overview": "Built for the yards that run two shifts and rehandle the same stockpile all week. High-lift geometry clears the tallest tipper bodies on a standard chassis, and the quick coupler takes forks, grapples and light material buckets without a workshop visit.",
+    "services": ["New Machine Sales", "Fleet Rental and Leasing"]
+  },
+  {
+    "id": "vx-l220",
+    "model": "VX-L220",
+    "name": "VX-L220 Wheel Loader",
+    "category": "Wheel Loaders",
+    "condition": "Certified used",
+    "year": 2023,
+    "status": "In stock",
+    "stock": "VMX-3918",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax3",
+    "blurb": "A 4,100-hour certified used loader, fully inspected, with a new set of cutting edges and a fresh hydraulic service.",
+    "specs": [
+      { "icon": "emissions", "label": "Emissions", "value": "Stage II / Tier 3" },
+      { "icon": "bucket", "label": "Bucket capacity", "value": "4.3 - 16 m³" },
+      { "icon": "weight", "label": "Operating weight", "value": "31,200 - 33,100 kg" },
+      { "icon": "hours", "label": "Hours on clock", "value": "4,100 h" }
+    ],
+    "features": [
+      "140-point certified used inspection with written report",
+      "New cutting edges and rebuilt bucket pins",
+      "Full hydraulic and driveline oil change on handover",
+      "Six-month drivetrain warranty included"
+    ],
+    "overview": "Certified used means the machine went through the same workshop process as a trade-in we would keep for our own rental fleet: a 140-point inspection, oil sampling on every circuit, and a written report you get before you pay a deposit. Anything outside tolerance is repaired, not discounted.",
+    "services": ["Certified Used Equipment", "Finance and Trade-In"]
+  },
+  {
+    "id": "vx-h200",
+    "model": "VX-H200",
+    "name": "VX-H200 High Lift Loader",
+    "category": "Wheel Loaders",
+    "condition": "New",
+    "year": 2026,
+    "status": "Arriving",
+    "stock": "VMX-4508",
+    "location": "In transit",
+    "price": "Price on request",
+    "imageName": "vmax4",
+    "blurb": "Log and timber handling specification, with a rotating grapple, guarded cab and extended lift height.",
+    "specs": [
+      { "icon": "emissions", "label": "Emissions", "value": "Stage IIIA / Tier 3" },
+      { "icon": "weight", "label": "Operating weight", "value": "35,000 - 40,000 kg" },
+      { "icon": "reach", "label": "Lift height", "value": "6.4 m to pin" },
+      { "icon": "power", "label": "Engine output", "value": "265 kW" }
+    ],
+    "features": [
+      "360-degree rotating timber grapple",
+      "Full cab guarding to forestry specification",
+      "Extended lift arms for high-sided trailers",
+      "Heavy counterweight and axle guarding"
+    ],
+    "overview": "A handling specification rather than a loading one. The extended arms and rotating grapple let one machine load a high-sided trailer from either side without repositioning, which is the difference between two loads an hour and four.",
+    "services": ["New Machine Sales", "Genuine Parts and Attachments"]
+  },
+  {
+    "id": "vx-e480",
+    "model": "VX-E480",
+    "name": "VX-E480 Crawler Excavator",
+    "category": "Excavators",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-4421",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax5",
+    "blurb": "A 48-tonne mass excavation machine with a reinforced undercarriage and dual auxiliary hydraulic circuits.",
+    "specs": [
+      { "icon": "emissions", "label": "Emissions", "value": "Stage V / Tier 4F" },
+      { "icon": "bucket", "label": "Bucket capacity", "value": "2.4 - 3.6 m³" },
+      { "icon": "weight", "label": "Operating weight", "value": "47,800 kg" },
+      { "icon": "reach", "label": "Max dig depth", "value": "7.9 m" }
+    ],
+    "features": [
+      "Twin auxiliary circuits for breaker and shear",
+      "Heavy-duty undercarriage with full-length track guards",
+      "Boom and arm float with automatic idle",
+      "Machine-control ready with factory mounting points"
+    ],
+    "overview": "Sized for mass excavation and demolition rather than trenching. The dual auxiliary circuits mean a breaker and a shear can stay plumbed at the same time, so an attachment change is a pin change rather than a hose change.",
+    "services": ["New Machine Sales", "Genuine Parts and Attachments"]
+  },
+  {
+    "id": "vx-e220",
+    "model": "VX-E220",
+    "name": "VX-E220 Crawler Excavator",
+    "category": "Excavators",
+    "condition": "Certified used",
+    "year": 2022,
+    "status": "In stock",
+    "stock": "VMX-3877",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax6",
+    "blurb": "The site workhorse. Twenty-two tonnes, 6,800 hours, tilt-rotate ready and sold with a fresh undercarriage.",
+    "specs": [
+      { "icon": "emissions", "label": "Emissions", "value": "Stage IIIB / Tier 4i" },
+      { "icon": "bucket", "label": "Bucket capacity", "value": "0.9 - 1.4 m³" },
+      { "icon": "weight", "label": "Operating weight", "value": "22,400 kg" },
+      { "icon": "hours", "label": "Hours on clock", "value": "6,800 h" }
+    ],
+    "features": [
+      "New tracks, idlers and sprockets fitted before sale",
+      "Tilt-rotate hydraulics already piped",
+      "Three buckets and a grading beam included",
+      "Certified used inspection report supplied"
+    ],
+    "overview": "Twenty-two tonnes is the size most groundworks contractors buy first and keep longest. This one comes out of a single-owner fleet on a full service history, with the undercarriage replaced rather than measured and passed.",
+    "services": ["Certified Used Equipment", "Field Service and Maintenance"]
+  },
+  {
+    "id": "vx-d90",
+    "model": "VX-D90",
+    "name": "VX-D90 Crawler Dozer",
+    "category": "Dozers",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-4433",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax7",
+    "blurb": "A semi-U blade dozer for bulk push and haul-road maintenance, with factory-fitted grade control.",
+    "specs": [
+      { "icon": "emissions", "label": "Emissions", "value": "Stage V / Tier 4F" },
+      { "icon": "power", "label": "Engine output", "value": "205 kW" },
+      { "icon": "weight", "label": "Operating weight", "value": "28,600 kg" },
+      { "icon": "bucket", "label": "Blade capacity", "value": "7.8 m³" }
+    ],
+    "features": [
+      "Semi-U blade with hydraulic tilt and pitch",
+      "2D grade control fitted and calibrated",
+      "Sealed and lubricated track chain",
+      "Rear ripper with three shanks"
+    ],
+    "overview": "Bulk earthmoving and haul-road upkeep on one machine. Grade control is fitted and calibrated in our workshop, not sold as a later upgrade, so the first pass on site is already on design level.",
+    "services": ["New Machine Sales", "Operator and Technician Training"]
+  },
+  {
+    "id": "vx-a45",
+    "model": "VX-A45",
+    "name": "VX-A45 Articulated Hauler",
+    "category": "Haulers",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-4440",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax8",
+    "blurb": "A 45-tonne payload six-wheel-drive hauler for soft ground, with retarder braking and a heated body.",
+    "specs": [
+      { "icon": "emissions", "label": "Emissions", "value": "Stage V / Tier 4F" },
+      { "icon": "payload", "label": "Rated payload", "value": "45,000 kg" },
+      { "icon": "bucket", "label": "Body volume", "value": "27 m³" },
+      { "icon": "weight", "label": "Operating weight", "value": "42,500 kg" }
+    ],
+    "features": [
+      "Permanent six-wheel drive with inter-axle locks",
+      "Exhaust-heated body for sticky material",
+      "Hydraulic retarder for long downhill hauls",
+      "Onboard payload weighing with shift reporting"
+    ],
+    "overview": "The hauler we recommend when the haul road is soft, steep or both. Permanent six-wheel drive keeps it moving in wet clay, and the retarder takes the load off the service brakes on a long descent.",
+    "services": ["New Machine Sales", "Fleet Rental and Leasing"]
+  },
+  {
+    "id": "vx-g160",
+    "model": "VX-G160",
+    "name": "VX-G160 Motor Grader",
+    "category": "Graders",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-4451",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax9",
+    "blurb": "A 4.3-metre mouldboard grader for haul roads, sub-base trimming and snow work.",
+    "specs": [
+      { "icon": "emissions", "label": "Emissions", "value": "Stage V / Tier 4F" },
+      { "icon": "power", "label": "Engine output", "value": "160 kW" },
+      { "icon": "reach", "label": "Blade width", "value": "4.3 m" },
+      { "icon": "weight", "label": "Operating weight", "value": "19,200 kg" }
+    ],
+    "features": [
+      "All-wheel drive with hydraulic front-wheel assist",
+      "3D machine-control mounts and harness fitted",
+      "Front lift group and rear ripper",
+      "Joystick steering with variable ratio"
+    ],
+    "overview": "Trimming to design level on a grader is a skill, and machine control shortens the learning curve. We supply the mounts, harness and calibration with the machine so the mast goes on the blade the day it lands.",
+    "services": ["New Machine Sales", "Operator and Technician Training"]
+  },
+  {
+    "id": "vx-b120",
+    "model": "VX-B120",
+    "name": "VX-B120 Backhoe Loader",
+    "category": "Backhoe Loaders",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-4462",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax10",
+    "blurb": "Two machines in one for utilities work: a four-in-one loader shovel at the front and a sideshift backhoe behind.",
+    "specs": [
+      { "icon": "emissions", "label": "Emissions", "value": "Stage V / Tier 4F" },
+      { "icon": "bucket", "label": "Loader capacity", "value": "1.1 m³" },
+      { "icon": "reach", "label": "Max dig depth", "value": "5.9 m" },
+      { "icon": "weight", "label": "Operating weight", "value": "8,900 kg" }
+    ],
+    "features": [
+      "Four-in-one front shovel with pallet forks",
+      "Sideshift backhoe for working against a kerb",
+      "Extending dipper arm as standard",
+      "40 km/h road speed with trailer braking"
+    ],
+    "overview": "For utility gangs who need to dig, load, backfill and then drive to the next street without a low-loader. The sideshift carriage matters more than the numbers: it is what lets you dig tight against a kerb line.",
+    "services": ["New Machine Sales", "Genuine Parts and Attachments"]
+  },
+  {
+    "id": "vx-r140",
+    "model": "VX-R140",
+    "name": "VX-R140 Soil Compactor",
+    "category": "Compaction",
+    "condition": "Certified used",
+    "year": 2023,
+    "status": "In stock",
+    "stock": "VMX-3944",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax11",
+    "blurb": "A padfoot soil roller with 2,300 hours, compaction metering and a fresh drum bearing set.",
+    "specs": [
+      { "icon": "emissions", "label": "Emissions", "value": "Stage IIIB / Tier 4i" },
+      { "icon": "weight", "label": "Operating weight", "value": "14,200 kg" },
+      { "icon": "reach", "label": "Drum width", "value": "2.1 m" },
+      { "icon": "hours", "label": "Hours on clock", "value": "2,300 h" }
+    ],
+    "features": [
+      "Padfoot drum with bolt-on smooth shell kit",
+      "Compaction meter with pass counting",
+      "New drum bearings and isolation mounts",
+      "ROPS cab with air conditioning"
+    ],
+    "overview": "Compaction is the cheapest part of an earthworks package to get wrong. Pass counting tells the operator when the layer is done, which stops both the under-rolled layer and the six wasted passes after it.",
+    "services": ["Certified Used Equipment", "Fleet Rental and Leasing"]
+  },
+  {
+    "id": "vx-t70",
+    "model": "VX-T70",
+    "name": "VX-T70 Telehandler",
+    "category": "Telehandlers",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-4470",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax12",
+    "blurb": "A seven-tonne, 17-metre telehandler with stabilisers, load charts on screen and a hydraulic attachment lock.",
+    "specs": [
+      { "icon": "emissions", "label": "Emissions", "value": "Stage V / Tier 4F" },
+      { "icon": "payload", "label": "Max lift capacity", "value": "7,000 kg" },
+      { "icon": "reach", "label": "Max lift height", "value": "17.0 m" },
+      { "icon": "weight", "label": "Operating weight", "value": "12,400 kg" }
+    ],
+    "features": [
+      "Hydraulic stabilisers with automatic levelling",
+      "On-screen load chart tied to the fitted attachment",
+      "Hydraulic attachment lock, no dismount to change",
+      "Three steering modes including crab"
+    ],
+    "overview": "The machine that keeps a build moving between the crane hires. Seventeen metres reaches the fourth lift of scaffold, and the on-screen load chart changes with the attachment rather than living in a laminated card in the door pocket.",
+    "services": ["New Machine Sales", "Fleet Rental and Leasing"]
+  }
+]

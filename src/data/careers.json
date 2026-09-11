@@ -1,42 +1,58 @@
 [
   {
-    "id": "senior-structural",
-    "title": "Senior Structural Engineer",
-    "team": "Structural",
-    "location": "Studio",
+    "id": "heavy-equipment-technician",
+    "title": "Heavy Equipment Technician",
+    "team": "Workshop",
+    "location": "Main workshop",
     "type": "Full time",
-    "summary": "Lead the structural design of tall buildings and long-span structures from concept through to site."
+    "summary": "Strip, diagnose and rebuild hydraulics, drivelines and engines on loaders, excavators and haulers."
   },
   {
-    "id": "bridge-engineer",
-    "title": "Bridge Engineer",
-    "team": "Civil & Infrastructure",
-    "location": "Site based",
+    "id": "field-service-engineer",
+    "title": "Field Service Engineer",
+    "team": "Field Service",
+    "location": "Mobile, own van",
     "type": "Full time",
-    "summary": "Design bridges and marine structures for demanding wind and durability requirements."
+    "summary": "Run your own service van, working scheduled maintenance and breakdown call-outs across customer sites."
   },
   {
-    "id": "bim-coordinator",
-    "title": "BIM Coordinator",
-    "team": "Digital Engineering",
-    "location": "Studio",
+    "id": "machine-sales-consultant",
+    "title": "Machine Sales Consultant",
+    "team": "Sales",
+    "location": "Territory based",
     "type": "Full time",
-    "summary": "Keep multi-discipline models coordinated and drive our digital-twin workflows."
+    "summary": "Spec and sell new and certified used machines to contractors, quarries and plant hire fleets."
   },
   {
-    "id": "mechanical-graduate",
-    "title": "Graduate Mechanical Engineer",
-    "team": "Mechanical Systems",
-    "location": "Studio",
-    "type": "Graduate",
-    "summary": "Join our systems team on energy, HVAC and process work with senior mentorship."
+    "id": "parts-advisor",
+    "title": "Parts Advisor",
+    "team": "Parts",
+    "location": "Main yard",
+    "type": "Full time",
+    "summary": "Identify, source and despatch parts, and keep the fast-moving lines on the shelf before they are asked for."
   },
   {
-    "id": "project-engineer",
-    "title": "Project Engineer",
-    "team": "Civil & Infrastructure",
-    "location": "Site based",
+    "id": "hydraulics-specialist",
+    "title": "Hydraulics Specialist",
+    "team": "Workshop",
+    "location": "Main workshop",
     "type": "Full time",
-    "summary": "Coordinate delivery on major infrastructure commissions across sectors and borders."
+    "summary": "Test, repair and recommission pumps, motors and control valves, and set up attachment circuits."
+  },
+  {
+    "id": "low-loader-driver",
+    "title": "Low-Loader Driver",
+    "team": "Transport",
+    "location": "Mobile",
+    "type": "Full time",
+    "summary": "Move machines to site on our own trailers, including abnormal loads, loading and securing."
+  },
+  {
+    "id": "apprentice-technician",
+    "title": "Apprentice Technician",
+    "team": "Workshop",
+    "location": "Main workshop",
+    "type": "Apprenticeship",
+    "summary": "Four-year apprenticeship on the workshop floor with day release and a qualified technician alongside you."
   }
 ]

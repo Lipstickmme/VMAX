@@ -23,7 +23,7 @@ async function until(check, what, timeout = 10000) {
     id: '44444444-3333-4222-8111-000000000000',
     created_at: new Date().toISOString(),
     last_message_at: new Date().toISOString(),
-    subject: 'Tender documents for the Kade viaduct',
+    subject: 'Parts for a VX-E220 undercarriage',
     participant_email: 'procurement@example.com',
     participant_name: 'Procurement',
     status: 'new',
@@ -31,13 +31,13 @@ async function until(check, what, timeout = 10000) {
   sb.db.email_threads.rows.push(thread);
   sb.db.email_messages.rows.push({
     id: 'e1', created_at: new Date().toISOString(), thread_id: thread.id, direction: 'inbound',
-    from_email: 'procurement@example.com', to_email: 'studio@merkelconstructions.com',
+    from_email: 'procurement@example.com', to_email: 'contact@vmaxmachineltd.com',
     subject: thread.subject, body_text: 'Please confirm the deadline for the tender return.',
     has_attachments: false,
   });
   const sbUrl = `http://127.0.0.1:${sb.address().port}`;
-  sb.createUser('desk@merkelconstructions.com', 'studio-password', { admin: true });
-  sb.createUser('nobody@merkelconstructions.com', 'outsider-password');
+  sb.createUser('desk@vmaxmachineltd.com', 'studio-password', { admin: true });
+  sb.createUser('nobody@vmaxmachineltd.com', 'outsider-password');
 
   process.env.SUPABASE_URL = sbUrl;
   process.env.SUPABASE_ANON_KEY = mock.ANON_KEY;
@@ -104,14 +104,14 @@ async function until(check, what, timeout = 10000) {
     await staff.waitForSelector('#admin-login:not([hidden])');
 
     // A wrong password is reported, not swallowed.
-    await staff.fill('#login-email', 'desk@merkelconstructions.com');
+    await staff.fill('#login-email', 'desk@vmaxmachineltd.com');
     await staff.fill('#login-password', 'wrong');
     await staff.click('#login-btn');
     await staff.waitForFunction(() => document.getElementById('login-error').textContent.length > 0);
     console.log('  ok  bad credentials are reported:', await staff.textContent('#login-error'));
 
     // An account that is not on the admins list gets told why.
-    await staff.fill('#login-email', 'nobody@merkelconstructions.com');
+    await staff.fill('#login-email', 'nobody@vmaxmachineltd.com');
     await staff.fill('#login-password', 'outsider-password');
     await staff.click('#login-btn');
     await staff.waitForFunction(() =>
@@ -121,11 +121,11 @@ async function until(check, what, timeout = 10000) {
     console.log('  ok  a non-admin account is refused with an explanation');
 
     // The real account gets in.
-    await staff.fill('#login-email', 'desk@merkelconstructions.com');
+    await staff.fill('#login-email', 'desk@vmaxmachineltd.com');
     await staff.fill('#login-password', 'studio-password');
     await staff.click('#login-btn');
     await staff.waitForSelector('#admin-shell:not([hidden])', { timeout: 10000 });
-    assert.strictEqual(await staff.textContent('#admin-who'), 'desk@merkelconstructions.com');
+    assert.strictEqual(await staff.textContent('#admin-who'), 'desk@vmaxmachineltd.com');
     console.log('  ok  admin signed in');
 
     await staff.click('.admin-tab[data-tab="chat"]');
@@ -173,7 +173,7 @@ async function until(check, what, timeout = 10000) {
     await visitor.goto(`${base}/contact`, { waitUntil: 'networkidle' });
     await visitor.fill('#contact-form-name', 'Ada Kolen');
     await visitor.fill('#contact-form-email', 'ada@example.com');
-    await visitor.fill('#contact-form-message', 'A 40m span over a canal, tight headroom.');
+    await visitor.fill('#contact-form-message', 'A 22 tonne excavator over a canal, tight headroom.');
     await visitor.click('#contact-form [data-submit]');
     await until(() => sb.db.enquiries.rows.length === 1, 'the enquiry to reach the database');
 
@@ -281,11 +281,11 @@ async function until(check, what, timeout = 10000) {
     console.log('  ok  a cleared settings field stays cleared');
 
     await staff.fill('#setting-address', 'Wijnhaven 3, 3011 WG Rotterdam, NL');
-    await staff.fill('#setting-email', 'desk@merkelconstructions.com');
+    await staff.fill('#setting-email', 'desk@vmaxmachineltd.com');
     await staff.fill('#setting-phone', '+31 (0)20 111 2222');
     await staff.click('.admin-settings-form .btn');
     await until(
-      () => sb.db.site_settings.rows[0].email === 'desk@merkelconstructions.com',
+      () => sb.db.site_settings.rows[0].email === 'desk@vmaxmachineltd.com',
       'the desk to save the new contact details'
     );
     console.log('  ok  the desk saves new contact details');
@@ -293,12 +293,12 @@ async function until(check, what, timeout = 10000) {
     const reader2 = await newPage(visitorCtx);
     await reader2.goto(`${base}/contact`, { waitUntil: 'networkidle' });
     await reader2.waitForFunction(
-      () => document.querySelector('[data-site="email"]').textContent.trim() === 'desk@merkelconstructions.com',
+      () => document.querySelector('[data-site="email"]').textContent.trim() === 'desk@vmaxmachineltd.com',
       null,
       { timeout: 10000 }
     );
     const href = await reader2.getAttribute('a[data-site="email"]', 'href');
-    assert.strictEqual(href, 'mailto:desk@merkelconstructions.com', 'the mailto follows the address');
+    assert.strictEqual(href, 'mailto:desk@vmaxmachineltd.com', 'the mailto follows the address');
     const phone = await reader2.textContent('[data-site="phone"]');
     assert.strictEqual(phone.trim(), '+31 (0)20 111 2222');
     console.log('  ok  the change reaches the public pages with no rebuild');
@@ -306,7 +306,7 @@ async function until(check, what, timeout = 10000) {
 
     /* ---------------- every reveal actually reveals ---------------- */
     const reader = await newPage(visitorCtx);
-    for (const path of ['/', '/services', '/projects', '/careers']) {
+    for (const path of ['/', '/services', '/machines', '/careers']) {
       await reader.goto(base + path, { waitUntil: 'networkidle' });
     await reader.evaluate(async () => {
       // Walk the page so every section enters the viewport at least once.

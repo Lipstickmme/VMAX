@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Services | VMAX Machine Ltd</title>
-  <meta name="description" content="Machine sales, certified used equipment, genuine parts and attachments, field service, rental, finance, training and transport." />
+  <title>Machine | VMAX Machine Ltd</title>
+  <meta name="description" content="Machine specification, features and price." />
   <meta name="theme-color" content="#111111" />
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="/css/styles.css" />
   
 </head>
-<body class="page-services">
+<body class="page-machine">
   <div class="scroll-progress" id="progress"></div>
 
   <header class="nav" id="nav">
@@ -25,8 +25,8 @@
     </span>
     </a>
     <nav class="nav-links" id="navlinks">
-      <a href="/machines">Machines</a>
-      <a href="/services" class="is-active">Services</a>
+      <a href="/machines" class="is-active">Machines</a>
+      <a href="/services">Services</a>
       <a href="/careers">Careers</a>
       <a href="/contact">Contact</a>
       <a class="nav-sheet-cta" href="/contact">Request a quote <span class="arw">&rsaquo;</span></a>
@@ -37,25 +37,9 @@
     </button>
   </header>
 
-  
-  <header class="page-header">
-    <div class="page-header-inner">
-      <span class="eyebrow">Support</span>
-      <h1 data-reveal>Services.</h1>
-      <p data-reveal>Sales, used, parts, field service, hire, finance, training and transport, all under one roof.</p>
-    </div>
-    <div class="page-header-media"><div class="media media-fill is-empty" role="img" aria-label="Services page header photograph not uploaded yet: vmaxworkshop">
-        <span class="media-plate">
-          <span class="media-file">vmaxworkshop</span>
-          <span class="media-hint">Services page header</span>
-        </span>
-      </div></div>
-  </header>
-  <section class="section-pad">
-    <div class="wrap">
-      <div class="service-index" id="service-index"></div>
-    </div>
-  </section>
+  <article id="machine-detail" class="machine-detail" data-loading="true">
+    <div class="wrap page-loading">Loading machine&hellip;</div>
+  </article>
 
   <footer class="footer">
     <div class="wrap footer-top">
@@ -121,6 +105,6 @@
   <script src="/js/main.js"></script>
   <script src="/js/supabase-lite.js"></script>
   <script src="/js/chat.js"></script>
-  <script src="/js/services.js"></script>
+  <script src="/js/machine.js"></script>
 </body>
 </html>

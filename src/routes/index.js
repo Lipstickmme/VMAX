@@ -13,10 +13,8 @@ router.get('/public-config', system.publicConfig);
 router.get('/site', require('../controllers/siteController').get);
 
 router.use('/services', require('./services'));
-router.use('/projects', require('./projects'));
-router.use('/team', require('./team'));
+router.use('/machines', require('./machines'));
 router.use('/careers', require('./careers'));
-router.use('/leadership', require('./leadership'));
 router.use('/contact', require('./contact'));
 router.use('/applications', require('./applications'));
 router.use('/chat', require('./chat'));

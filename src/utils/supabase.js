@@ -89,7 +89,7 @@ function getSupabase() {
     },
   };
 
-  console.log('[merkel] storage: Supabase');
+  console.log('[vmax] storage: Supabase');
   return client;
 }
 

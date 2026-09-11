@@ -67,7 +67,7 @@ async function chat(browser, base) {
     sb.close();
 
     /* --- no database at all: local files --- */
-    const dir = require('fs').mkdtempSync('/tmp/merkel-chat-');
+    const dir = require('fs').mkdtempSync('/tmp/vmax-chat-');
     site = await serve({ DATA_DIR: dir, CHAT_NOTIFY: 'off' });
     drawn = await chat(browser, `http://127.0.0.1:${site.address().port}`);
     assert.ok(drawn.length >= 2, 'reply without a database: ' + JSON.stringify(drawn));

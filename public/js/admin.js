@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Studio desk: the staff side of enquiries, live chat and studio mail.
+ * Sales desk: the staff side of enquiries, applications, live chat and company mail.
  *
  * Everything on this page is read and written straight from the browser as
  * the signed-in user, so the policies in supabase/migrations decide what is
@@ -255,7 +255,7 @@
       }
       facts.appendChild(dd);
     };
-    fact('Email', row.email, `mailto:${row.email}?subject=${encodeURIComponent('Re: your enquiry to Merkel Constructions')}`);
+    fact('Email', row.email, `mailto:${row.email}?subject=${encodeURIComponent('Re: your enquiry to VMAX Machine Ltd')}`);
     fact('Company', row.company);
     fact('Discipline', row.service);
     fact('Received', when(row.created_at));
@@ -331,7 +331,7 @@
       facts.appendChild(dd);
     };
     fact('Role', row.role_title);
-    fact('Email', row.email, `mailto:${row.email}?subject=${encodeURIComponent(`Your application: ${row.role_title || 'Merkel Constructions'}`)}`);
+    fact('Email', row.email, `mailto:${row.email}?subject=${encodeURIComponent(`Your application: ${row.role_title || 'VMAX Machine Ltd'}`)}`);
     fact('Phone', row.phone, row.phone ? `tel:${row.phone}` : null);
     fact('Experience', row.experience);
     fact('Portfolio', row.portfolio, row.portfolio);
@@ -464,7 +464,7 @@
   function renderEmail() {
     const list = $('email-list');
     if (!state.emailAvailable) {
-      fill(list, [], 'Studio mail is not set up. Run supabase/migrations/0002_email.sql and point Resend Inbound at /api/inbound/resend.');
+      fill(list, [], 'Company mail is not set up. Run supabase/migrations/0002_email.sql and point Resend Inbound at /api/inbound/resend.');
       $('email-detail').textContent = '';
       return;
     }
@@ -573,7 +573,7 @@
   /* ---------------------------------------------------------- settings --- */
 
   const SETTINGS_FIELDS = [
-    ['address', 'Studio address', 'text'],
+    ['address', 'Yard address', 'text'],
     ['email', 'Email', 'email'],
     ['phone', 'Telephone', 'tel'],
     ['hours', 'Opening hours', 'text'],
@@ -854,10 +854,10 @@
     }
     if (!cfg.supabaseUrl || !cfg.supabaseAnonKey) return explainUnconfigured(cfg);
 
-    client = window.MerkelSupabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, {
+    client = window.VmaxSupabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, {
       // Its own key, so a member of staff signing in here does not displace
       // the anonymous session the chat widget uses on the public pages.
-      storageKey: 'merkel-admin-auth',
+      storageKey: 'vmax-admin-auth',
     });
 
     wire();

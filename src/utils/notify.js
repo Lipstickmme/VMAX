@@ -26,7 +26,7 @@ function defaultTo() {
 
 /** Verified sender identity. */
 function defaultFrom() {
-  return process.env.FORM_FROM || process.env.NOTIFY_FROM || 'Merkel Website <onboarding@resend.dev>';
+  return process.env.FORM_FROM || process.env.NOTIFY_FROM || 'VMAX Website <onboarding@resend.dev>';
 }
 
 /**
@@ -70,14 +70,14 @@ async function send(opts) {
     });
     const text = await res.text().catch(() => '');
     if (!res.ok) {
-      console.warn('[merkel] notify email failed:', res.status, text);
+      console.warn('[vmax] notify email failed:', res.status, text);
       return { ok: false, error: `resend_${res.status}` };
     }
     let id;
     try { id = JSON.parse(text).id; } catch (e) { /* id is a bonus, not a requirement */ }
     return { ok: true, id };
   } catch (err) {
-    console.warn('[merkel] notify email error:', err.message);
+    console.warn('[vmax] notify email error:', err.message);
     return { ok: false, error: err.message };
   }
 }
@@ -97,10 +97,10 @@ async function sendWebhook(subject, text, data) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: `${subject}\n\n${text}`, content: `${subject}\n\n${text}`, subject, data }),
     });
-    if (!res.ok) console.warn('[merkel] notify webhook failed:', res.status);
+    if (!res.ok) console.warn('[vmax] notify webhook failed:', res.status);
     return res.ok;
   } catch (err) {
-    console.warn('[merkel] notify webhook error:', err.message);
+    console.warn('[vmax] notify webhook error:', err.message);
     return false;
   }
 }

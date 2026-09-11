@@ -1,7 +1,7 @@
 {
-  "name": "merkel-constructions",
+  "name": "vmax-machine-ltd",
   "version": "1.0.0",
-  "description": "Merkel Constructions corporate website and API server",
+  "description": "VMAX Machine Ltd heavy machinery sales website and API server",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
@@ -17,11 +17,13 @@
     "node": ">=18"
   },
   "keywords": [
-    "engineering",
+    "heavy-equipment",
+    "machinery",
+    "sales",
     "express",
     "website"
   ],
-  "author": "Merkel Constructions",
+  "author": "VMAX Machine Ltd",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {

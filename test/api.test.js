@@ -174,7 +174,7 @@ async function withApp(env, fn) {
         SUPABASE_URL: `http://127.0.0.1:${receiving.address().port}`,
         SUPABASE_SERVICE_ROLE_KEY: mock.SERVICE_KEY,
         SUPABASE_ANON_KEY: mock.ANON_KEY,
-        MAILBOX_ADDRESS: 'Merkel Constructions <contact@merkel.test>',
+        MAILBOX_ADDRESS: 'VMAX Machine Ltd <contact@vmax.test>',
       },
       async (base) => {
         const res = await req(base, 'GET', '/api/health?probe=1');
@@ -197,7 +197,7 @@ async function withApp(env, fn) {
       async (base) => {
         const res = await req(base, 'POST', '/api/contact', {
           name: 'Ada Kolen', email: 'ada@example.com', company: 'Kolen BV', service: 'Structural',
-          message: 'A 40m span over a canal, tight headroom.',
+          message: 'A 22 tonne excavator over a canal, tight headroom.',
         });
         assert.strictEqual(res.status, 201, JSON.stringify(res.body));
         assert.strictEqual(sb.db.enquiries.rows.length, 1);
@@ -330,16 +330,16 @@ async function withApp(env, fn) {
       { SUPABASE_URL: url, SUPABASE_SERVICE_ROLE_KEY: mock.SERVICE_KEY, SUPABASE_ANON_KEY: mock.ANON_KEY },
       async (base) => {
         const res = await req(base, 'POST', '/api/applications', {
-          name: 'Sanne Vermeer', email: 'sanne@example.nl', roleId: 'bridge-engineer',
+          name: 'Sanne Vermeer', email: 'sanne@example.nl', roleId: 'field-service-engineer',
           phone: '+31 6 1234 5678', experience: '4 to 8',
-          message: 'Six years on bridges, mostly cable stayed and one lock gate.',
+          message: 'Six years on field service, mostly hydraulics and driveline work.',
         });
         assert.strictEqual(res.status, 201);
         assert.strictEqual(res.body.stored, 'enquiries', 'it must land somewhere');
         assert.strictEqual(sb.db.enquiries.rows.length, 1);
         const filed = sb.db.enquiries.rows[0];
         assert.match(filed.service, /^Application: /);
-        assert.match(filed.message, /Six years on bridges/);
+        assert.match(filed.message, /Six years on field service/);
         assert.match(filed.message, /\+31 6 1234 5678/, 'the phone survives the fallback');
         console.log('  ok  an application is filed as an enquiry when its own table is missing');
       }
@@ -385,7 +385,7 @@ async function withApp(env, fn) {
   /* ---- 15. a signed Resend delivery reaches the admin inbox ---- */
   {
     const { sign } = require(ROOT + '/src/utils/webhookSignature');
-    const SECRET = 'whsec_' + Buffer.from('merkel-inbound-test-secret').toString('base64');
+    const SECRET = 'whsec_' + Buffer.from('vmax-inbound-test-secret').toString('base64');
     const sb = await mock.start({});
     await withApp(
       {
@@ -393,7 +393,7 @@ async function withApp(env, fn) {
         SUPABASE_SERVICE_ROLE_KEY: mock.SERVICE_KEY,
         SUPABASE_ANON_KEY: mock.ANON_KEY,
         RESEND_WEBHOOK_SECRET: SECRET,
-        MAILBOX_ADDRESS: 'Merkel Constructions <contact@merkel.test>',
+        MAILBOX_ADDRESS: 'VMAX Machine Ltd <contact@vmax.test>',
         // No forwarding here: this asserts the archive that /admin reads.
         FORWARD_TO: '',
         RESEND_API_KEY: '',
@@ -416,8 +416,8 @@ async function withApp(env, fn) {
           type: 'email.received',
           data: {
             from: 'Ada Kolen <ada@example.com>',
-            to: ['contact@merkel.test'],
-            subject: 'Re: A 40m span',
+            to: ['contact@vmax.test'],
+            subject: 'Re: A 22 tonne excavator',
             text: 'Can you quote the canal crossing?',
             message_id: '<m1@example.com>',
           },
@@ -429,10 +429,10 @@ async function withApp(env, fn) {
         assert.strictEqual(sb.db.email_threads.rows.length, 1, 'a thread was opened');
         assert.strictEqual(sb.db.email_threads.rows[0].participant_email, 'ada@example.com');
         // Re: is stripped so a reply joins the conversation it belongs to.
-        assert.strictEqual(sb.db.email_threads.rows[0].subject, 'A 40m span');
+        assert.strictEqual(sb.db.email_threads.rows[0].subject, 'A 22 tonne excavator');
         assert.strictEqual(sb.db.email_messages.rows.length, 1);
         assert.strictEqual(sb.db.email_messages.rows[0].direction, 'inbound');
-        assert.strictEqual(sb.db.email_messages.rows[0].to_email, 'contact@merkel.test');
+        assert.strictEqual(sb.db.email_messages.rows[0].to_email, 'contact@vmax.test');
         console.log('  ok  a signed inbound delivery lands in the admin inbox');
 
         const tampered = body.replace('Ada Kolen', 'Mallory Vane');
@@ -470,7 +470,7 @@ async function withApp(env, fn) {
         SUPABASE_URL: `http://127.0.0.1:${sb.address().port}`,
         SUPABASE_SERVICE_ROLE_KEY: mock.SERVICE_KEY, SUPABASE_ANON_KEY: mock.ANON_KEY,
         RESEND_WEBHOOK_SECRET: SECRET, RESEND_API_KEY: 'test-key',
-        MAILBOX_ADDRESS: 'contact@merkel.test', FORWARD_TO: '',
+        MAILBOX_ADDRESS: 'contact@vmax.test', FORWARD_TO: '',
       },
       async (base) => {
         // Shaped like a real Resend delivery: envelope only, no text or html.
@@ -481,9 +481,9 @@ async function withApp(env, fn) {
             email_id: '4a93e097-c85c-408f-89fd-67bc22511be5',
             from: 'ada@example.com',
             message_id: '<ada-2@example.com>',
-            received_for: ['contact@merkel.test'],
+            received_for: ['contact@vmax.test'],
             subject: 'Canal crossing',
-            to: ['contact@merkel.test'],
+            to: ['contact@vmax.test'],
           },
         });
         const id = 'msg_body', ts = String(Math.floor(Date.now() / 1000));
@@ -542,27 +542,27 @@ async function withApp(env, fn) {
       return res.json();
     };
 
-    const staff = await signIn('desk@merkel.test', 'pw-desk');
+    const staff = await signIn('desk@vmax.test', 'pw-desk');
     const outsider = await signIn('nosy@example.com', 'pw-nosy');
     sb.db.admins.rows.push({ user_id: staff.user.id, email: staff.user.email });
 
     const thread = {
       id: '11111111-2222-4333-8444-555555555555',
       created_at: new Date().toISOString(), last_message_at: new Date().toISOString(),
-      subject: 'A 40m span', participant_email: 'ada@example.com', participant_name: 'Ada', status: 'new',
+      subject: 'A 22 tonne excavator', participant_email: 'ada@example.com', participant_name: 'Ada', status: 'new',
     };
     sb.db.email_threads.rows.push(thread);
     sb.db.email_messages.rows.push({
       id: 'aaaaaaaa-2222-4333-8444-555555555555', created_at: new Date().toISOString(),
       thread_id: thread.id, direction: 'inbound', from_email: 'ada@example.com',
-      to_email: 'contact@merkel.test', subject: 'A 40m span', message_id: '<ada-1@example.com>',
+      to_email: 'contact@vmax.test', subject: 'A 22 tonne excavator', message_id: '<ada-1@example.com>',
       has_attachments: false,
     });
 
     await withApp(
       {
         SUPABASE_URL: sbUrl, SUPABASE_SERVICE_ROLE_KEY: mock.SERVICE_KEY, SUPABASE_ANON_KEY: mock.ANON_KEY,
-        RESEND_API_KEY: 'test-key', MAILBOX_ADDRESS: 'contact@merkel.test',
+        RESEND_API_KEY: 'test-key', MAILBOX_ADDRESS: 'contact@vmax.test',
       },
       async (base) => {
         const reply = (token, payload) => fetch(base + '/api/emails/reply', {
@@ -594,12 +594,12 @@ async function withApp(env, fn) {
         assert.strictEqual(ok.status, 201, JSON.stringify(await ok.json().catch(() => ({}))));
         assert.strictEqual(sentMail.length, 1);
         assert.deepStrictEqual(sentMail[0].to, ['ada@example.com']);
-        assert.strictEqual(sentMail[0].subject, 'Re: A 40m span', 'one Re: prefix, not two');
+        assert.strictEqual(sentMail[0].subject, 'Re: A 22 tonne excavator', 'one Re: prefix, not two');
         // Threading headers are what put the reply inside Ada's conversation.
         assert.strictEqual(sentMail[0].headers['In-Reply-To'], '<ada-1@example.com>');
         // A bare MAILBOX_ADDRESS would otherwise show in the recipient's inbox
         // as "contact", the local part, rather than as the studio.
-        assert.strictEqual(sentMail[0].from, 'Merkel Constructions <contact@merkel.test>');
+        assert.strictEqual(sentMail[0].from, 'VMAX Machine Ltd <contact@vmax.test>');
         // Written by a person, so no monospace HTML part goes with it.
         assert.strictEqual(sentMail[0].html, undefined);
         assert.strictEqual(sentMail[0].text, 'Quoting next week.');

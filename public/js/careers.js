@@ -1,13 +1,13 @@
 'use strict';
 
 (function () {
-  const M = window.MERKEL; if (!M) return;
+  const V = window.VMAX; if (!V) return;
   const wrap = document.getElementById('roles');
   if (!wrap) return;
-  const esc = M.esc;
+  const esc = V.esc;
   const FALLBACK = [
-    { id: 'senior-structural', title: 'Senior Structural Engineer', team: 'Structural', location: 'Studio', type: 'Full time', summary: 'Lead the structural design of tall buildings and long-span structures from concept through to site.' },
-    { id: 'bridge-engineer', title: 'Bridge Engineer', team: 'Civil & Infrastructure', location: 'Site based', type: 'Full time', summary: 'Design bridges and marine structures for demanding wind and durability requirements.' }
+    { id: 'heavy-equipment-technician', title: 'Heavy Equipment Technician', team: 'Workshop', location: 'Main workshop', type: 'Full time', summary: 'Strip, diagnose and rebuild hydraulics, drivelines and engines on loaders, excavators and haulers.' },
+    { id: 'field-service-engineer', title: 'Field Service Engineer', team: 'Field Service', location: 'Mobile, own van', type: 'Full time', summary: 'Run your own service van, working scheduled maintenance and breakdown call-outs across customer sites.' }
   ];
 
   const role = (r) => `
@@ -23,8 +23,8 @@
 
   (async () => {
     let roles = FALLBACK;
-    try { const d = await M.fetchJSON('/api/careers'); roles = d.roles || FALLBACK; } catch (e) {}
+    try { const d = await V.fetchJSON('/api/careers'); roles = d.roles || FALLBACK; } catch (e) {}
     wrap.innerHTML = roles.map(role).join('');
-    M.observeReveals();
+    V.observeReveals();
   })();
 })();

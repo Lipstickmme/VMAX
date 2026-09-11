@@ -1,44 +1,41 @@
 'use strict';
 
-/* One discipline, resolved from the path so /services/steel is a real URL. */
+/* One department, resolved from the path so /services/parts is a real URL. */
 (function () {
-  const M = window.MERKEL; if (!M) return;
+  const V = window.VMAX; if (!V) return;
   const root = document.getElementById('service-detail');
   if (!root) return;
-  const esc = M.esc;
+  const esc = V.esc;
 
   const id = decodeURIComponent(window.location.pathname.split('/').filter(Boolean).pop() || '');
 
-  function render(s, projects) {
-    document.title = `${s.title} | Merkel Constructions`;
-    const related = projects.filter((p) => (p.services || []).includes(s.title)).slice(0, 3);
+  function render(s, machines) {
+    document.title = `${s.title} | VMAX Machine Ltd`;
+    const related = machines.filter((m) => (m.services || []).includes(s.title)).slice(0, 4);
 
     root.removeAttribute('data-loading');
     root.innerHTML = `
       <header class="page-header">
-        <div class="wrap page-header-grid">
-          <div class="page-header-copy">
-            <span class="eyebrow">${esc(s.code)} / Services</span>
-            <h1 data-reveal>${esc(s.title)}</h1>
-            <p data-reveal>${esc(s.lede || s.summary)}</p>
-          </div>
-          <figure class="figure page-header-figure" data-reveal>
-            <img src="${esc(s.image)}" alt="${esc(s.title)}" decoding="async" />
-          </figure>
+        <div class="page-header-inner">
+          <span class="eyebrow">${esc(s.code)} / Services</span>
+          <h1 data-reveal>${esc(s.title)}</h1>
+          <p data-reveal>${esc(s.lede || s.summary)}</p>
         </div>
+        <div class="page-header-media">${V.media(s.image, { alt: s.title, className: 'media-fill', eager: true })}</div>
       </header>
 
       <section class="section-pad">
-        <div class="wrap project-cols">
+        <div class="wrap detail-cols">
           <div class="overview" data-reveal>
             ${(s.body || [s.summary]).map((para) => `<p>${esc(para)}</p>`).join('')}
+            <ul class="feature-list">${(s.capabilities || []).map((c) => `<li>${V.icon('check')}<span>${esc(c)}</span></li>`).join('')}</ul>
           </div>
           <aside data-reveal>
-            <div class="project-facts">
-              ${(s.deliverables || []).map((d) => `<div class="fact"><span class="k">Deliverable</span><span class="v">${esc(d)}</span></div>`).join('')}
+            <div class="fact-block">
+              ${(s.deliverables || []).map((d) => `<div class="fact"><span class="k">What you get</span><span class="v">${esc(d)}</span></div>`).join('')}
             </div>
-            <div class="project-services">
-              ${(s.capabilities || []).map((c) => `<span>${esc(c)}</span>`).join('')}
+            <div class="tag-row">
+              ${(s.sectors || []).map((c) => `<span>${esc(c)}</span>`).join('')}
             </div>
           </aside>
         </div>
@@ -48,30 +45,30 @@
       <section class="section-pad alt">
         <div class="wrap">
           <div class="section-head" data-reveal>
-            <span class="eyebrow">Where it shows</span>
-            <h2>Projects using this discipline.</h2>
+            <span class="eyebrow">Machines</span>
+            <h2>Where this applies.</h2>
           </div>
-          <div class="cards-grid" data-reveal>${related.map(M.projectCard).join('')}</div>
+          <div class="mcard-grid">${related.map(V.machineCard).join('')}</div>
         </div>
       </section>` : ''}
 
       <section class="cta-band">
         <div class="wrap cta-inner" data-reveal>
-          <h2>Need this on a project?</h2>
-          <p>Send the drawing set or a paragraph on the site and a principal engineer will come back to you.</p>
-          <a href="/contact" class="btn">Contact us <span class="arw">&rsaquo;</span></a>
+          <h2>Need this on your fleet?</h2>
+          <p>Tell us what you are running and we will come back with a plan and a price.</p>
+          <a href="/contact" class="btn">Talk to the desk <span class="arw">&rsaquo;</span></a>
         </div>
       </section>`;
-    M.observeReveals();
+    V.observeReveals();
   }
 
   (async () => {
     try {
       const [service, list] = await Promise.all([
-        M.fetchJSON(`/api/services/${encodeURIComponent(id)}`),
-        M.fetchJSON('/api/projects').catch(() => ({ projects: [] })),
+        V.fetchJSON(`/api/services/${encodeURIComponent(id)}`),
+        V.fetchJSON('/api/machines').catch(() => ({ machines: [] })),
       ]);
-      render(service, list.projects || []);
+      render(service, list.machines || []);
     } catch (err) {
       root.removeAttribute('data-loading');
       root.innerHTML = `
@@ -79,7 +76,7 @@
           <div class="wrap">
             <span class="eyebrow">Not found</span>
             <h1>No such service.</h1>
-            <p>That discipline is not one of ours, or the link has changed.</p>
+            <p>That department is not one of ours, or the link has changed.</p>
             <div class="hero-actions"><a href="/services" class="btn">All services <span class="arw">&rsaquo;</span></a></div>
           </div>
         </section>`;

@@ -50,7 +50,7 @@ const resendApiKey = () => pick('RESEND_API_KEY');
 const resendWebhookSecret = () => pick('RESEND_WEBHOOK_SECRET');
 
 const formTo = () => pick('FORM_TO', 'CONTACT_NOTIFY_EMAIL');
-const formFrom = () => pick('FORM_FROM', 'NOTIFY_FROM') || 'Merkel Website <onboarding@resend.dev>';
+const formFrom = () => pick('FORM_FROM', 'NOTIFY_FROM') || 'VMAX Website <onboarding@resend.dev>';
 const mailboxAddress = () => pick('MAILBOX_ADDRESS');
 const forwardTo = () => pick('FORWARD_TO');
 
@@ -58,7 +58,7 @@ const forwardTo = () => pick('FORWARD_TO');
  * The name a recipient sees beside the address. Without one, mail clients fall
  * back to the local part, so a reply from contact@ shows up as "contact".
  */
-const studioName = () => pick('STUDIO_NAME') || 'Merkel Constructions';
+const companyName = () => pick('COMPANY_NAME', 'STUDIO_NAME') || 'VMAX Machine Ltd';
 
 /** Bare address out of "Name <a@b.c>". */
 function parseAddress(value) {
@@ -112,7 +112,10 @@ module.exports = {
   formFrom,
   mailboxAddress,
   forwardTo,
-  studioName,
+  companyName,
+  // Kept as an alias so an existing deployment that still sets STUDIO_NAME
+  // and any caller reading `studioName` keeps working unchanged.
+  studioName: companyName,
   parseAddress,
   ownAddresses,
   forwardWouldLoop,
