@@ -67,8 +67,13 @@ const sendPage = (file) => (req, res) => res.sendFile(path.join(publicDir, file)
 
 app.get('/', sendPage('index.html'));
 app.get('/machines', sendPage('machines.html'));
-// Machine detail pages resolve the id client-side from the path.
-app.get('/machines/:id', sendPage('machine.html'));
+// Every machine has its own page, built at build time. An id with no page is
+// a machine we do not sell, so it gets the 404 rather than an empty shell.
+app.get('/machines/:id', (req, res, next) => {
+  if (!/^[a-z0-9-]+$/.test(req.params.id)) return next();
+  const file = path.join(publicDir, 'machines', `${req.params.id}.html`);
+  res.sendFile(file, (err) => (err ? next() : undefined));
+});
 app.get('/services', sendPage('services.html'));
 // Service detail pages resolve the id client-side from the path.
 app.get('/services/:id', sendPage('service.html'));

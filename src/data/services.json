@@ -3,99 +3,106 @@
     "id": "new-machine-sales",
     "code": "S-01",
     "title": "New Machine Sales",
-    "summary": "Loaders, excavators, dozers, haulers and graders supplied to your specification, inspected and handed over on site.",
-    "capabilities": ["Specification and sizing", "Pre-delivery inspection", "On-site handover", "Warranty registration"],
-    "imageName": "vmax1",
+    "icon": "machine",
+    "summary": "Brand new machines from the makers we represent, specified around your job and handed over on your site.",
+    "capabilities": ["Specification and sizing", "Attachment packages", "Pre-delivery inspection", "On-site handover"],
+    "imageName": "vmaxfleet",
     "lede": "We sell the machine the job needs, not the machine that happens to be in the yard.",
     "body": [
       "Every enquiry starts with the work, not the model list: what you are moving, how far, how many hours a week, and what the ground does when it rains. That decides bucket size, tyre compound, counterweight and drivetrain long before it decides a price.",
-      "Each machine leaves our workshop with a documented pre-delivery inspection, the attachments fitted and a handover on your site with the operators who will run it."
+      "Everything we sell is brand new and factory warranted. Each machine is built to the specification agreed with you, inspected in our workshop before it leaves, and handed over on your site to the people who will run it."
     ],
-    "deliverables": ["Written specification and sizing note", "Pre-delivery inspection report", "On-site handover and operator brief", "Warranty and service plan registration"],
-    "sectors": ["Quarrying", "Groundworks", "Bulk handling"]
+    "deliverables": ["Written specification and sizing note", "Build slot and delivery date", "Pre-delivery inspection report", "On-site handover and operator brief"],
+    "sectors": ["Quarrying", "Groundworks", "Agriculture", "Industrial"]
   },
   {
-    "id": "certified-used-equipment",
+    "id": "scheduled-servicing",
     "code": "S-02",
-    "title": "Certified Used Equipment",
-    "summary": "Low-hour machines put through a 140-point inspection, with the report in your hands before you pay a deposit.",
-    "capabilities": ["140-point inspection", "Oil sampling and analysis", "Undercarriage measurement", "Six-month drivetrain warranty"],
-    "imageName": "vmax3",
-    "lede": "A used machine is only worth buying when somebody has written down what is wrong with it.",
+    "title": "Scheduled Servicing",
+    "icon": "service",
+    "summary": "Service plans set against machine hours, carried out on your site, with oil sampling at every visit.",
+    "capabilities": ["Hour-based service plans", "On-site servicing", "Oil sampling and trending", "Digital service history"],
+    "imageName": "vmaxworkshop",
+    "lede": "Servicing on a schedule costs less than repairs on a phone call.",
     "body": [
-      "Our certified used process is the one we use on trade-ins we intend to keep in our own rental fleet. A 140-point inspection, oil sampling on every circuit, undercarriage measured rather than eyeballed, and a written report you read before you commit.",
-      "Anything outside tolerance is repaired before the machine is listed. We would rather carry the cost than discount a fault and argue about it later."
+      "Plans are written against machine hours rather than months, so a machine working double shifts is serviced twice as often as one that is not, and neither is serviced for the sake of a date in a diary.",
+      "Oil is sampled at every visit and the results are trended, so bearing and pump wear is caught while it is still a filter change. Your service history lives in one place and follows the machine."
     ],
-    "deliverables": ["140-point inspection report", "Oil analysis results", "Repair record for work carried out", "Six-month drivetrain warranty"],
-    "sectors": ["Contractors", "Plant hire", "Owner operators"]
+    "deliverables": ["Hour-based service schedule", "On-site scheduled servicing", "Oil analysis and wear trending", "Digital service history per machine"],
+    "sectors": ["Fleet operators", "Quarrying", "Civils"]
+  },
+  {
+    "id": "field-service-breakdown",
+    "code": "S-03",
+    "title": "Field Service and Breakdown",
+    "icon": "transport",
+    "summary": "Mobile technicians in fully stocked vans, on call when a machine stops, with same-day response.",
+    "capabilities": ["Same-day breakdown response", "Hydraulic and driveline repair", "Diagnostics and fault tracing", "On-site welding and fabrication"],
+    "imageName": "vmaxservice",
+    "lede": "A stopped machine costs more per hour than everything it takes to get it going.",
+    "body": [
+      "Our vans carry the filters, fluids, hoses and common failure parts for the machines on our books, so a first visit is usually a fix rather than a diagnosis followed by a second visit.",
+      "Every technician carries the manufacturer diagnostic software for the brands we sell, which is the difference between reading a fault code and clearing its cause."
+    ],
+    "deliverables": ["Same-day response on covered machines", "First-visit fix where parts allow", "Written repair report", "Follow-up scheduled if needed"],
+    "sectors": ["Contractors", "Quarrying", "Waste and recycling"]
   },
   {
     "id": "genuine-parts-attachments",
-    "code": "S-03",
+    "code": "S-04",
     "title": "Genuine Parts and Attachments",
-    "summary": "Filters, wear parts, undercarriage and attachments held in stock, with same-day despatch on stocked lines.",
+    "icon": "parts",
+    "summary": "Manufacturer parts, filters, wear items and attachments held in stock, with same-day despatch.",
     "capabilities": ["Filters and service kits", "Ground engaging tools", "Undercarriage and wear parts", "Breakers, shears and grapples"],
-    "imageName": "vmax5",
-    "lede": "A stopped machine costs more per hour than the part that stopped it.",
+    "imageName": "vmaxparts",
+    "lede": "A machine waiting on a part is a machine you are paying for twice.",
     "body": [
       "We hold service kits, cutting edges, teeth, pins, bushes and undercarriage for every model we sell, and we despatch stocked lines the same day they are ordered.",
-      "On attachments we fit as well as sell: hoses, couplers, control valves and the in-cab switching, plumbed in our workshop and pressure tested before the machine leaves."
+      "On attachments we fit as well as sell: hoses, couplers, control valves and in-cab switching, plumbed in our workshop and pressure tested before the machine goes back to work."
     ],
     "deliverables": ["Stocked service kits by model", "Same-day despatch on stock lines", "Attachment supply and fitting", "Pressure-tested hydraulic installation"],
-    "sectors": ["Fleet operators", "Workshops", "Plant hire"]
+    "sectors": ["Fleet operators", "Workshops", "Owner operators"]
   },
   {
-    "id": "field-service-maintenance",
-    "code": "S-04",
-    "title": "Field Service and Maintenance",
-    "summary": "Mobile technicians with fully stocked service vans, on scheduled plans or on call when a machine goes down.",
-    "capabilities": ["Scheduled servicing", "Breakdown call-out", "Hydraulic and driveline repair", "Diagnostics and fault tracing"],
-    "imageName": "vmax7",
-    "lede": "Servicing on a calendar costs less than repairs on a phone call.",
-    "body": [
-      "Our service vans carry the filters, fluids and common failure parts for the machines on our books, so a first visit is usually a fix rather than a diagnosis followed by a second visit.",
-      "Planned maintenance contracts set the intervals against machine hours rather than months, with oil sampling at each service so wear is caught while it is still a filter change."
-    ],
-    "deliverables": ["Hour-based service schedule", "On-site scheduled servicing", "Breakdown response", "Service history and oil trend reporting"],
-    "sectors": ["Quarrying", "Civils", "Waste and recycling"]
-  },
-  {
-    "id": "fleet-rental-leasing",
+    "id": "warranty-and-cover",
     "code": "S-05",
-    "title": "Fleet Rental and Leasing",
-    "summary": "Short-term hire for a peak and long-term lease for a contract, both with service and breakdown cover included.",
-    "capabilities": ["Weekly and monthly hire", "Long-term operating lease", "Rental with operator", "Service included as standard"],
-    "imageName": "vmax8",
-    "lede": "Own the machines you run every week. Hire the ones you run for a season.",
+    "title": "Warranty and Extended Cover",
+    "icon": "shield",
+    "summary": "Full factory warranty on every machine, with extended powertrain and hydraulic cover to five years.",
+    "capabilities": ["Factory warranty registration", "Extended powertrain cover", "Hydraulic and electrical cover", "Warranty claims handled here"],
+    "imageName": "vmaxyard",
+    "lede": "Cover is only worth having if somebody else does the paperwork.",
     "body": [
-      "Short-term hire covers the peak without putting another machine on your balance sheet, and it comes with servicing and breakdown cover so a hired machine is never your maintenance problem.",
-      "Long-term leases are written against contract length, with a fixed monthly figure that includes scheduled servicing and an agreed hour allowance."
+      "Every machine is registered for its full factory warranty on the day it is delivered, and we handle claims with the manufacturer ourselves rather than handing you a form.",
+      "Extended cover runs to five years or an agreed hour ceiling on powertrain, hydraulics and electrics, priced against how hard the machine will actually work."
     ],
-    "deliverables": ["Rate schedule by machine and term", "Delivery and collection", "Servicing and breakdown cover", "Hour reporting and end-of-hire report"],
-    "sectors": ["Contractors", "Civils", "Mining"]
+    "deliverables": ["Warranty registration on delivery", "Extended cover options to 5 years", "Claims raised and tracked by us", "Loan machine where cover applies"],
+    "sectors": ["Owner operators", "Fleet operators", "Plant hire"]
   },
   {
-    "id": "finance-trade-in",
+    "id": "delivery-commissioning",
     "code": "S-06",
-    "title": "Finance and Trade-In",
-    "summary": "Hire purchase, lease purchase and trade-in valuations, quoted against the machine's real residual value.",
-    "capabilities": ["Hire purchase", "Lease purchase", "Trade-in valuation", "Fleet refinancing"],
-    "imageName": "vmax9",
-    "lede": "The purchase price is one number. What the machine is worth in five years is the other one.",
+    "title": "Delivery and Commissioning",
+    "icon": "rental",
+    "summary": "Low-loader delivery, abnormal-load planning, and commissioning with the operators who will run the machine.",
+    "capabilities": ["Low-loader delivery", "Abnormal load permits", "On-site commissioning", "Attachment set-up and calibration"],
+    "imageName": "vmaxtransport",
+    "lede": "Getting the machine there and working is part of selling it.",
     "body": [
-      "We quote finance against the residual we would actually pay for the machine at the end of the term, which is why our monthly figures survive a comparison with a broker's.",
-      "Trade-ins are valued on hours, service history and undercarriage condition, and the valuation holds for thirty days."
+      "We run our own low-loaders and arrange the permits, escorts and routing for abnormal loads, so a delivery date is a date rather than an estimate.",
+      "Commissioning happens with your operators present: attachments fitted and calibrated, machine control set up, safety systems demonstrated and the first service booked."
     ],
-    "deliverables": ["Written finance illustration", "Trade-in valuation valid 30 days", "Settlement handling on existing agreements", "Fleet refinancing review"],
-    "sectors": ["Owner operators", "Fleet operators", "Plant hire"]
+    "deliverables": ["Delivery scheduling and confirmation", "Abnormal load permits and routing", "On-site commissioning", "Proof of delivery with condition photos"],
+    "sectors": ["Contractors", "Quarrying", "Agriculture"]
   },
   {
     "id": "operator-technician-training",
     "code": "S-07",
     "title": "Operator and Technician Training",
+    "icon": "training",
     "summary": "Machine-specific operator training and workshop courses for the technicians who keep the fleet running.",
     "capabilities": ["Operator familiarisation", "Fuel-efficient operating", "Grade control training", "Workshop diagnostics courses"],
-    "imageName": "vmax10",
+    "imageName": "vmaxcareers",
     "lede": "The same machine burns a third more fuel in the wrong hands.",
     "body": [
       "Operator training is run on your machine, on your site, on the material you actually move. Most of the saving comes from loading technique and idle discipline rather than anything on a screen.",
@@ -105,18 +112,19 @@
     "sectors": ["Fleet operators", "Quarrying", "Civils"]
   },
   {
-    "id": "transport-logistics",
+    "id": "finance-and-leasing",
     "code": "S-08",
-    "title": "Transport and Site Logistics",
-    "summary": "Low-loader delivery, machine moves between sites and abnormal-load planning handled end to end.",
-    "capabilities": ["Low-loader delivery", "Site-to-site moves", "Abnormal load permits", "Loading and securing"],
-    "imageName": "vmax12",
-    "lede": "Getting the machine there is part of selling it.",
+    "title": "Finance and Leasing",
+    "icon": "finance",
+    "summary": "Hire purchase, lease purchase and contract hire on new machines, with servicing built into the monthly figure.",
+    "capabilities": ["Hire purchase", "Lease purchase", "Contract hire", "Servicing included options"],
+    "imageName": "vmaxcontact",
+    "lede": "One monthly figure that already has the servicing in it.",
     "body": [
-      "We run our own low-loaders and arrange the permits, escorts and routing for abnormal loads, so a delivery date is a date rather than an estimate.",
-      "Site-to-site moves are booked the same way, whether or not the machine came from us."
+      "New machines can be financed on hire purchase, lease purchase or contract hire, written against the term and hours you actually expect rather than a standard schedule.",
+      "Servicing can be built into the monthly payment, so the machine, its maintenance and its warranty sit on one agreement and one invoice."
     ],
-    "deliverables": ["Delivery scheduling and confirmation", "Abnormal load permits and routing", "Loading, securing and unloading", "Proof of delivery with condition photos"],
-    "sectors": ["Contractors", "Plant hire", "Quarrying"]
+    "deliverables": ["Written finance illustration", "Term and hour allowance agreed up front", "Servicing included option", "Settlement handled on existing agreements"],
+    "sectors": ["Owner operators", "Fleet operators", "Contractors"]
   }
 ]

@@ -83,9 +83,16 @@ function resolve(spec, key) {
   };
 }
 
-/** Resolve a bare file name, for images named in the content JSON. */
+/**
+ * Resolve a file named in the content JSON.
+ *
+ * `name` may be a single name or a list, best first: machines ask for their
+ * own photograph and fall back to their class's, so one picture per class is
+ * enough to start with and a per-machine shot overrides it later.
+ */
 function resolveName(name, label) {
-  return { slot: '', name: name || '', label: label || '', src: lookUp([name]) };
+  const names = (Array.isArray(name) ? name : [name]).filter(Boolean);
+  return { slot: '', name: names[0] || '', label: label || '', src: lookUp(names) };
 }
 
 const images = {};

@@ -1,218 +1,770 @@
 [
   {
-    "id": "vx-l350",
-    "model": "VX-L350",
-    "name": "VX-L350 Wheel Loader",
+    "id": "caterpillar-950-gc",
+    "brand": "Caterpillar",
+    "model": "950 GC",
+    "name": "Caterpillar 950 GC",
     "category": "Wheel Loaders",
+    "categorySlug": "wheel-loaders",
+    "icon": "bucket",
     "condition": "New",
     "year": 2026,
     "status": "In stock",
-    "stock": "VMX-4417",
+    "stock": "VMX-5107",
     "location": "Main yard",
     "price": "Price on request",
-    "imageName": "vmax1",
-    "blurb": "Our largest production loader. Five-cubic-metre class buckets, locking differentials and a load-sensing hydraulic circuit built for quarry duty.",
+    "imageName": "vmax-caterpillar-950-gc",
+    "imageFallback": "vmax-wheel-loaders",
+    "blurb": "A 18,700 kg loading shovel taking a 3.1 m³ bucket, with load-sensing hydraulics and a cab set up for a full shift.",
     "specs": [
-      { "icon": "emissions", "label": "Emissions", "value": "Stage V / Tier 4F" },
-      { "icon": "bucket", "label": "Bucket capacity", "value": "6.2 - 12.7 m³" },
-      { "icon": "weight", "label": "Operating weight", "value": "50,000 - 56,300 kg" },
-      { "icon": "payload", "label": "Payload", "value": "34,700 kg" }
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "bucket",
+        "label": "Bucket capacity",
+        "value": "3.1 m³"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "18,700 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "168 kW"
+      }
     ],
     "features": [
       "Load-sensing hydraulics with automatic bucket levelling",
-      "Locking front and rear differentials as standard",
-      "Reversible cooling fan for dust-heavy sites",
-      "Onboard weighing with ticket printing"
+      "Onboard weighing with ticket printing",
+      "Reversing camera and rear object detection",
+      "Hydraulic quick coupler, fork and grapple ready"
     ],
-    "overview": "The VX-L350 is the machine we sell to quarries and bulk-handling yards that load all day and stop only to refuel. The powertrain is matched to a 6.2 to 12.7 cubic metre bucket range, so the same chassis handles blasted rock and light aggregate without a driveline change. Every unit leaves our workshop with a full pre-delivery inspection, a torque-checked driveline and a twelve-month powertrain warranty.",
-    "services": ["New Machine Sales", "Field Service and Maintenance"]
+    "overview": "The Caterpillar 950 GC sits in the 18,700 kg class, where most yards find the balance between bucket size and the ground they have to drive over. VMAX supplies it brand new and specified around the material you are actually loading: bucket profile, tyre compound, counterweight and axle guarding are decided before the order goes in rather than after the machine lands. Delivery includes commissioning on your site and an operator handover, and the machine goes straight onto a VMAX service plan with the first visit already booked.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
   },
   {
-    "id": "vx-l260",
-    "model": "VX-L260",
-    "name": "VX-L260 Wheel Loader",
+    "id": "volvo-l120h",
+    "brand": "Volvo",
+    "model": "L120H",
+    "name": "Volvo L120H",
     "category": "Wheel Loaders",
+    "categorySlug": "wheel-loaders",
+    "icon": "bucket",
     "condition": "New",
     "year": 2026,
     "status": "In stock",
-    "stock": "VMX-4402",
+    "stock": "VMX-5114",
     "location": "Main yard",
     "price": "Price on request",
-    "imageName": "vmax2",
-    "blurb": "A mid-weight loader for concrete plants and recycling yards, with high lift geometry and a quick-coupler carriage.",
+    "imageName": "vmax-volvo-l120h",
+    "imageFallback": "vmax-wheel-loaders",
+    "blurb": "A 20,500 kg loading shovel taking a 3.6 m³ bucket, with load-sensing hydraulics and a cab set up for a full shift.",
     "specs": [
-      { "icon": "emissions", "label": "Emissions", "value": "Stage IIIA / Tier 3" },
-      { "icon": "bucket", "label": "Bucket capacity", "value": "5.3 - 10.2 m³" },
-      { "icon": "weight", "label": "Operating weight", "value": "34,000 - 39,000 kg" },
-      { "icon": "payload", "label": "Payload", "value": "23,800 kg" }
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "bucket",
+        "label": "Bucket capacity",
+        "value": "3.6 m³"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "20,500 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "220 kW"
+      }
     ],
     "features": [
-      "High-lift boom option for tipping into 4 m walled bays",
-      "Hydraulic quick coupler with fork and grapple carriage",
-      "Wet multi-disc brakes with independent circuits",
-      "Rear-view camera and reversing radar"
+      "Load-sensing hydraulics with automatic bucket levelling",
+      "Onboard weighing with ticket printing",
+      "Reversing camera and rear object detection",
+      "Hydraulic quick coupler, fork and grapple ready"
     ],
-    "overview": "Built for the yards that run two shifts and rehandle the same stockpile all week. High-lift geometry clears the tallest tipper bodies on a standard chassis, and the quick coupler takes forks, grapples and light material buckets without a workshop visit.",
-    "services": ["New Machine Sales", "Fleet Rental and Leasing"]
+    "overview": "The Volvo L120H sits in the 20,500 kg class, where most yards find the balance between bucket size and the ground they have to drive over. VMAX supplies it brand new and specified around the material you are actually loading: bucket profile, tyre compound, counterweight and axle guarding are decided before the order goes in rather than after the machine lands. Delivery includes commissioning on your site and an operator handover, and the machine goes straight onto a VMAX service plan with the first visit already booked.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
   },
   {
-    "id": "vx-l220",
-    "model": "VX-L220",
-    "name": "VX-L220 Wheel Loader",
+    "id": "komatsu-wa320-8",
+    "brand": "Komatsu",
+    "model": "WA320-8",
+    "name": "Komatsu WA320-8",
     "category": "Wheel Loaders",
-    "condition": "Certified used",
-    "year": 2023,
+    "categorySlug": "wheel-loaders",
+    "icon": "bucket",
+    "condition": "New",
+    "year": 2026,
     "status": "In stock",
-    "stock": "VMX-3918",
+    "stock": "VMX-5121",
     "location": "Main yard",
     "price": "Price on request",
-    "imageName": "vmax3",
-    "blurb": "A 4,100-hour certified used loader, fully inspected, with a new set of cutting edges and a fresh hydraulic service.",
+    "imageName": "vmax-komatsu-wa320-8",
+    "imageFallback": "vmax-wheel-loaders",
+    "blurb": "A 15,600 kg loading shovel taking a 2.7 m³ bucket, with load-sensing hydraulics and a cab set up for a full shift.",
     "specs": [
-      { "icon": "emissions", "label": "Emissions", "value": "Stage II / Tier 3" },
-      { "icon": "bucket", "label": "Bucket capacity", "value": "4.3 - 16 m³" },
-      { "icon": "weight", "label": "Operating weight", "value": "31,200 - 33,100 kg" },
-      { "icon": "hours", "label": "Hours on clock", "value": "4,100 h" }
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "bucket",
+        "label": "Bucket capacity",
+        "value": "2.7 m³"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "15,600 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "127 kW"
+      }
     ],
     "features": [
-      "140-point certified used inspection with written report",
-      "New cutting edges and rebuilt bucket pins",
-      "Full hydraulic and driveline oil change on handover",
-      "Six-month drivetrain warranty included"
+      "Load-sensing hydraulics with automatic bucket levelling",
+      "Onboard weighing with ticket printing",
+      "Reversing camera and rear object detection",
+      "Hydraulic quick coupler, fork and grapple ready"
     ],
-    "overview": "Certified used means the machine went through the same workshop process as a trade-in we would keep for our own rental fleet: a 140-point inspection, oil sampling on every circuit, and a written report you get before you pay a deposit. Anything outside tolerance is repaired, not discounted.",
-    "services": ["Certified Used Equipment", "Finance and Trade-In"]
+    "overview": "The Komatsu WA320-8 sits in the 15,600 kg class, where most yards find the balance between bucket size and the ground they have to drive over. VMAX supplies it brand new and specified around the material you are actually loading: bucket profile, tyre compound, counterweight and axle guarding are decided before the order goes in rather than after the machine lands. Delivery includes commissioning on your site and an operator handover, and the machine goes straight onto a VMAX service plan with the first visit already booked.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
   },
   {
-    "id": "vx-h200",
-    "model": "VX-H200",
-    "name": "VX-H200 High Lift Loader",
+    "id": "vmax-vx-l350",
+    "brand": "VMAX",
+    "model": "VX-L350",
+    "name": "VMAX VX-L350",
     "category": "Wheel Loaders",
+    "categorySlug": "wheel-loaders",
+    "icon": "bucket",
+    "condition": "New",
+    "year": 2026,
+    "status": "Build slot open",
+    "stock": "VMX-5128",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-vmax-vx-l350",
+    "imageFallback": "vmax-wheel-loaders",
+    "blurb": "A 23,800 kg loading shovel taking a 4.2 m³ bucket, with load-sensing hydraulics and a cab set up for a full shift.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "bucket",
+        "label": "Bucket capacity",
+        "value": "4.2 m³"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "23,800 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "250 kW"
+      }
+    ],
+    "features": [
+      "Load-sensing hydraulics with automatic bucket levelling",
+      "Onboard weighing with ticket printing",
+      "Reversing camera and rear object detection",
+      "Hydraulic quick coupler, fork and grapple ready"
+    ],
+    "overview": "The VMAX VX-L350 sits in the 23,800 kg class, where most yards find the balance between bucket size and the ground they have to drive over. VMAX supplies it brand new and specified around the material you are actually loading: bucket profile, tyre compound, counterweight and axle guarding are decided before the order goes in rather than after the machine lands. Delivery includes commissioning on your site and an operator handover, and the machine goes straight onto a VMAX service plan with the first visit already booked.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "caterpillar-320-gc",
+    "brand": "Caterpillar",
+    "model": "320 GC",
+    "name": "Caterpillar 320 GC",
+    "category": "Excavators",
+    "categorySlug": "excavators",
+    "icon": "machine",
     "condition": "New",
     "year": 2026,
     "status": "Arriving",
-    "stock": "VMX-4508",
-    "location": "In transit",
-    "price": "Price on request",
-    "imageName": "vmax4",
-    "blurb": "Log and timber handling specification, with a rotating grapple, guarded cab and extended lift height.",
-    "specs": [
-      { "icon": "emissions", "label": "Emissions", "value": "Stage IIIA / Tier 3" },
-      { "icon": "weight", "label": "Operating weight", "value": "35,000 - 40,000 kg" },
-      { "icon": "reach", "label": "Lift height", "value": "6.4 m to pin" },
-      { "icon": "power", "label": "Engine output", "value": "265 kW" }
-    ],
-    "features": [
-      "360-degree rotating timber grapple",
-      "Full cab guarding to forestry specification",
-      "Extended lift arms for high-sided trailers",
-      "Heavy counterweight and axle guarding"
-    ],
-    "overview": "A handling specification rather than a loading one. The extended arms and rotating grapple let one machine load a high-sided trailer from either side without repositioning, which is the difference between two loads an hour and four.",
-    "services": ["New Machine Sales", "Genuine Parts and Attachments"]
-  },
-  {
-    "id": "vx-e480",
-    "model": "VX-E480",
-    "name": "VX-E480 Crawler Excavator",
-    "category": "Excavators",
-    "condition": "New",
-    "year": 2026,
-    "status": "In stock",
-    "stock": "VMX-4421",
+    "stock": "VMX-5135",
     "location": "Main yard",
     "price": "Price on request",
-    "imageName": "vmax5",
-    "blurb": "A 48-tonne mass excavation machine with a reinforced undercarriage and dual auxiliary hydraulic circuits.",
+    "imageName": "vmax-caterpillar-320-gc",
+    "imageFallback": "vmax-excavators",
+    "blurb": "A 21,500 kg excavator digging to 6.7 m, with twin auxiliary circuits and machine-control mounting as standard.",
     "specs": [
-      { "icon": "emissions", "label": "Emissions", "value": "Stage V / Tier 4F" },
-      { "icon": "bucket", "label": "Bucket capacity", "value": "2.4 - 3.6 m³" },
-      { "icon": "weight", "label": "Operating weight", "value": "47,800 kg" },
-      { "icon": "reach", "label": "Max dig depth", "value": "7.9 m" }
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "bucket",
+        "label": "Bucket capacity",
+        "value": "1.19 m³"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "21,500 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Max dig depth",
+        "value": "6.7 m"
+      }
     ],
     "features": [
-      "Twin auxiliary circuits for breaker and shear",
+      "Twin auxiliary circuits, pressure tested before delivery",
+      "Machine-control ready with factory mounting points",
       "Heavy-duty undercarriage with full-length track guards",
-      "Boom and arm float with automatic idle",
-      "Machine-control ready with factory mounting points"
+      "Auto idle and boom float as standard"
     ],
-    "overview": "Sized for mass excavation and demolition rather than trenching. The dual auxiliary circuits mean a breaker and a shear can stay plumbed at the same time, so an attachment change is a pin change rather than a hose change.",
-    "services": ["New Machine Sales", "Genuine Parts and Attachments"]
+    "overview": "The Caterpillar 320 GC is a 21,500 kg machine, the size most groundworks contractors buy first and keep longest. VMAX supplies it brand new with the attachment circuits piped and pressure tested in our workshop rather than left for a later visit, so a breaker, shear or tilt-rotate can go on the day it arrives. Machine control is fitted and calibrated on request, and every unit leaves on a scheduled service plan.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
   },
   {
-    "id": "vx-e220",
-    "model": "VX-E220",
-    "name": "VX-E220 Crawler Excavator",
+    "id": "caterpillar-336",
+    "brand": "Caterpillar",
+    "model": "336",
+    "name": "Caterpillar 336",
     "category": "Excavators",
-    "condition": "Certified used",
-    "year": 2022,
-    "status": "In stock",
-    "stock": "VMX-3877",
+    "categorySlug": "excavators",
+    "icon": "machine",
+    "condition": "New",
+    "year": 2026,
+    "status": "To order",
+    "stock": "VMX-5142",
     "location": "Main yard",
     "price": "Price on request",
-    "imageName": "vmax6",
-    "blurb": "The site workhorse. Twenty-two tonnes, 6,800 hours, tilt-rotate ready and sold with a fresh undercarriage.",
+    "imageName": "vmax-caterpillar-336",
+    "imageFallback": "vmax-excavators",
+    "blurb": "A 36,600 kg excavator digging to 7.5 m, with twin auxiliary circuits and machine-control mounting as standard.",
     "specs": [
-      { "icon": "emissions", "label": "Emissions", "value": "Stage IIIB / Tier 4i" },
-      { "icon": "bucket", "label": "Bucket capacity", "value": "0.9 - 1.4 m³" },
-      { "icon": "weight", "label": "Operating weight", "value": "22,400 kg" },
-      { "icon": "hours", "label": "Hours on clock", "value": "6,800 h" }
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "bucket",
+        "label": "Bucket capacity",
+        "value": "2.1 m³"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "36,600 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Max dig depth",
+        "value": "7.5 m"
+      }
     ],
     "features": [
-      "New tracks, idlers and sprockets fitted before sale",
-      "Tilt-rotate hydraulics already piped",
-      "Three buckets and a grading beam included",
-      "Certified used inspection report supplied"
+      "Twin auxiliary circuits, pressure tested before delivery",
+      "Machine-control ready with factory mounting points",
+      "Heavy-duty undercarriage with full-length track guards",
+      "Auto idle and boom float as standard"
     ],
-    "overview": "Twenty-two tonnes is the size most groundworks contractors buy first and keep longest. This one comes out of a single-owner fleet on a full service history, with the undercarriage replaced rather than measured and passed.",
-    "services": ["Certified Used Equipment", "Field Service and Maintenance"]
+    "overview": "The Caterpillar 336 is a 36,600 kg machine, the size most groundworks contractors buy first and keep longest. VMAX supplies it brand new with the attachment circuits piped and pressure tested in our workshop rather than left for a later visit, so a breaker, shear or tilt-rotate can go on the day it arrives. Machine control is fitted and calibrated on request, and every unit leaves on a scheduled service plan.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
   },
   {
-    "id": "vx-d90",
-    "model": "VX-D90",
-    "name": "VX-D90 Crawler Dozer",
-    "category": "Dozers",
+    "id": "komatsu-pc210lc-11",
+    "brand": "Komatsu",
+    "model": "PC210LC-11",
+    "name": "Komatsu PC210LC-11",
+    "category": "Excavators",
+    "categorySlug": "excavators",
+    "icon": "machine",
     "condition": "New",
     "year": 2026,
     "status": "In stock",
-    "stock": "VMX-4433",
+    "stock": "VMX-5149",
     "location": "Main yard",
     "price": "Price on request",
-    "imageName": "vmax7",
-    "blurb": "A semi-U blade dozer for bulk push and haul-road maintenance, with factory-fitted grade control.",
+    "imageName": "vmax-komatsu-pc210lc-11",
+    "imageFallback": "vmax-excavators",
+    "blurb": "A 22,400 kg excavator digging to 6.6 m, with twin auxiliary circuits and machine-control mounting as standard.",
     "specs": [
-      { "icon": "emissions", "label": "Emissions", "value": "Stage V / Tier 4F" },
-      { "icon": "power", "label": "Engine output", "value": "205 kW" },
-      { "icon": "weight", "label": "Operating weight", "value": "28,600 kg" },
-      { "icon": "bucket", "label": "Blade capacity", "value": "7.8 m³" }
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "bucket",
+        "label": "Bucket capacity",
+        "value": "1.2 m³"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "22,400 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Max dig depth",
+        "value": "6.6 m"
+      }
+    ],
+    "features": [
+      "Twin auxiliary circuits, pressure tested before delivery",
+      "Machine-control ready with factory mounting points",
+      "Heavy-duty undercarriage with full-length track guards",
+      "Auto idle and boom float as standard"
+    ],
+    "overview": "The Komatsu PC210LC-11 is a 22,400 kg machine, the size most groundworks contractors buy first and keep longest. VMAX supplies it brand new with the attachment circuits piped and pressure tested in our workshop rather than left for a later visit, so a breaker, shear or tilt-rotate can go on the day it arrives. Machine control is fitted and calibrated on request, and every unit leaves on a scheduled service plan.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "hitachi-zx135us-7",
+    "brand": "Hitachi",
+    "model": "ZX135US-7",
+    "name": "Hitachi ZX135US-7",
+    "category": "Excavators",
+    "categorySlug": "excavators",
+    "icon": "machine",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5156",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-hitachi-zx135us-7",
+    "imageFallback": "vmax-excavators",
+    "blurb": "A 13,600 kg excavator digging to 5.5 m, with twin auxiliary circuits and machine-control mounting as standard.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "bucket",
+        "label": "Bucket capacity",
+        "value": "0.5 m³"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "13,600 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Max dig depth",
+        "value": "5.5 m"
+      }
+    ],
+    "features": [
+      "Twin auxiliary circuits, pressure tested before delivery",
+      "Machine-control ready with factory mounting points",
+      "Heavy-duty undercarriage with full-length track guards",
+      "Auto idle and boom float as standard"
+    ],
+    "overview": "The Hitachi ZX135US-7 is a 13,600 kg machine, the size most groundworks contractors buy first and keep longest. VMAX supplies it brand new with the attachment circuits piped and pressure tested in our workshop rather than left for a later visit, so a breaker, shear or tilt-rotate can go on the day it arrives. Machine control is fitted and calibrated on request, and every unit leaves on a scheduled service plan.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "volvo-ec380e",
+    "brand": "Volvo",
+    "model": "EC380E",
+    "name": "Volvo EC380E",
+    "category": "Excavators",
+    "categorySlug": "excavators",
+    "icon": "machine",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5163",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-volvo-ec380e",
+    "imageFallback": "vmax-excavators",
+    "blurb": "A 38,000 kg excavator digging to 7.5 m, with twin auxiliary circuits and machine-control mounting as standard.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "bucket",
+        "label": "Bucket capacity",
+        "value": "2.2 m³"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "38,000 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Max dig depth",
+        "value": "7.5 m"
+      }
+    ],
+    "features": [
+      "Twin auxiliary circuits, pressure tested before delivery",
+      "Machine-control ready with factory mounting points",
+      "Heavy-duty undercarriage with full-length track guards",
+      "Auto idle and boom float as standard"
+    ],
+    "overview": "The Volvo EC380E is a 38,000 kg machine, the size most groundworks contractors buy first and keep longest. VMAX supplies it brand new with the attachment circuits piped and pressure tested in our workshop rather than left for a later visit, so a breaker, shear or tilt-rotate can go on the day it arrives. Machine control is fitted and calibrated on request, and every unit leaves on a scheduled service plan.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "kubota-u27-4",
+    "brand": "Kubota",
+    "model": "U27-4",
+    "name": "Kubota U27-4",
+    "category": "Excavators",
+    "categorySlug": "excavators",
+    "icon": "machine",
+    "condition": "New",
+    "year": 2026,
+    "status": "Build slot open",
+    "stock": "VMX-5170",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-kubota-u27-4",
+    "imageFallback": "vmax-excavators",
+    "blurb": "A 2,600 kg excavator digging to 2.7 m, with twin auxiliary circuits and machine-control mounting as standard.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4F"
+      },
+      {
+        "icon": "bucket",
+        "label": "Bucket capacity",
+        "value": "0.08 m³"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "2,600 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Max dig depth",
+        "value": "2.7 m"
+      }
+    ],
+    "features": [
+      "Twin auxiliary circuits, pressure tested before delivery",
+      "Machine-control ready with factory mounting points",
+      "Heavy-duty undercarriage with full-length track guards",
+      "Auto idle and boom float as standard"
+    ],
+    "overview": "The Kubota U27-4 is a 2,600 kg machine, the size most groundworks contractors buy first and keep longest. VMAX supplies it brand new with the attachment circuits piped and pressure tested in our workshop rather than left for a later visit, so a breaker, shear or tilt-rotate can go on the day it arrives. Machine control is fitted and calibrated on request, and every unit leaves on a scheduled service plan.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "vmax-vx-e480",
+    "brand": "VMAX",
+    "model": "VX-E480",
+    "name": "VMAX VX-E480",
+    "category": "Excavators",
+    "categorySlug": "excavators",
+    "icon": "machine",
+    "condition": "New",
+    "year": 2026,
+    "status": "Arriving",
+    "stock": "VMX-5177",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-vmax-vx-e480",
+    "imageFallback": "vmax-excavators",
+    "blurb": "A 47,800 kg excavator digging to 7.9 m, with twin auxiliary circuits and machine-control mounting as standard.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "bucket",
+        "label": "Bucket capacity",
+        "value": "2.6 m³"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "47,800 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Max dig depth",
+        "value": "7.9 m"
+      }
+    ],
+    "features": [
+      "Twin auxiliary circuits, pressure tested before delivery",
+      "Machine-control ready with factory mounting points",
+      "Heavy-duty undercarriage with full-length track guards",
+      "Auto idle and boom float as standard"
+    ],
+    "overview": "The VMAX VX-E480 is a 47,800 kg machine, the size most groundworks contractors buy first and keep longest. VMAX supplies it brand new with the attachment circuits piped and pressure tested in our workshop rather than left for a later visit, so a breaker, shear or tilt-rotate can go on the day it arrives. Machine control is fitted and calibrated on request, and every unit leaves on a scheduled service plan.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "caterpillar-d6-xe",
+    "brand": "Caterpillar",
+    "model": "D6 XE",
+    "name": "Caterpillar D6 XE",
+    "category": "Dozers",
+    "categorySlug": "dozers",
+    "icon": "power",
+    "condition": "New",
+    "year": 2026,
+    "status": "To order",
+    "stock": "VMX-5184",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-caterpillar-d6-xe",
+    "imageFallback": "vmax-dozers",
+    "blurb": "A 23,600 kg crawler dozer with a 3.9 m³ blade, sealed track chain and factory grade control.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "158 kW"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "23,600 kg"
+      },
+      {
+        "icon": "bucket",
+        "label": "Blade capacity",
+        "value": "3.9 m³"
+      }
     ],
     "features": [
       "Semi-U blade with hydraulic tilt and pitch",
-      "2D grade control fitted and calibrated",
+      "Grade control fitted and calibrated before delivery",
       "Sealed and lubricated track chain",
       "Rear ripper with three shanks"
     ],
-    "overview": "Bulk earthmoving and haul-road upkeep on one machine. Grade control is fitted and calibrated in our workshop, not sold as a later upgrade, so the first pass on site is already on design level.",
-    "services": ["New Machine Sales", "Operator and Technician Training"]
+    "overview": "The Caterpillar D6 XE handles bulk earthmoving and haul-road upkeep on one machine. VMAX fits and calibrates grade control in our workshop rather than selling it as a later upgrade, so the first pass on site is already on design level. The undercarriage is specified for your ground, and the machine is delivered on a service plan with oil sampling at every visit.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
   },
   {
-    "id": "vx-a45",
-    "model": "VX-A45",
-    "name": "VX-A45 Articulated Hauler",
-    "category": "Haulers",
+    "id": "komatsu-d51px-24",
+    "brand": "Komatsu",
+    "model": "D51PX-24",
+    "name": "Komatsu D51PX-24",
+    "category": "Dozers",
+    "categorySlug": "dozers",
+    "icon": "power",
     "condition": "New",
     "year": 2026,
     "status": "In stock",
-    "stock": "VMX-4440",
+    "stock": "VMX-5191",
     "location": "Main yard",
     "price": "Price on request",
-    "imageName": "vmax8",
-    "blurb": "A 45-tonne payload six-wheel-drive hauler for soft ground, with retarder braking and a heated body.",
+    "imageName": "vmax-komatsu-d51px-24",
+    "imageFallback": "vmax-dozers",
+    "blurb": "A 13,600 kg crawler dozer with a 3.1 m³ blade, sealed track chain and factory grade control.",
     "specs": [
-      { "icon": "emissions", "label": "Emissions", "value": "Stage V / Tier 4F" },
-      { "icon": "payload", "label": "Rated payload", "value": "45,000 kg" },
-      { "icon": "bucket", "label": "Body volume", "value": "27 m³" },
-      { "icon": "weight", "label": "Operating weight", "value": "42,500 kg" }
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "96 kW"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "13,600 kg"
+      },
+      {
+        "icon": "bucket",
+        "label": "Blade capacity",
+        "value": "3.1 m³"
+      }
+    ],
+    "features": [
+      "Semi-U blade with hydraulic tilt and pitch",
+      "Grade control fitted and calibrated before delivery",
+      "Sealed and lubricated track chain",
+      "Rear ripper with three shanks"
+    ],
+    "overview": "The Komatsu D51PX-24 handles bulk earthmoving and haul-road upkeep on one machine. VMAX fits and calibrates grade control in our workshop rather than selling it as a later upgrade, so the first pass on site is already on design level. The undercarriage is specified for your ground, and the machine is delivered on a service plan with oil sampling at every visit.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "vmax-vx-d90",
+    "brand": "VMAX",
+    "model": "VX-D90",
+    "name": "VMAX VX-D90",
+    "category": "Dozers",
+    "categorySlug": "dozers",
+    "icon": "power",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5198",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-vmax-vx-d90",
+    "imageFallback": "vmax-dozers",
+    "blurb": "A 28,600 kg crawler dozer with a 7.8 m³ blade, sealed track chain and factory grade control.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "205 kW"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "28,600 kg"
+      },
+      {
+        "icon": "bucket",
+        "label": "Blade capacity",
+        "value": "7.8 m³"
+      }
+    ],
+    "features": [
+      "Semi-U blade with hydraulic tilt and pitch",
+      "Grade control fitted and calibrated before delivery",
+      "Sealed and lubricated track chain",
+      "Rear ripper with three shanks"
+    ],
+    "overview": "The VMAX VX-D90 handles bulk earthmoving and haul-road upkeep on one machine. VMAX fits and calibrates grade control in our workshop rather than selling it as a later upgrade, so the first pass on site is already on design level. The undercarriage is specified for your ground, and the machine is delivered on a service plan with oil sampling at every visit.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "volvo-a40g",
+    "brand": "Volvo",
+    "model": "A40G",
+    "name": "Volvo A40G",
+    "category": "Articulated Haulers",
+    "categorySlug": "articulated-haulers",
+    "icon": "transport",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5205",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-volvo-a40g",
+    "imageFallback": "vmax-articulated-haulers",
+    "blurb": "A 39,000 kg payload hauler with permanent six-wheel drive, retarder braking and an exhaust-heated body.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "payload",
+        "label": "Rated payload",
+        "value": "39,000 kg"
+      },
+      {
+        "icon": "bucket",
+        "label": "Body volume",
+        "value": "24 m³"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "350 kW"
+      }
     ],
     "features": [
       "Permanent six-wheel drive with inter-axle locks",
@@ -220,27 +772,155 @@
       "Hydraulic retarder for long downhill hauls",
       "Onboard payload weighing with shift reporting"
     ],
-    "overview": "The hauler we recommend when the haul road is soft, steep or both. Permanent six-wheel drive keeps it moving in wet clay, and the retarder takes the load off the service brakes on a long descent.",
-    "services": ["New Machine Sales", "Fleet Rental and Leasing"]
+    "overview": "The Volvo A40G is the hauler to specify when the haul road is soft, steep or both. Permanent six-wheel drive keeps it moving in wet clay, and the retarder takes the load off the service brakes on a long descent. VMAX delivers it new with onboard weighing configured to your shift reporting and a service plan matched to the hours you expect to run.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
   },
   {
-    "id": "vx-g160",
-    "model": "VX-G160",
-    "name": "VX-G160 Motor Grader",
-    "category": "Graders",
+    "id": "caterpillar-730",
+    "brand": "Caterpillar",
+    "model": "730",
+    "name": "Caterpillar 730",
+    "category": "Articulated Haulers",
+    "categorySlug": "articulated-haulers",
+    "icon": "transport",
     "condition": "New",
     "year": 2026,
-    "status": "In stock",
-    "stock": "VMX-4451",
+    "status": "Build slot open",
+    "stock": "VMX-5212",
     "location": "Main yard",
     "price": "Price on request",
-    "imageName": "vmax9",
-    "blurb": "A 4.3-metre mouldboard grader for haul roads, sub-base trimming and snow work.",
+    "imageName": "vmax-caterpillar-730",
+    "imageFallback": "vmax-articulated-haulers",
+    "blurb": "A 28,000 kg payload hauler with permanent six-wheel drive, retarder braking and an exhaust-heated body.",
     "specs": [
-      { "icon": "emissions", "label": "Emissions", "value": "Stage V / Tier 4F" },
-      { "icon": "power", "label": "Engine output", "value": "160 kW" },
-      { "icon": "reach", "label": "Blade width", "value": "4.3 m" },
-      { "icon": "weight", "label": "Operating weight", "value": "19,200 kg" }
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "payload",
+        "label": "Rated payload",
+        "value": "28,000 kg"
+      },
+      {
+        "icon": "bucket",
+        "label": "Body volume",
+        "value": "17.4 m³"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "274 kW"
+      }
+    ],
+    "features": [
+      "Permanent six-wheel drive with inter-axle locks",
+      "Exhaust-heated body for sticky material",
+      "Hydraulic retarder for long downhill hauls",
+      "Onboard payload weighing with shift reporting"
+    ],
+    "overview": "The Caterpillar 730 is the hauler to specify when the haul road is soft, steep or both. Permanent six-wheel drive keeps it moving in wet clay, and the retarder takes the load off the service brakes on a long descent. VMAX delivers it new with onboard weighing configured to your shift reporting and a service plan matched to the hours you expect to run.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "vmax-vx-a45",
+    "brand": "VMAX",
+    "model": "VX-A45",
+    "name": "VMAX VX-A45",
+    "category": "Articulated Haulers",
+    "categorySlug": "articulated-haulers",
+    "icon": "transport",
+    "condition": "New",
+    "year": 2026,
+    "status": "Arriving",
+    "stock": "VMX-5219",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-vmax-vx-a45",
+    "imageFallback": "vmax-articulated-haulers",
+    "blurb": "A 45,000 kg payload hauler with permanent six-wheel drive, retarder braking and an exhaust-heated body.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "payload",
+        "label": "Rated payload",
+        "value": "45,000 kg"
+      },
+      {
+        "icon": "bucket",
+        "label": "Body volume",
+        "value": "27 m³"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "380 kW"
+      }
+    ],
+    "features": [
+      "Permanent six-wheel drive with inter-axle locks",
+      "Exhaust-heated body for sticky material",
+      "Hydraulic retarder for long downhill hauls",
+      "Onboard payload weighing with shift reporting"
+    ],
+    "overview": "The VMAX VX-A45 is the hauler to specify when the haul road is soft, steep or both. Permanent six-wheel drive keeps it moving in wet clay, and the retarder takes the load off the service brakes on a long descent. VMAX delivers it new with onboard weighing configured to your shift reporting and a service plan matched to the hours you expect to run.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "caterpillar-140",
+    "brand": "Caterpillar",
+    "model": "140",
+    "name": "Caterpillar 140",
+    "category": "Motor Graders",
+    "categorySlug": "motor-graders",
+    "icon": "reach",
+    "condition": "New",
+    "year": 2026,
+    "status": "To order",
+    "stock": "VMX-5226",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-caterpillar-140",
+    "imageFallback": "vmax-motor-graders",
+    "blurb": "A 4.3 m mouldboard grader with all-wheel drive, joystick steering and 3D machine-control mounts.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "138 kW"
+      },
+      {
+        "icon": "reach",
+        "label": "Blade width",
+        "value": "4.3 m"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "19,000 kg"
+      }
     ],
     "features": [
       "All-wheel drive with hydraulic front-wheel assist",
@@ -248,27 +928,103 @@
       "Front lift group and rear ripper",
       "Joystick steering with variable ratio"
     ],
-    "overview": "Trimming to design level on a grader is a skill, and machine control shortens the learning curve. We supply the mounts, harness and calibration with the machine so the mast goes on the blade the day it lands.",
-    "services": ["New Machine Sales", "Operator and Technician Training"]
+    "overview": "Trimming to design level on a grader is a skill, and machine control shortens the learning curve. VMAX supplies the Caterpillar 140 with the mounts, harness and calibration included, so the mast goes on the blade the day it lands, and operator training on your own site is part of the handover.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
   },
   {
-    "id": "vx-b120",
-    "model": "VX-B120",
-    "name": "VX-B120 Backhoe Loader",
-    "category": "Backhoe Loaders",
+    "id": "vmax-vx-g160",
+    "brand": "VMAX",
+    "model": "VX-G160",
+    "name": "VMAX VX-G160",
+    "category": "Motor Graders",
+    "categorySlug": "motor-graders",
+    "icon": "reach",
     "condition": "New",
     "year": 2026,
     "status": "In stock",
-    "stock": "VMX-4462",
+    "stock": "VMX-5233",
     "location": "Main yard",
     "price": "Price on request",
-    "imageName": "vmax10",
-    "blurb": "Two machines in one for utilities work: a four-in-one loader shovel at the front and a sideshift backhoe behind.",
+    "imageName": "vmax-vmax-vx-g160",
+    "imageFallback": "vmax-motor-graders",
+    "blurb": "A 4.3 m mouldboard grader with all-wheel drive, joystick steering and 3D machine-control mounts.",
     "specs": [
-      { "icon": "emissions", "label": "Emissions", "value": "Stage V / Tier 4F" },
-      { "icon": "bucket", "label": "Loader capacity", "value": "1.1 m³" },
-      { "icon": "reach", "label": "Max dig depth", "value": "5.9 m" },
-      { "icon": "weight", "label": "Operating weight", "value": "8,900 kg" }
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "160 kW"
+      },
+      {
+        "icon": "reach",
+        "label": "Blade width",
+        "value": "4.3 m"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "19,200 kg"
+      }
+    ],
+    "features": [
+      "All-wheel drive with hydraulic front-wheel assist",
+      "3D machine-control mounts and harness fitted",
+      "Front lift group and rear ripper",
+      "Joystick steering with variable ratio"
+    ],
+    "overview": "Trimming to design level on a grader is a skill, and machine control shortens the learning curve. VMAX supplies the VMAX VX-G160 with the mounts, harness and calibration included, so the mast goes on the blade the day it lands, and operator training on your own site is part of the handover.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "jcb-3cx",
+    "brand": "JCB",
+    "model": "3CX",
+    "name": "JCB 3CX",
+    "category": "Backhoe Loaders",
+    "categorySlug": "backhoe-loaders",
+    "icon": "machine",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5240",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-jcb-3cx",
+    "imageFallback": "vmax-backhoe-loaders",
+    "blurb": "A 8,070 kg backhoe with a four-in-one front shovel, sideshift carriage and 5.46 m of dig depth.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "bucket",
+        "label": "Loader capacity",
+        "value": "1 m³"
+      },
+      {
+        "icon": "reach",
+        "label": "Max dig depth",
+        "value": "5.46 m"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "8,070 kg"
+      }
     ],
     "features": [
       "Four-in-one front shovel with pallet forks",
@@ -276,55 +1032,311 @@
       "Extending dipper arm as standard",
       "40 km/h road speed with trailer braking"
     ],
-    "overview": "For utility gangs who need to dig, load, backfill and then drive to the next street without a low-loader. The sideshift carriage matters more than the numbers: it is what lets you dig tight against a kerb line.",
-    "services": ["New Machine Sales", "Genuine Parts and Attachments"]
+    "overview": "For utility gangs who need to dig, load, backfill and then drive to the next street without a low-loader. The sideshift carriage matters more than the headline numbers: it is what lets you dig tight against a kerb line. VMAX supplies the JCB 3CX new with the attachment set you actually use, and services it on your yard rather than ours.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
   },
   {
-    "id": "vx-r140",
-    "model": "VX-R140",
-    "name": "VX-R140 Soil Compactor",
-    "category": "Compaction",
-    "condition": "Certified used",
-    "year": 2023,
-    "status": "In stock",
-    "stock": "VMX-3944",
-    "location": "Main yard",
-    "price": "Price on request",
-    "imageName": "vmax11",
-    "blurb": "A padfoot soil roller with 2,300 hours, compaction metering and a fresh drum bearing set.",
-    "specs": [
-      { "icon": "emissions", "label": "Emissions", "value": "Stage IIIB / Tier 4i" },
-      { "icon": "weight", "label": "Operating weight", "value": "14,200 kg" },
-      { "icon": "reach", "label": "Drum width", "value": "2.1 m" },
-      { "icon": "hours", "label": "Hours on clock", "value": "2,300 h" }
-    ],
-    "features": [
-      "Padfoot drum with bolt-on smooth shell kit",
-      "Compaction meter with pass counting",
-      "New drum bearings and isolation mounts",
-      "ROPS cab with air conditioning"
-    ],
-    "overview": "Compaction is the cheapest part of an earthworks package to get wrong. Pass counting tells the operator when the layer is done, which stops both the under-rolled layer and the six wasted passes after it.",
-    "services": ["Certified Used Equipment", "Fleet Rental and Leasing"]
-  },
-  {
-    "id": "vx-t70",
-    "model": "VX-T70",
-    "name": "VX-T70 Telehandler",
-    "category": "Telehandlers",
+    "id": "caterpillar-428",
+    "brand": "Caterpillar",
+    "model": "428",
+    "name": "Caterpillar 428",
+    "category": "Backhoe Loaders",
+    "categorySlug": "backhoe-loaders",
+    "icon": "machine",
     "condition": "New",
     "year": 2026,
     "status": "In stock",
-    "stock": "VMX-4470",
+    "stock": "VMX-5247",
     "location": "Main yard",
     "price": "Price on request",
-    "imageName": "vmax12",
-    "blurb": "A seven-tonne, 17-metre telehandler with stabilisers, load charts on screen and a hydraulic attachment lock.",
+    "imageName": "vmax-caterpillar-428",
+    "imageFallback": "vmax-backhoe-loaders",
+    "blurb": "A 8,700 kg backhoe with a four-in-one front shovel, sideshift carriage and 5.5 m of dig depth.",
     "specs": [
-      { "icon": "emissions", "label": "Emissions", "value": "Stage V / Tier 4F" },
-      { "icon": "payload", "label": "Max lift capacity", "value": "7,000 kg" },
-      { "icon": "reach", "label": "Max lift height", "value": "17.0 m" },
-      { "icon": "weight", "label": "Operating weight", "value": "12,400 kg" }
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "bucket",
+        "label": "Loader capacity",
+        "value": "1.03 m³"
+      },
+      {
+        "icon": "reach",
+        "label": "Max dig depth",
+        "value": "5.5 m"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "8,700 kg"
+      }
+    ],
+    "features": [
+      "Four-in-one front shovel with pallet forks",
+      "Sideshift backhoe for working against a kerb",
+      "Extending dipper arm as standard",
+      "40 km/h road speed with trailer braking"
+    ],
+    "overview": "For utility gangs who need to dig, load, backfill and then drive to the next street without a low-loader. The sideshift carriage matters more than the headline numbers: it is what lets you dig tight against a kerb line. VMAX supplies the Caterpillar 428 new with the attachment set you actually use, and services it on your yard rather than ours.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "vmax-vx-b120",
+    "brand": "VMAX",
+    "model": "VX-B120",
+    "name": "VMAX VX-B120",
+    "category": "Backhoe Loaders",
+    "categorySlug": "backhoe-loaders",
+    "icon": "machine",
+    "condition": "New",
+    "year": 2026,
+    "status": "Build slot open",
+    "stock": "VMX-5254",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-vmax-vx-b120",
+    "imageFallback": "vmax-backhoe-loaders",
+    "blurb": "A 8,900 kg backhoe with a four-in-one front shovel, sideshift carriage and 5.9 m of dig depth.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "bucket",
+        "label": "Loader capacity",
+        "value": "1.1 m³"
+      },
+      {
+        "icon": "reach",
+        "label": "Max dig depth",
+        "value": "5.9 m"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "8,900 kg"
+      }
+    ],
+    "features": [
+      "Four-in-one front shovel with pallet forks",
+      "Sideshift backhoe for working against a kerb",
+      "Extending dipper arm as standard",
+      "40 km/h road speed with trailer braking"
+    ],
+    "overview": "For utility gangs who need to dig, load, backfill and then drive to the next street without a low-loader. The sideshift carriage matters more than the headline numbers: it is what lets you dig tight against a kerb line. VMAX supplies the VMAX VX-B120 new with the attachment set you actually use, and services it on your yard rather than ours.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "bomag-bw-213-d-5",
+    "brand": "Bomag",
+    "model": "BW 213 D-5",
+    "name": "Bomag BW 213 D-5",
+    "category": "Compaction",
+    "categorySlug": "compaction",
+    "icon": "weight",
+    "condition": "New",
+    "year": 2026,
+    "status": "Arriving",
+    "stock": "VMX-5261",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-bomag-bw-213-d-5",
+    "imageFallback": "vmax-compaction",
+    "blurb": "A 12,500 kg roller on a 2.13 m drum, with compaction metering and pass counting on the screen.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "12,500 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Drum width",
+        "value": "2.13 m"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "115 kW"
+      }
+    ],
+    "features": [
+      "Compaction meter with pass counting",
+      "Padfoot shell kit available",
+      "ROPS cab with air conditioning",
+      "Articulated frame with oscillating joint"
+    ],
+    "overview": "Compaction is the cheapest part of an earthworks package to get wrong. Pass counting tells the operator when the layer is done, which stops both the under-rolled layer and the six wasted passes after it. VMAX supplies the Bomag BW 213 D-5 new with the metering configured and the operator shown how to read it.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "wacker-neuson-rd18",
+    "brand": "Wacker Neuson",
+    "model": "RD18",
+    "name": "Wacker Neuson RD18",
+    "category": "Compaction",
+    "categorySlug": "compaction",
+    "icon": "weight",
+    "condition": "New",
+    "year": 2026,
+    "status": "To order",
+    "stock": "VMX-5268",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-wacker-neuson-rd18",
+    "imageFallback": "vmax-compaction",
+    "blurb": "A 1,600 kg roller on a 0.9 m drum, with compaction metering and pass counting on the screen.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4F"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "1,600 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Drum width",
+        "value": "0.9 m"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "18.5 kW"
+      }
+    ],
+    "features": [
+      "Compaction meter with pass counting",
+      "Padfoot shell kit available",
+      "ROPS cab with air conditioning",
+      "Articulated frame with oscillating joint"
+    ],
+    "overview": "Compaction is the cheapest part of an earthworks package to get wrong. Pass counting tells the operator when the layer is done, which stops both the under-rolled layer and the six wasted passes after it. VMAX supplies the Wacker Neuson RD18 new with the metering configured and the operator shown how to read it.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "vmax-vx-r140",
+    "brand": "VMAX",
+    "model": "VX-R140",
+    "name": "VMAX VX-R140",
+    "category": "Compaction",
+    "categorySlug": "compaction",
+    "icon": "weight",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5275",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-vmax-vx-r140",
+    "imageFallback": "vmax-compaction",
+    "blurb": "A 14,200 kg roller on a 2.1 m drum, with compaction metering and pass counting on the screen.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "14,200 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Drum width",
+        "value": "2.1 m"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "115 kW"
+      }
+    ],
+    "features": [
+      "Compaction meter with pass counting",
+      "Padfoot shell kit available",
+      "ROPS cab with air conditioning",
+      "Articulated frame with oscillating joint"
+    ],
+    "overview": "Compaction is the cheapest part of an earthworks package to get wrong. Pass counting tells the operator when the layer is done, which stops both the under-rolled layer and the six wasted passes after it. VMAX supplies the VMAX VX-R140 new with the metering configured and the operator shown how to read it.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "jcb-540-140",
+    "brand": "JCB",
+    "model": "540-140",
+    "name": "JCB 540-140",
+    "category": "Telehandlers",
+    "categorySlug": "telehandlers",
+    "icon": "payload",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5282",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-jcb-540-140",
+    "imageFallback": "vmax-telehandlers",
+    "blurb": "A 4,000 kg telehandler reaching 13.8 m, with stabilisers, on-screen load charts and a hydraulic attachment lock.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "payload",
+        "label": "Max lift capacity",
+        "value": "4,000 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Max lift height",
+        "value": "13.8 m"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "10,500 kg"
+      }
     ],
     "features": [
       "Hydraulic stabilisers with automatic levelling",
@@ -332,7 +1344,1259 @@
       "Hydraulic attachment lock, no dismount to change",
       "Three steering modes including crab"
     ],
-    "overview": "The machine that keeps a build moving between the crane hires. Seventeen metres reaches the fourth lift of scaffold, and the on-screen load chart changes with the attachment rather than living in a laminated card in the door pocket.",
-    "services": ["New Machine Sales", "Fleet Rental and Leasing"]
+    "overview": "The machine that keeps a build moving between crane hires. The JCB 540-140 reaches 13.8 m and the on-screen load chart changes with the attachment rather than living in a laminated card in the door pocket. VMAX supplies it new with the forks, bucket and hook you need, and services it where it is working.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "manitou-mt-1840",
+    "brand": "Manitou",
+    "model": "MT 1840",
+    "name": "Manitou MT 1840",
+    "category": "Telehandlers",
+    "categorySlug": "telehandlers",
+    "icon": "payload",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5289",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-manitou-mt-1840",
+    "imageFallback": "vmax-telehandlers",
+    "blurb": "A 4,000 kg telehandler reaching 17.5 m, with stabilisers, on-screen load charts and a hydraulic attachment lock.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "payload",
+        "label": "Max lift capacity",
+        "value": "4,000 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Max lift height",
+        "value": "17.5 m"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "11,400 kg"
+      }
+    ],
+    "features": [
+      "Hydraulic stabilisers with automatic levelling",
+      "On-screen load chart tied to the fitted attachment",
+      "Hydraulic attachment lock, no dismount to change",
+      "Three steering modes including crab"
+    ],
+    "overview": "The machine that keeps a build moving between crane hires. The Manitou MT 1840 reaches 17.5 m and the on-screen load chart changes with the attachment rather than living in a laminated card in the door pocket. VMAX supplies it new with the forks, bucket and hook you need, and services it where it is working.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "vmax-vx-t70",
+    "brand": "VMAX",
+    "model": "VX-T70",
+    "name": "VMAX VX-T70",
+    "category": "Telehandlers",
+    "categorySlug": "telehandlers",
+    "icon": "payload",
+    "condition": "New",
+    "year": 2026,
+    "status": "Build slot open",
+    "stock": "VMX-5296",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-vmax-vx-t70",
+    "imageFallback": "vmax-telehandlers",
+    "blurb": "A 7,000 kg telehandler reaching 17 m, with stabilisers, on-screen load charts and a hydraulic attachment lock.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "payload",
+        "label": "Max lift capacity",
+        "value": "7,000 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Max lift height",
+        "value": "17 m"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "12,400 kg"
+      }
+    ],
+    "features": [
+      "Hydraulic stabilisers with automatic levelling",
+      "On-screen load chart tied to the fitted attachment",
+      "Hydraulic attachment lock, no dismount to change",
+      "Three steering modes including crab"
+    ],
+    "overview": "The machine that keeps a build moving between crane hires. The VMAX VX-T70 reaches 17 m and the on-screen load chart changes with the attachment rather than living in a laminated card in the door pocket. VMAX supplies it new with the forks, bucket and hook you need, and services it where it is working.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "john-deere-6120m",
+    "brand": "John Deere",
+    "model": "6120M",
+    "name": "John Deere 6120M",
+    "category": "Tractors",
+    "categorySlug": "tractors",
+    "icon": "tractor",
+    "condition": "New",
+    "year": 2026,
+    "status": "Arriving",
+    "stock": "VMX-5303",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-john-deere-6120m",
+    "imageFallback": "vmax-tractors",
+    "blurb": "A 120 horsepower tractor with 5,800 kg on the rear linkage, creep-speed transmission and loader mounts fitted.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "88 kW (120 hp)"
+      },
+      {
+        "icon": "payload",
+        "label": "Rear lift capacity",
+        "value": "5,800 kg"
+      },
+      {
+        "icon": "weight",
+        "label": "Unladen weight",
+        "value": "5,725 kg"
+      }
+    ],
+    "features": [
+      "Front linkage and PTO, factory fitted",
+      "Loader mounts and third-service hydraulics",
+      "Creep-speed transmission for low-ground-speed work",
+      "Air-suspended cab with four-post ROPS"
+    ],
+    "overview": "The John Deere 6120M covers the work most yards and farms actually do: haulage, loader work, PTO drive and a fair amount of road running. VMAX supplies it new with the loader, linkage and tyre specification decided against the jobs you listed, delivers it commissioned, and services it on a plan that follows engine hours rather than the calendar.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "new-holland-t6-180",
+    "brand": "New Holland",
+    "model": "T6.180",
+    "name": "New Holland T6.180",
+    "category": "Tractors",
+    "categorySlug": "tractors",
+    "icon": "tractor",
+    "condition": "New",
+    "year": 2026,
+    "status": "To order",
+    "stock": "VMX-5310",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-new-holland-t6-180",
+    "imageFallback": "vmax-tractors",
+    "blurb": "A 175 horsepower tractor with 7,864 kg on the rear linkage, creep-speed transmission and loader mounts fitted.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "132 kW (175 hp)"
+      },
+      {
+        "icon": "payload",
+        "label": "Rear lift capacity",
+        "value": "7,864 kg"
+      },
+      {
+        "icon": "weight",
+        "label": "Unladen weight",
+        "value": "6,000 kg"
+      }
+    ],
+    "features": [
+      "Front linkage and PTO, factory fitted",
+      "Loader mounts and third-service hydraulics",
+      "Creep-speed transmission for low-ground-speed work",
+      "Air-suspended cab with four-post ROPS"
+    ],
+    "overview": "The New Holland T6.180 covers the work most yards and farms actually do: haulage, loader work, PTO drive and a fair amount of road running. VMAX supplies it new with the loader, linkage and tyre specification decided against the jobs you listed, delivers it commissioned, and services it on a plan that follows engine hours rather than the calendar.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "massey-ferguson-mf-5s-135",
+    "brand": "Massey Ferguson",
+    "model": "MF 5S.135",
+    "name": "Massey Ferguson MF 5S.135",
+    "category": "Tractors",
+    "categorySlug": "tractors",
+    "icon": "tractor",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5317",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-massey-ferguson-mf-5s-135",
+    "imageFallback": "vmax-tractors",
+    "blurb": "A 135 horsepower tractor with 6,000 kg on the rear linkage, creep-speed transmission and loader mounts fitted.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "99 kW (135 hp)"
+      },
+      {
+        "icon": "payload",
+        "label": "Rear lift capacity",
+        "value": "6,000 kg"
+      },
+      {
+        "icon": "weight",
+        "label": "Unladen weight",
+        "value": "5,400 kg"
+      }
+    ],
+    "features": [
+      "Front linkage and PTO, factory fitted",
+      "Loader mounts and third-service hydraulics",
+      "Creep-speed transmission for low-ground-speed work",
+      "Air-suspended cab with four-post ROPS"
+    ],
+    "overview": "The Massey Ferguson MF 5S.135 covers the work most yards and farms actually do: haulage, loader work, PTO drive and a fair amount of road running. VMAX supplies it new with the loader, linkage and tyre specification decided against the jobs you listed, delivers it commissioned, and services it on a plan that follows engine hours rather than the calendar.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "epiroc-smartroc-t35",
+    "brand": "Epiroc",
+    "model": "SmartROC T35",
+    "name": "Epiroc SmartROC T35",
+    "category": "Drill Rigs",
+    "categorySlug": "drill-rigs",
+    "icon": "drill",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5324",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-epiroc-smartroc-t35",
+    "imageFallback": "vmax-drill-rigs",
+    "blurb": "A surface drill rig for 64 - 115 mm holes, with automatic rod handling, dust control and on-board hole navigation.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "reach",
+        "label": "Hole diameter",
+        "value": "64 - 115 mm"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "168 kW"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "15,700 kg"
+      }
+    ],
+    "features": [
+      "Automatic rod handling with carousel",
+      "Hole navigation and angle instrumentation",
+      "Dust collection and water mist suppression",
+      "Remote tramming from outside the cab"
+    ],
+    "overview": "Drilling straight and to depth is what everything downstream depends on, so the Epiroc SmartROC T35 carries hole navigation and angle instrumentation rather than a spirit level. VMAX supplies it new with the rod and bit package sized for your rock, and a service plan that covers the percussion end, which is what actually wears.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "sandvik-dp1500i",
+    "brand": "Sandvik",
+    "model": "DP1500i",
+    "name": "Sandvik DP1500i",
+    "category": "Drill Rigs",
+    "categorySlug": "drill-rigs",
+    "icon": "drill",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5331",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-sandvik-dp1500i",
+    "imageFallback": "vmax-drill-rigs",
+    "blurb": "A surface drill rig for 89 - 140 mm holes, with automatic rod handling, dust control and on-board hole navigation.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "reach",
+        "label": "Hole diameter",
+        "value": "89 - 140 mm"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "242 kW"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "20,500 kg"
+      }
+    ],
+    "features": [
+      "Automatic rod handling with carousel",
+      "Hole navigation and angle instrumentation",
+      "Dust collection and water mist suppression",
+      "Remote tramming from outside the cab"
+    ],
+    "overview": "Drilling straight and to depth is what everything downstream depends on, so the Sandvik DP1500i carries hole navigation and angle instrumentation rather than a spirit level. VMAX supplies it new with the rod and bit package sized for your rock, and a service plan that covers the percussion end, which is what actually wears.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "genie-s-65-xc",
+    "brand": "Genie",
+    "model": "S-65 XC",
+    "name": "Genie S-65 XC",
+    "category": "Aerial Lifts",
+    "categorySlug": "aerial-lifts",
+    "icon": "lift",
+    "condition": "New",
+    "year": 2026,
+    "status": "Build slot open",
+    "stock": "VMX-5338",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-genie-s-65-xc",
+    "imageFallback": "vmax-aerial-lifts",
+    "blurb": "A 21.8 m working height platform carrying 300 kg, with proportional controls and rough-terrain four-wheel drive.",
+    "specs": [
+      {
+        "icon": "reach",
+        "label": "Working height",
+        "value": "21.8 m"
+      },
+      {
+        "icon": "payload",
+        "label": "Platform capacity",
+        "value": "300 kg"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "12,100 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Power",
+        "value": "Diesel, 4WD"
+      }
+    ],
+    "features": [
+      "Proportional controls with load sensing",
+      "Platform overload detection and cut-out",
+      "Ground controls with emergency lowering",
+      "Statutory examination scheduled with servicing"
+    ],
+    "overview": "The Genie S-65 XC gives 21.8 m of working height with the outreach to get over an obstruction rather than only up. VMAX supplies it new with the harness points, load sensing and inspection paperwork in order from day one, and handles the statutory thorough examinations alongside routine servicing.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "genie-gs-3246",
+    "brand": "Genie",
+    "model": "GS-3246",
+    "name": "Genie GS-3246",
+    "category": "Aerial Lifts",
+    "categorySlug": "aerial-lifts",
+    "icon": "lift",
+    "condition": "New",
+    "year": 2026,
+    "status": "Arriving",
+    "stock": "VMX-5345",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-genie-gs-3246",
+    "imageFallback": "vmax-aerial-lifts",
+    "blurb": "A 11.75 m working height platform carrying 320 kg, with proportional controls and non-marking tyres for indoor work.",
+    "specs": [
+      {
+        "icon": "reach",
+        "label": "Working height",
+        "value": "11.75 m"
+      },
+      {
+        "icon": "payload",
+        "label": "Platform capacity",
+        "value": "320 kg"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "2,830 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Power",
+        "value": "Electric, 48 V"
+      }
+    ],
+    "features": [
+      "Proportional controls with load sensing",
+      "Platform overload detection and cut-out",
+      "Ground controls with emergency lowering",
+      "Statutory examination scheduled with servicing"
+    ],
+    "overview": "The Genie GS-3246 gives 11.75 m of working height with the outreach to get over an obstruction rather than only up. VMAX supplies it new with the harness points, load sensing and inspection paperwork in order from day one, and handles the statutory thorough examinations alongside routine servicing.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "jlg-1930es",
+    "brand": "JLG",
+    "model": "1930ES",
+    "name": "JLG 1930ES",
+    "category": "Aerial Lifts",
+    "categorySlug": "aerial-lifts",
+    "icon": "lift",
+    "condition": "New",
+    "year": 2026,
+    "status": "To order",
+    "stock": "VMX-5352",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-jlg-1930es",
+    "imageFallback": "vmax-aerial-lifts",
+    "blurb": "A 7.72 m working height platform carrying 227 kg, with proportional controls and non-marking tyres for indoor work.",
+    "specs": [
+      {
+        "icon": "reach",
+        "label": "Working height",
+        "value": "7.72 m"
+      },
+      {
+        "icon": "payload",
+        "label": "Platform capacity",
+        "value": "227 kg"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "1,450 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Power",
+        "value": "Electric, 48 V"
+      }
+    ],
+    "features": [
+      "Proportional controls with load sensing",
+      "Platform overload detection and cut-out",
+      "Ground controls with emergency lowering",
+      "Statutory examination scheduled with servicing"
+    ],
+    "overview": "The JLG 1930ES gives 7.72 m of working height with the outreach to get over an obstruction rather than only up. VMAX supplies it new with the harness points, load sensing and inspection paperwork in order from day one, and handles the statutory thorough examinations alongside routine servicing.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "toyota-8fbm25t",
+    "brand": "Toyota",
+    "model": "8FBM25T",
+    "name": "Toyota 8FBM25T",
+    "category": "Forklifts",
+    "categorySlug": "forklifts",
+    "icon": "forklift",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5359",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-toyota-8fbm25t",
+    "imageFallback": "vmax-forklifts",
+    "blurb": "A 2,500 kg electric counterbalance truck lifting to 3 m, with side-shift and fork positioning.",
+    "specs": [
+      {
+        "icon": "payload",
+        "label": "Lift capacity",
+        "value": "2,500 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Lift height",
+        "value": "3 m"
+      },
+      {
+        "icon": "weight",
+        "label": "Service weight",
+        "value": "4,100 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Power",
+        "value": "Electric, 48 V"
+      }
+    ],
+    "features": [
+      "Side-shift and fork positioning as standard",
+      "Full free-lift triplex mast",
+      "Cushion or pneumatic tyres to suit the floor",
+      "Thorough examination scheduled with servicing"
+    ],
+    "overview": "The Toyota 8FBM25T is specified around the load, the aisle and the floor, which is why VMAX quotes mast, tyre and attachment before price. Supplied new with thorough examination scheduled, operator familiarisation on your own floor, and a service plan that keeps the mast and the hydraulics in the same visit.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "hyster-h8-0ft9",
+    "brand": "Hyster",
+    "model": "H8.0FT9",
+    "name": "Hyster H8.0FT9",
+    "category": "Forklifts",
+    "categorySlug": "forklifts",
+    "icon": "forklift",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5366",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-hyster-h8-0ft9",
+    "imageFallback": "vmax-forklifts",
+    "blurb": "A 8,000 kg diesel counterbalance truck lifting to 3 m, with side-shift and fork positioning.",
+    "specs": [
+      {
+        "icon": "payload",
+        "label": "Lift capacity",
+        "value": "8,000 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Lift height",
+        "value": "3 m"
+      },
+      {
+        "icon": "weight",
+        "label": "Service weight",
+        "value": "11,400 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Power",
+        "value": "Diesel"
+      }
+    ],
+    "features": [
+      "Side-shift and fork positioning as standard",
+      "Full free-lift triplex mast",
+      "Cushion or pneumatic tyres to suit the floor",
+      "Thorough examination scheduled with servicing"
+    ],
+    "overview": "The Hyster H8.0FT9 is specified around the load, the aisle and the floor, which is why VMAX quotes mast, tyre and attachment before price. Supplied new with thorough examination scheduled, operator familiarisation on your own floor, and a service plan that keeps the mast and the hydraulics in the same visit.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "linde-h35d",
+    "brand": "Linde",
+    "model": "H35D",
+    "name": "Linde H35D",
+    "category": "Forklifts",
+    "categorySlug": "forklifts",
+    "icon": "forklift",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5373",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-linde-h35d",
+    "imageFallback": "vmax-forklifts",
+    "blurb": "A 3,500 kg diesel counterbalance truck lifting to 3.3 m, with side-shift and fork positioning.",
+    "specs": [
+      {
+        "icon": "payload",
+        "label": "Lift capacity",
+        "value": "3,500 kg"
+      },
+      {
+        "icon": "reach",
+        "label": "Lift height",
+        "value": "3.3 m"
+      },
+      {
+        "icon": "weight",
+        "label": "Service weight",
+        "value": "5,400 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Power",
+        "value": "Diesel"
+      }
+    ],
+    "features": [
+      "Side-shift and fork positioning as standard",
+      "Full free-lift triplex mast",
+      "Cushion or pneumatic tyres to suit the floor",
+      "Thorough examination scheduled with servicing"
+    ],
+    "overview": "The Linde H35D is specified around the load, the aisle and the floor, which is why VMAX quotes mast, tyre and attachment before price. Supplied new with thorough examination scheduled, operator familiarisation on your own floor, and a service plan that keeps the mast and the hydraulics in the same visit.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "bobcat-t770",
+    "brand": "Bobcat",
+    "model": "T770",
+    "name": "Bobcat T770",
+    "category": "Skid Steers",
+    "categorySlug": "skid-steers",
+    "icon": "machine",
+    "condition": "New",
+    "year": 2026,
+    "status": "Build slot open",
+    "stock": "VMX-5380",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-bobcat-t770",
+    "imageFallback": "vmax-skid-steers",
+    "blurb": "A 1,565 kg rated compact track loader with high-flow auxiliaries and a universal attachment plate.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "payload",
+        "label": "Rated capacity",
+        "value": "1,565 kg"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "5,050 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "68 kW"
+      }
+    ],
+    "features": [
+      "High-flow auxiliary hydraulics, tested before delivery",
+      "Universal attachment plate with hydraulic lock",
+      "Two-speed travel with self-levelling lift",
+      "Sealed and pressurised cab with air conditioning"
+    ],
+    "overview": "A skid steer earns its keep on attachments, so the Bobcat T770 is supplied with high-flow hydraulics plumbed and tested and the couplers you actually use. VMAX delivers it new with the attachment set agreed up front and keeps carrier and attachments on the same service plan.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "caterpillar-262d3",
+    "brand": "Caterpillar",
+    "model": "262D3",
+    "name": "Caterpillar 262D3",
+    "category": "Skid Steers",
+    "categorySlug": "skid-steers",
+    "icon": "machine",
+    "condition": "New",
+    "year": 2026,
+    "status": "Arriving",
+    "stock": "VMX-5387",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-caterpillar-262d3",
+    "imageFallback": "vmax-skid-steers",
+    "blurb": "A 1,225 kg rated skid steer with high-flow auxiliaries and a universal attachment plate.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "payload",
+        "label": "Rated capacity",
+        "value": "1,225 kg"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "3,650 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "55 kW"
+      }
+    ],
+    "features": [
+      "High-flow auxiliary hydraulics, tested before delivery",
+      "Universal attachment plate with hydraulic lock",
+      "Two-speed travel with self-levelling lift",
+      "Sealed and pressurised cab with air conditioning"
+    ],
+    "overview": "A skid steer earns its keep on attachments, so the Caterpillar 262D3 is supplied with high-flow hydraulics plumbed and tested and the couplers you actually use. VMAX delivers it new with the attachment set agreed up front and keeps carrier and attachments on the same service plan.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "kubota-svl75-3",
+    "brand": "Kubota",
+    "model": "SVL75-3",
+    "name": "Kubota SVL75-3",
+    "category": "Skid Steers",
+    "categorySlug": "skid-steers",
+    "icon": "machine",
+    "condition": "New",
+    "year": 2026,
+    "status": "To order",
+    "stock": "VMX-5394",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-kubota-svl75-3",
+    "imageFallback": "vmax-skid-steers",
+    "blurb": "A 1,180 kg rated compact track loader with high-flow auxiliaries and a universal attachment plate.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "payload",
+        "label": "Rated capacity",
+        "value": "1,180 kg"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "4,200 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "55 kW"
+      }
+    ],
+    "features": [
+      "High-flow auxiliary hydraulics, tested before delivery",
+      "Universal attachment plate with hydraulic lock",
+      "Two-speed travel with self-levelling lift",
+      "Sealed and pressurised cab with air conditioning"
+    ],
+    "overview": "A skid steer earns its keep on attachments, so the Kubota SVL75-3 is supplied with high-flow hydraulics plumbed and tested and the couplers you actually use. VMAX delivers it new with the attachment set agreed up front and keeps carrier and attachments on the same service plan.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "liebherr-ltm-1050-3-1",
+    "brand": "Liebherr",
+    "model": "LTM 1050-3.1",
+    "name": "Liebherr LTM 1050-3.1",
+    "category": "Cranes",
+    "categorySlug": "cranes",
+    "icon": "crane",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5401",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-liebherr-ltm-1050-3-1",
+    "imageFallback": "vmax-cranes",
+    "blurb": "A 50 tonne crane with 38 m of main boom, load moment protection and outrigger position sensing.",
+    "specs": [
+      {
+        "icon": "payload",
+        "label": "Max lift capacity",
+        "value": "50 t"
+      },
+      {
+        "icon": "reach",
+        "label": "Main boom",
+        "value": "38 m"
+      },
+      {
+        "icon": "weight",
+        "label": "Gross weight",
+        "value": "36,000 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "270 kW"
+      }
+    ],
+    "features": [
+      "Load moment indication with working envelope limits",
+      "Outrigger position sensing and automatic set-up check",
+      "Single-engine drive with creep mode",
+      "Thorough examination scheduled with servicing"
+    ],
+    "overview": "A crane is bought against a lifting plan, so VMAX sizes the Liebherr LTM 1050-3.1 against your heaviest lift and your tightest set-up, not the brochure maximum. Supplied new with load moment indication configured, outrigger sensing calibrated, and thorough examination scheduled alongside servicing.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "grove-gmk3060l",
+    "brand": "Grove",
+    "model": "GMK3060L",
+    "name": "Grove GMK3060L",
+    "category": "Cranes",
+    "categorySlug": "cranes",
+    "icon": "crane",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5408",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-grove-gmk3060l",
+    "imageFallback": "vmax-cranes",
+    "blurb": "A 60 tonne crane with 48 m of main boom, load moment protection and outrigger position sensing.",
+    "specs": [
+      {
+        "icon": "payload",
+        "label": "Max lift capacity",
+        "value": "60 t"
+      },
+      {
+        "icon": "reach",
+        "label": "Main boom",
+        "value": "48 m"
+      },
+      {
+        "icon": "weight",
+        "label": "Gross weight",
+        "value": "36,000 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "270 kW"
+      }
+    ],
+    "features": [
+      "Load moment indication with working envelope limits",
+      "Outrigger position sensing and automatic set-up check",
+      "Single-engine drive with creep mode",
+      "Thorough examination scheduled with servicing"
+    ],
+    "overview": "A crane is bought against a lifting plan, so VMAX sizes the Grove GMK3060L against your heaviest lift and your tightest set-up, not the brochure maximum. Supplied new with load moment indication configured, outrigger sensing calibrated, and thorough examination scheduled alongside servicing.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "thwaites-9-tonne-swivel",
+    "brand": "Thwaites",
+    "model": "9 Tonne Swivel",
+    "name": "Thwaites 9 Tonne Swivel",
+    "category": "Site Dumpers",
+    "categorySlug": "site-dumpers",
+    "icon": "transport",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5415",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-thwaites-9-tonne-swivel",
+    "imageFallback": "vmax-site-dumpers",
+    "blurb": "A 9,000 kg payload dumper with a 5.4 m³ skip, four-wheel drive and roll-over protection.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "payload",
+        "label": "Rated payload",
+        "value": "9,000 kg"
+      },
+      {
+        "icon": "bucket",
+        "label": "Skip volume",
+        "value": "5.4 m³"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "6,300 kg"
+      }
+    ],
+    "features": [
+      "Forward-tipping skip, swivel option",
+      "Permanent four-wheel drive with limited-slip diff",
+      "Roll-over protection with three-point harness",
+      "Reversing camera and travel alarm"
+    ],
+    "overview": "The Thwaites 9 Tonne Swivel keeps a groundworks gang moving without a road-going truck on site. VMAX supplies it new with the skip, guarding and beacon specification your principal contractor asks for, and services it on site with the rest of the fleet.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "wacker-neuson-dw60",
+    "brand": "Wacker Neuson",
+    "model": "DW60",
+    "name": "Wacker Neuson DW60",
+    "category": "Site Dumpers",
+    "categorySlug": "site-dumpers",
+    "icon": "transport",
+    "condition": "New",
+    "year": 2026,
+    "status": "Build slot open",
+    "stock": "VMX-5422",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-wacker-neuson-dw60",
+    "imageFallback": "vmax-site-dumpers",
+    "blurb": "A 6,000 kg payload dumper with a 3.3 m³ skip, four-wheel drive and roll-over protection.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "payload",
+        "label": "Rated payload",
+        "value": "6,000 kg"
+      },
+      {
+        "icon": "bucket",
+        "label": "Skip volume",
+        "value": "3.3 m³"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "5,100 kg"
+      }
+    ],
+    "features": [
+      "Forward-tipping skip, swivel option",
+      "Permanent four-wheel drive with limited-slip diff",
+      "Roll-over protection with three-point harness",
+      "Reversing camera and travel alarm"
+    ],
+    "overview": "The Wacker Neuson DW60 keeps a groundworks gang moving without a road-going truck on site. VMAX supplies it new with the skip, guarding and beacon specification your principal contractor asks for, and services it on site with the rest of the fleet.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "terex-finlay-j-1170",
+    "brand": "Terex Finlay",
+    "model": "J-1170",
+    "name": "Terex Finlay J-1170",
+    "category": "Crushing & Screening",
+    "categorySlug": "crushing-screening",
+    "icon": "crusher",
+    "condition": "New",
+    "year": 2026,
+    "status": "Arriving",
+    "stock": "VMX-5429",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-terex-finlay-j-1170",
+    "imageFallback": "vmax-crushing-screening",
+    "blurb": "A tracked plant rated to 400 tonnes an hour, with hydraulic setting adjustment, metal detection and radio remote tracking.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "payload",
+        "label": "Throughput",
+        "value": "up to 400 t/h"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "51,500 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "168 kW"
+      }
+    ],
+    "features": [
+      "Hydraulic closed-side setting adjustment",
+      "Overband magnet and metal detection",
+      "Radio remote tracking and feeder control",
+      "Quick-change liners and mesh"
+    ],
+    "overview": "Throughput on paper means nothing if the plant blocks, so the Terex Finlay J-1170 is specified around your feed material and how clean it is. VMAX supplies it new with the liner and mesh package agreed, commissions it on your stockpile, and covers the wear parts under the same service plan as the machine.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "metso-lokotrack-lt120",
+    "brand": "Metso",
+    "model": "Lokotrack LT120",
+    "name": "Metso Lokotrack LT120",
+    "category": "Crushing & Screening",
+    "categorySlug": "crushing-screening",
+    "icon": "crusher",
+    "condition": "New",
+    "year": 2026,
+    "status": "To order",
+    "stock": "VMX-5436",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-metso-lokotrack-lt120",
+    "imageFallback": "vmax-crushing-screening",
+    "blurb": "A tracked plant rated to 400 tonnes an hour, with hydraulic setting adjustment, metal detection and radio remote tracking.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "payload",
+        "label": "Throughput",
+        "value": "up to 400 t/h"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "58,000 kg"
+      },
+      {
+        "icon": "power",
+        "label": "Engine output",
+        "value": "310 kW"
+      }
+    ],
+    "features": [
+      "Hydraulic closed-side setting adjustment",
+      "Overband magnet and metal detection",
+      "Radio remote tracking and feeder control",
+      "Quick-change liners and mesh"
+    ],
+    "overview": "Throughput on paper means nothing if the plant blocks, so the Metso Lokotrack LT120 is specified around your feed material and how clean it is. VMAX supplies it new with the liner and mesh package agreed, commissions it on your stockpile, and covers the wear parts under the same service plan as the machine.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "caterpillar-de110-gc",
+    "brand": "Caterpillar",
+    "model": "DE110 GC",
+    "name": "Caterpillar DE110 GC",
+    "category": "Power & Lighting",
+    "categorySlug": "power-lighting",
+    "icon": "power",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5443",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-caterpillar-de110-gc",
+    "imageFallback": "vmax-power-lighting",
+    "blurb": "A 110 kVA set with a bunded tank, 24 hours of autonomy and remote monitoring.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4 Final"
+      },
+      {
+        "icon": "power",
+        "label": "Prime output",
+        "value": "110 kVA"
+      },
+      {
+        "icon": "hours",
+        "label": "Tank autonomy",
+        "value": "24 h"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "2,100 kg"
+      }
+    ],
+    "features": [
+      "Bunded tank with 110 percent containment",
+      "Automatic mains failure changeover",
+      "Remote monitoring with fuel and run-hour alerts",
+      "Sound-attenuated canopy"
+    ],
+    "overview": "Site power fails at the worst time, so the Caterpillar DE110 GC is supplied with remote monitoring, a bunded tank sized for your run hours and automatic changeover configured. VMAX services it on the same schedule as the plant it is feeding rather than as an afterthought.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
+  },
+  {
+    "id": "atlas-copco-hilight-v5-plus",
+    "brand": "Atlas Copco",
+    "model": "HiLight V5+",
+    "name": "Atlas Copco HiLight V5+",
+    "category": "Power & Lighting",
+    "categorySlug": "power-lighting",
+    "icon": "power",
+    "condition": "New",
+    "year": 2026,
+    "status": "In stock",
+    "stock": "VMX-5450",
+    "location": "Main yard",
+    "price": "Price on request",
+    "imageName": "vmax-atlas-copco-hilight-v5-plus",
+    "imageFallback": "vmax-power-lighting",
+    "blurb": "A 4 x 350 W LED set with a bunded tank, 26 hours of autonomy and remote monitoring.",
+    "specs": [
+      {
+        "icon": "emissions",
+        "label": "Emissions",
+        "value": "Stage V / Tier 4F"
+      },
+      {
+        "icon": "power",
+        "label": "Prime output",
+        "value": "4 x 350 W LED"
+      },
+      {
+        "icon": "hours",
+        "label": "Tank autonomy",
+        "value": "26 h"
+      },
+      {
+        "icon": "weight",
+        "label": "Operating weight",
+        "value": "900 kg"
+      }
+    ],
+    "features": [
+      "Bunded tank with 110 percent containment",
+      "Automatic mains failure changeover",
+      "Remote monitoring with fuel and run-hour alerts",
+      "Sound-attenuated canopy"
+    ],
+    "overview": "Site power fails at the worst time, so the Atlas Copco HiLight V5+ is supplied with remote monitoring, a bunded tank sized for your run hours and automatic changeover configured. VMAX services it on the same schedule as the plant it is feeding rather than as an afterthought.",
+    "services": [
+      "New Machine Sales",
+      "Scheduled Servicing",
+      "Genuine Parts and Attachments"
+    ]
   }
 ]

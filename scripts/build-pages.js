@@ -12,19 +12,26 @@ const path = require('path');
 const { page } = require('../src/site/layout');
 const pages = require('../src/site/pages');
 const images = require('../src/site/images');
-const { ICONS } = require('../src/site/icons');
+const { ICONS, DESK_ATTRS, MOB_ATTRS } = require('../src/site/icons');
 
 const publicDir = path.join(__dirname, '..', 'public');
 
 /* ---- pages ---- */
 let count = 0;
+let bytes = 0;
 for (const def of pages) {
   const html = page(def);
-  fs.writeFileSync(path.join(publicDir, def.file), html, 'utf8');
+  const out = path.join(publicDir, def.file);
+  // Machine pages live in public/machines/, which may not exist yet.
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  fs.writeFileSync(out, html, 'utf8');
   count += 1;
-  console.log(`  built ${def.file} (${html.length} bytes)`);
+  bytes += html.length;
+  if (!def.file.startsWith('machines/')) console.log(`  built ${def.file} (${html.length} bytes)`);
 }
-console.log(`[build] wrote ${count} pages`);
+const machinePages = pages.filter((d) => d.file.startsWith('machines/')).length;
+console.log(`  built ${machinePages} machine pages in machines/`);
+console.log(`[build] wrote ${count} pages (${Math.round(bytes / 1024)} KB)`);
 
 /* ---- the icon set, for cards rendered in the browser ---- */
 const iconsJs = `'use strict';
@@ -32,7 +39,15 @@ const iconsJs = `'use strict';
 window.VMAX_ICONS = ${JSON.stringify(ICONS, null, 0)};
 window.VMAX_ICON = function (name) {
   var set = window.VMAX_ICONS[name] || window.VMAX_ICONS.machine;
-  return set.desk + set.mob;
+  return '<svg class="ico ico-desk" width="22" height="22" ${DESK_ATTRS} aria-hidden="true">' + set.desk + '</svg>' +
+         '<svg class="ico ico-mob" width="20" height="20" ${MOB_ATTRS} aria-hidden="true">' + set.mob + '</svg>';
+};
+/* Every page carries the sprite, so cards drawn here reference it rather than
+   inlining the geometry again. */
+window.VMAX_ICON_REF = function (name) {
+  var key = window.VMAX_ICONS[name] ? name : 'machine';
+  return '<svg class="ico ico-desk" width="22" height="22" aria-hidden="true"><use href="#i-' + key + '-d"/></svg>' +
+         '<svg class="ico ico-mob" width="20" height="20" aria-hidden="true"><use href="#i-' + key + '-m"/></svg>';
 };
 `;
 fs.writeFileSync(path.join(publicDir, 'js', 'icons.js'), iconsJs, 'utf8');

@@ -30,16 +30,17 @@
      generated from the same modules the pages are built with, so a card drawn
      here is identical to one drawn at build time. */
   const icon = (name) => (window.VMAX_ICON ? window.VMAX_ICON(name) : '');
+  const iconRef = (name) => (window.VMAX_ICON_REF ? window.VMAX_ICON_REF(name) : icon(name));
   const media = (img, opts) => (window.VMAX_MEDIA ? window.VMAX_MEDIA.media(img, opts) : '');
 
   /** One machine, as a card. Mirrors machineCard() in src/site/pages.js. */
   function machineCard(m) {
     const specs = (m.specs || []).map((s) => `
-            <li class="spec"><span class="spec-ico">${icon(s.icon)}</span><span class="spec-val"><span class="spec-k">${esc(s.label)}</span>${esc(s.value)}</span></li>`).join('');
+            <li class="spec"><span class="spec-ico">${iconRef(s.icon)}</span><span class="spec-val"><span class="spec-k">${esc(s.label)}</span>${esc(s.value)}</span></li>`).join('');
     return `
-      <a class="mcard" href="/machines/${esc(m.id)}" data-category="${esc(m.category)}" data-condition="${esc(m.condition)}" data-reveal>
+      <a class="mcard" href="/machines/${esc(m.id)}" data-category="${esc(m.category)}" data-brand="${esc(m.brand)}" data-tilt data-reveal>
         <div class="mcard-flags">
-          <span class="flag ${m.condition === 'New' ? 'is-new' : 'is-used'}">${esc(m.condition)}</span>
+          <span class="flag">${esc(m.brand)}</span>
           <span class="flag-stock">${esc(m.status)}</span>
         </div>
         <div class="mcard-media">${media(m.image, { alt: m.name, className: 'media-machine' })}</div>
@@ -47,7 +48,7 @@
           <h3>${esc(m.model)}</h3>
           <p class="mcard-type">${esc(String(m.category || '').replace(/s$/, ''))}</p>
           <ul class="specs">${specs}</ul>
-          <span class="mcard-go">View machine <span class="go-pill">${icon('arrow')}</span></span>
+          <span class="mcard-go">View machine <span class="go-pill">${iconRef('arrow')}</span></span>
         </div>
       </a>`;
   }
@@ -131,6 +132,35 @@
     start();
   }
 
+  /* Tilt -------------------------------------------------------------------
+     Cards lean towards the pointer and carry a soft highlight where it sits.
+     Pointer only: on a touch screen there is no cursor to lean towards, and
+     it is switched off entirely under reduced motion. */
+  function setupTilt(root = document) {
+    if (reduceMotion || !window.matchMedia('(pointer: fine)').matches) return;
+    $$('[data-tilt]', root).forEach((el) => {
+      if (el.dataset.tiltWired) return;
+      el.dataset.tiltWired = '1';
+      el.addEventListener('pointermove', (e) => {
+        const box = el.getBoundingClientRect();
+        const px = (e.clientX - box.left) / box.width - 0.5;
+        const py = (e.clientY - box.top) / box.height - 0.5;
+        el.style.setProperty('--tilt-x', (-py * 7).toFixed(2) + 'deg');
+        el.style.setProperty('--tilt-y', (px * 9).toFixed(2) + 'deg');
+        el.style.setProperty('--glare-x', ((px + 0.5) * 100).toFixed(1) + '%');
+        el.style.setProperty('--glare-y', ((py + 0.5) * 100).toFixed(1) + '%');
+        el.classList.add('is-tilting');
+      });
+      const rest = () => {
+        el.classList.remove('is-tilting');
+        el.style.setProperty('--tilt-x', '0deg');
+        el.style.setProperty('--tilt-y', '0deg');
+      };
+      el.addEventListener('pointerleave', rest);
+      el.addEventListener('blur', rest);
+    });
+  }
+
   /* Contact details --------------------------------------------------------
      Pages are built with the values in src/data/site.json, so the static HTML
      is already right. This only replaces them when the desk has changed them
@@ -178,7 +208,7 @@
     }
   }
 
-  window.VMAX = { $, $$, esc, fetchJSON, reduceMotion, machineCard, observeReveals, setupSlider, icon, media, site };
+  window.VMAX = { $, $$, esc, fetchJSON, reduceMotion, machineCard, observeReveals, setupSlider, setupTilt, icon, iconRef, media, site };
 
   /* Scroll: progress bar, nav state, parallax ------------------------------ */
   const nav = $('#nav');
@@ -340,6 +370,7 @@
     parallax = $$('[data-para]');
     hydrateSite();
     $$('[data-slider]').forEach(setupSlider);
+    setupTilt();
     runOnView();
     setupForms();
     observeReveals();

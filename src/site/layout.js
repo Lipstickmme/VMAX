@@ -9,7 +9,7 @@
 
 const images = require('./images');
 const { media } = require('./media');
-const { icon } = require('./icons');
+const { icon, iconRef, sprite } = require('./icons');
 const site = require('../data/site.json');
 
 const YEAR = new Date().getFullYear();
@@ -67,11 +67,12 @@ function contactForm(id = 'contact-form') {
             <select id="${id}-service" name="service">
               <option value="">Select</option>
               <option>Buy a new machine</option>
-              <option>Buy used equipment</option>
-              <option>Hire or lease</option>
+              <option>Servicing or a service plan</option>
+              <option>Breakdown or repair</option>
               <option>Parts and attachments</option>
-              <option>Service or repair</option>
-              <option>Sell or part-exchange a machine</option>
+              <option>Warranty or extended cover</option>
+              <option>Finance or leasing</option>
+              <option>Operator or technician training</option>
               <option>Not sure yet</option>
             </select><div class="err" data-err="service"></div>
           </div>
@@ -93,6 +94,7 @@ function head({ title, description, noindex = false, styles = [] }) {
   <meta name="description" content="${description}" />${noindex ? '\n  <meta name="robots" content="noindex, nofollow" />' : ''}
   <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -131,14 +133,15 @@ function footer() {
     <div class="wrap footer-top">
       <div class="footer-brand">
         ${wordmark({ tone: 'light' })}
-        <p>Heavy plant sales, parts, service and hire. New and certified used machines, supported after the invoice.</p>
+        <p>Brand new plant from the makers we represent, sold, delivered and serviced by the people who specified it.</p>
       </div>
       <div class="col">
         <h5>Equipment</h5>
         <a href="/machines">All machines</a>
-        <a href="/machines?category=Wheel%20Loaders">Wheel loaders</a>
         <a href="/machines?category=Excavators">Excavators</a>
-        <a href="/machines?category=Haulers">Haulers</a>
+        <a href="/machines?category=Tractors">Tractors</a>
+        <a href="/machines?category=Aerial%20Lifts">Aerial lifts</a>
+        <a href="/machines?category=Drill%20Rigs">Drill rigs</a>
       </div>
       <div class="col">
         <h5>Company</h5>
@@ -219,6 +222,8 @@ function page(opts) {
     head(opts),
     `<body class="${bodyClass}">`,
     aurora(),
+    // One copy of every icon, for the <use> references in the cards.
+    `  ${sprite()}`,
     `  <div class="scroll-progress" id="progress"></div>`,
     nav(active),
     content,
@@ -228,4 +233,4 @@ function page(opts) {
   ].join('\n');
 }
 
-module.exports = { page, nav, footer, chatWidget, head, contactForm, wordmark, aurora, media, icon, COMPANY };
+module.exports = { page, nav, footer, chatWidget, head, contactForm, wordmark, aurora, media, icon, iconRef, sprite, COMPANY };

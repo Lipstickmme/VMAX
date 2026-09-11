@@ -486,7 +486,7 @@ p:last-child { margin-bottom: 0; }
 .mcard:hover .mcard-media img { transform: scale(1.06); }
 .mcard-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
 .mcard-flags { position: absolute; top: 20px; left: 20px; right: 20px; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.flag { font-family: var(--font-mono); font-size: 10.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: 6px 12px; border-radius: var(--pill); background: linear-gradient(135deg, var(--yellow-2), var(--yellow)); color: var(--ink); box-shadow: var(--shadow-sm); }
+.flag { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: .02em; padding: 6px 13px; border-radius: var(--pill); background: linear-gradient(135deg, var(--yellow-2), var(--yellow)); color: var(--ink); box-shadow: var(--shadow-sm); white-space: nowrap; }
 .flag.is-used { background: var(--glass-strong); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); border: 1px solid var(--glass-line); }
 .flag-stock { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); background: var(--glass-strong); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); padding: 6px 12px; border-radius: var(--pill); border: 1px solid var(--glass-line); }
 .mcard h3 { font-size: clamp(24px, 2vw, 31px); }
@@ -520,6 +520,21 @@ p:last-child { margin-bottom: 0; }
 .chip.is-active { background: linear-gradient(135deg, var(--yellow-2), var(--yellow)); box-shadow: var(--shadow-sm); }
 .chip-n { font-family: var(--font-mono); font-size: 10.5px; opacity: .65; }
 .filter-empty { margin-top: 28px; font-size: 18px; color: var(--muted); }
+
+/* Filter bar -------------------------------------------------------------
+   Two rows, each a scrolling segmented control: class on top, brand beneath.
+   They combine, so a filtered list is one link. */
+.filter-bar { display: grid; gap: 12px; margin-bottom: clamp(20px, 2.4vw, 32px); }
+.filter-row { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.filter-label { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); width: 52px; flex: none; }
+.filter-count { font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 22px; }
+.more-wrap { display: flex; justify-content: center; margin-top: clamp(28px, 3vw, 44px); }
+
+/* Breadcrumbs ------------------------------------------------------------- */
+.crumbs { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--ink); }
+.crumbs span { margin: 0 6px; color: var(--muted-2); }
 
 /* Services --------------------------------------------------------------- */
 .svc-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
@@ -755,11 +770,31 @@ input:focus, select:focus, textarea:focus { outline: none; background: var(--whi
 [data-reveal] { opacity: 0; transform: translateY(26px) scale(.985); transition: opacity .7s var(--ease), transform .7s var(--ease); transition-delay: var(--reveal-delay, 0ms); }
 [data-reveal].in { opacity: 1; transform: none; }
 
+/* Tilt ---------------------------------------------------------------------
+   Cards lean towards the pointer, with a soft highlight where it sits. The
+   rules come after the cards' own hover so the lean wins while it is active;
+   main.js only ever sets the class on a fine pointer, with motion allowed. */
+[data-tilt] { transform-style: preserve-3d; will-change: transform; }
+[data-tilt]::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(240px circle at var(--glare-x, 50%) var(--glare-y, 50%), rgba(255, 255, 255, 0.5), transparent 62%);
+  opacity: 0; transition: opacity .35s var(--ease); z-index: 1;
+}
+[data-tilt].is-tilting.is-tilting {
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(-6px) scale(1.012);
+  transition: transform .14s var(--ease-soft), box-shadow .3s var(--ease);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 var(--glass-edge);
+}
+[data-tilt].is-tilting::after { opacity: 1; }
+.mcard.is-tilting .mcard-body, .svc.is-tilting h3 { transform: translateZ(22px); }
+.mcard-body, .svc h3 { transition: transform .25s var(--ease); }
+
 /* Parallax: the value is set by main.js, the transform lives here. */
 [data-para] { transform: translate3d(0, var(--para, 0px), 0); will-change: transform; }
 
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1; transform: none; transition: none; }
+  [data-tilt], [data-tilt]::after { transform: none !important; opacity: 0 !important; }
   [data-para] { transform: none; }
   .slide { transition: opacity .2s linear; transform: none; }
   .btn, .mcard, .cat, .svc, .kpi, .role, .service-row { transition: none !important; }
@@ -861,6 +896,8 @@ input:focus, select:focus, textarea:focus { outline: none; background: var(--whi
   .chat-toggle { width: 56px; height: 56px; }
   .chat-panel { height: min(72svh, 520px); }
   .filters { width: 100%; border-radius: var(--r-lg); }
+  .filter-row { display: block; }
+  .filter-label { width: auto; display: block; margin-bottom: 8px; }
 }
 
 @media (max-width: 470px) {

@@ -5,7 +5,7 @@ const services = require('../data/services.json');
 const images = require('./images');
 const site = require('../data/site.json');
 const { media, esc } = require('./media');
-const { icon } = require('./icons');
+const { icon, iconRef } = require('./icons');
 const { contactForm } = require('./layout');
 
 const COMPANY = 'VMAX Machine Ltd';
@@ -13,12 +13,11 @@ const COMPANY = 'VMAX Machine Ltd';
 /* ---------- Shared pieces ---------------------------------------------- */
 
 /* Interior page header: copy on the left, a framed picture on the right. */
-function pageHeader({ eyebrow, title, sub, image, alt }) {
+function pageHeader({ title, sub, image, alt }) {
   return `
   <header class="page-header">
     <div class="wrap page-header-grid">
       <div class="page-header-copy">
-        <span class="eyebrow">${eyebrow}</span>
         <h1 data-reveal>${title}</h1>
         ${sub ? `<p data-reveal>${sub}</p>` : ''}
       </div>
@@ -54,23 +53,27 @@ function slider({ id, slides, count = true, ratio = '' }) {
    phone, never a square. The same markup is produced in the browser by
    /js/main.js, so the two cannot drift. */
 function specRow(spec) {
-  return `<li class="spec"><span class="spec-ico">${icon(spec.icon)}</span><span class="spec-val"><span class="spec-k">${esc(spec.label)}</span>${esc(spec.value)}</span></li>`;
+  return `<li class="spec"><span class="spec-ico">${iconRef(spec.icon)}</span><span class="spec-val"><span class="spec-k">${esc(spec.label)}</span>${esc(spec.value)}</span></li>`;
+}
+
+/** The photograph a machine wants: its own, then its class's. */
+function machineImage(m) {
+  return images.resolveName([m.imageName, m.imageFallback], m.name);
 }
 
 function machineCard(m) {
-  const img = images.resolveName(m.imageName, m.name);
   return `
-      <a class="mcard" href="/machines/${esc(m.id)}" data-category="${esc(m.category)}" data-condition="${esc(m.condition)}" data-reveal>
+      <a class="mcard" href="/machines/${esc(m.id)}" data-category="${esc(m.category)}" data-brand="${esc(m.brand)}" data-tilt data-reveal>
         <div class="mcard-flags">
-          <span class="flag ${m.condition === 'New' ? 'is-new' : 'is-used'}">${esc(m.condition)}</span>
+          <span class="flag">${esc(m.brand)}</span>
           <span class="flag-stock">${esc(m.status)}</span>
         </div>
-        <div class="mcard-media">${media(img, { alt: m.name, className: 'media-machine' })}</div>
+        <div class="mcard-media">${media(machineImage(m), { alt: m.name, className: 'media-machine' })}</div>
         <div class="mcard-body">
           <h3>${esc(m.model)}</h3>
           <p class="mcard-type">${esc(m.category.replace(/s$/, ''))}</p>
           <ul class="specs">${(m.specs || []).map(specRow).join('')}</ul>
-          <span class="mcard-go">View machine <span class="go-pill">${icon('arrow')}</span></span>
+          <span class="mcard-go">View machine <span class="go-pill">${iconRef('arrow')}</span></span>
         </div>
       </a>`;
 }
@@ -97,7 +100,7 @@ function kpi({ label, value, suffix = '', delta, foot, values, tinted = false })
         <article class="kpi${tinted ? ' is-tinted' : ''}" data-reveal>
           <div class="kpi-top">
             <span class="kpi-label">${esc(label)}</span>
-            ${delta ? `<span class="kpi-delta">${icon('trend')}${esc(delta)}</span>` : ''}
+            ${delta ? `<span class="kpi-delta">${iconRef('trend')}${esc(delta)}</span>` : ''}
           </div>
           <div class="kpi-value"><span data-count="${value}" data-suffix="${esc(suffix)}">0</span></div>
           ${foot ? `<p class="kpi-foot">${esc(foot)}</p>` : ''}
@@ -115,18 +118,13 @@ function meterRow({ label, value }) {
 
 /* ---------- Landing ------------------------------------------------------ */
 
-const CATEGORY_ICONS = {
-  'Wheel Loaders': 'bucket',
-  Excavators: 'machine',
-  Dozers: 'power',
-  Haulers: 'transport',
-  Graders: 'reach',
-  'Backhoe Loaders': 'machine',
-  Compaction: 'weight',
-  Telehandlers: 'payload',
-};
-
+/* Classes and brands, read off the catalogue rather than listed twice. */
 const categories = Array.from(new Set(machines.map((m) => m.category)));
+const categoryIcon = {};
+machines.forEach((m) => { categoryIcon[m.category] = m.icon; });
+const brands = Array.from(new Set(machines.map((m) => m.brand))).sort((a, b) =>
+  a === 'VMAX' ? -1 : b === 'VMAX' ? 1 : a.localeCompare(b));
+const countBy = (key, value) => machines.filter((m) => m[key] === value).length;
 
 const heroSlides = images.heroSlides.map((img, i) =>
   media(img, { alt: `VMAX machines at work ${i + 1}`, className: 'media-fill', eager: i === 0 })
@@ -136,26 +134,25 @@ const heroSection = `
   <section class="hero" id="top" data-chapter="VMAX">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow" data-reveal>New &amp; used heavy plant</span>
-        <h1 data-reveal>Move more.<br /><span class="mark">Stop less.</span></h1>
-        <p class="hero-sub" data-reveal>Loaders, excavators, dozers, haulers and graders, sold with the parts and field service that keep them working.</p>
+        <h1 data-reveal>Brand new machines.<br /><span class="mark">Kept working.</span></h1>
+        <p class="hero-sub" data-reveal>Factory-new plant from ${brands.length} makers, sold, delivered and serviced by the people who specified it. Nothing second hand, nothing subcontracted.</p>
         <div class="hero-actions" data-reveal>
           <a href="/machines" class="btn">Browse machines <span class="arw">&rsaquo;</span></a>
           <a href="#quote" class="btn ghost">Request a quote <span class="arw">&rsaquo;</span></a>
         </div>
         <div class="hero-facts" data-reveal>
-          <div class="hero-fact"><div class="v"><span data-count="${machines.length * 4}">0</span></div><div class="k">Machines in stock</div></div>
-          <div class="hero-fact"><div class="v"><span data-count="9400">0</span></div><div class="k">Parts lines held</div></div>
-          <div class="hero-fact"><div class="v">Same day</div><div class="k">Breakdown response</div></div>
+          <div class="hero-fact"><div class="v"><span data-count="${machines.length}">0</span></div><div class="k">Models available</div></div>
+          <div class="hero-fact"><div class="v"><span data-count="${categories.length}">0</span></div><div class="k">Machine classes</div></div>
+          <div class="hero-fact"><div class="v">Same day</div><div class="k">Service response</div></div>
         </div>
       </div>
       <div class="hero-media" data-reveal data-para="-30">
         ${slider({ id: 'hero-slider', slides: heroSlides })}
         <div class="hero-chip">
-          <span class="ring">${icon('shield')}</span>
+          <span class="ring">${iconRef('shield')}</span>
           <div>
-            <div class="v">140-point checked</div>
-            <div class="k">Every used machine</div>
+            <div class="v">Full factory warranty</div>
+            <div class="k">On every machine we sell</div>
           </div>
         </div>
       </div>
@@ -164,7 +161,7 @@ const heroSection = `
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      ${[0, 1].map(() => `<span>${categories.join('</span><span>')}</span>`).join('')}
+      ${[0, 1].map(() => `<span>${brands.join('</span><span>')}</span>`).join('')}
     </div>
   </div>`;
 
@@ -172,20 +169,16 @@ const categorySection = `
   <section class="band" id="categories" data-chapter="Classes">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <span class="eyebrow">01 / What we sell</span>
-        <h2>Every class of machine on one yard.</h2>
-        <p>Pick a class to see what is on the ground this week, or tell us the job and we will size it for you.</p>
+        <h2>Seventeen classes of machine, one supplier.</h2>
+        <p>Earthmoving, lifting, drilling, compaction, agriculture and site power. Pick a class to see what we supply, or tell us the job and we will size it for you.</p>
       </div>
       <div class="cat-row" data-reveal>
-        ${categories.map((c) => {
-          const count = machines.filter((m) => m.category === c).length;
-          return `
-        <a class="cat" href="/machines?category=${encodeURIComponent(c)}">
-          <span class="cat-ico">${icon(CATEGORY_ICONS[c] || 'machine')}</span>
+        ${categories.map((c) => `
+        <a class="cat" href="/machines?category=${encodeURIComponent(c)}" data-tilt>
+          <span class="cat-ico">${iconRef(categoryIcon[c])}</span>
           <span class="cat-name">${esc(c)}</span>
-          <span class="cat-count">${count}</span>
-        </a>`;
-        }).join('')}
+          <span class="cat-count">${countBy('category', c)}</span>
+        </a>`).join('')}
       </div>
     </div>
   </section>`;
@@ -194,7 +187,6 @@ const analyticsSection = `
   <section class="band band-tint" id="numbers" data-chapter="Numbers">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <span class="eyebrow">02 / The numbers</span>
         <h2>What the yard actually delivers.</h2>
         <p>Figures we are held to by the fleets that buy from us, tracked month by month.</p>
       </div>
@@ -225,9 +217,8 @@ const rangeSection = `
     <div class="wrap">
       <div class="section-head with-action" data-reveal>
         <div>
-          <span class="eyebrow">03 / The range</span>
-          <h2>In the yard this week.</h2>
-          <p>Every machine listed is one you can walk around, start and load with before you sign anything.</p>
+          <h2>New in the yard this week.</h2>
+          <p>Factory-new machines you can walk around, start and load with before you sign anything.</p>
         </div>
         <a href="/machines" class="btn ghost">All machines <span class="arw">&rsaquo;</span></a>
       </div>
@@ -241,7 +232,6 @@ const gallerySection = `
   <section class="band band-paper" id="yard" data-chapter="The yard">
     <div class="wrap">
       <div class="section-head centred" data-reveal>
-        <span class="eyebrow">04 / Inside the yard</span>
         <h2>Come and see it run.</h2>
         <p>Fifteen acres of machines, a workshop with the lifting gear to do the job properly, and a parts counter that answers the phone.</p>
       </div>
@@ -262,16 +252,15 @@ const servicesSection = `
     <div class="wrap">
       <div class="section-head with-action" data-reveal>
         <div>
-          <span class="eyebrow">05 / Support</span>
           <h2>Sold, supplied, serviced.</h2>
           <p>Eight departments behind every machine that leaves the yard.</p>
         </div>
         <a href="/services" class="btn ghost">All services <span class="arw">&rsaquo;</span></a>
       </div>
       <div class="svc-grid">
-        ${services.map((s, i) => `
-        <a class="svc" href="/services/${esc(s.id)}" data-reveal>
-          <span class="svc-ico">${icon(['machine', 'shield', 'parts', 'service', 'rental', 'finance', 'training', 'transport'][i] || 'machine')}</span>
+        ${services.map((s) => `
+        <a class="svc" href="/services/${esc(s.id)}" data-tilt data-reveal>
+          <span class="svc-ico">${iconRef(s.icon || 'machine')}</span>
           <span class="svc-code">${esc(s.code)}</span>
           <h3>${esc(s.title)}</h3>
           <p>${esc(s.summary)}</p>
@@ -285,7 +274,6 @@ const contactSection = `
   <section class="band" id="quote" data-chapter="Quote">
     <div class="wrap contact-grid">
       <div class="contact-info" data-reveal>
-        <span class="eyebrow">06 / Talk to the desk</span>
         <h2>Tell us the job.<br />We will spec the machine.</h2>
         <p class="contact-lede">Give us the material, the hours and the ground conditions. You will get a machine recommendation, a price and a delivery date, not a brochure.</p>
         <div class="contact-detail">
@@ -311,22 +299,35 @@ const indexContent = [
 /* ---------- Machines listing ---------- */
 const machinesContent = `
   ${pageHeader({
-    eyebrow: 'Sales inventory',
     title: 'Machines.',
-    sub: 'New and certified used plant, priced to sell and ready to inspect. Filter by class, then come and see it.',
+    sub: `Brand new plant from ${brands.length} makers across ${categories.length} classes, supplied to your specification and serviced by us afterwards.`,
     image: images.machinesHeader,
     alt: 'VMAX machines',
   })}
   <section class="section-pad">
     <div class="wrap">
-      <div class="filters" id="machine-filters" role="tablist" data-reveal>
-        <button class="chip is-active" data-filter="All">All <span class="chip-n">${machines.length}</span></button>
-        ${categories.map((c) => `<button class="chip" data-filter="${esc(c)}">${esc(c)} <span class="chip-n">${machines.filter((m) => m.category === c).length}</span></button>`).join('\n        ')}
+      <div class="filter-bar" data-reveal>
+        <div class="filter-row">
+          <span class="filter-label">Class</span>
+          <div class="filters" id="machine-filters" role="tablist">
+            <button class="chip is-active" data-filter="All">All <span class="chip-n">${machines.length}</span></button>
+            ${categories.map((c) => `<button class="chip" data-filter="${esc(c)}">${esc(c)} <span class="chip-n">${countBy('category', c)}</span></button>`).join('\n            ')}
+          </div>
+        </div>
+        <div class="filter-row">
+          <span class="filter-label">Brand</span>
+          <div class="filters" id="brand-filters" role="tablist">
+            <button class="chip is-active" data-brand="All">All</button>
+            ${brands.map((b) => `<button class="chip" data-brand="${esc(b)}">${esc(b)} <span class="chip-n">${countBy('brand', b)}</span></button>`).join('\n            ')}
+          </div>
+        </div>
       </div>
+      <p class="filter-count" id="filter-count" aria-live="polite">${machines.length} machines</p>
       <div class="mcard-grid" id="machines-grid">
         ${machines.map(machineCard).join('')}
       </div>
-      <p class="filter-empty" id="filter-empty" hidden>Nothing in that class on the yard right now. Tell us what you are after and we will source it.</p>
+      <p class="filter-empty" id="filter-empty" hidden>Nothing in that combination. Clear a filter, or tell us what you are after and we will quote it.</p>
+      <div class="more-wrap"><button type="button" class="btn ghost" id="show-more" hidden>Show more machines <span class="arw">&rsaquo;</span></button></div>
     </div>
   </section>
   <section class="cta-band">
@@ -334,25 +335,129 @@ const machinesContent = `
       <div class="cta-inner" data-reveal>
         <div>
           <h2>Not on the list?</h2>
-          <p>We source machines to order and take part-exchange against anything we sell.</p>
+          <p>We supply to order across every brand we represent, and we will tell you honestly when another make suits the job better.</p>
         </div>
         <a href="/contact" class="btn">Ask the sales desk <span class="arw">&rsaquo;</span></a>
       </div>
     </div>
   </section>`;
 
-/* ---------- Machine detail (hydrated by id) ---------- */
-const machineContent = `
-  <article id="machine-detail" class="machine-detail" data-loading="true">
-    <div class="wrap page-loading">Loading machine&hellip;</div>
+/* ---------- One page per machine ---------------------------------------
+   Each machine gets a real page built at build time rather than an empty
+   shell filled in by script: it is indexable, it opens instantly, and it
+   reads with JavaScript switched off. scripts/build-pages.js writes these
+   to public/machines/<id>.html. */
+function machinePage(m, next) {
+  const specCells = (m.specs || []).map((s) => `
+          <div class="cell" data-tilt>${iconRef(s.icon)}<div><span class="k">${esc(s.label)}</span><span class="v">${esc(s.value)}</span></div></div>`).join('');
+  const features = (m.features || []).map((f) => `<li>${iconRef('check')}<span>${esc(f)}</span></li>`).join('');
+  const facts = [
+    ['Brand', m.brand],
+    ['Model', m.model],
+    ['Class', m.category],
+    ['Condition', m.condition],
+    ['Model year', m.year],
+    ['Stock number', m.stock],
+    ['Availability', m.status],
+    ['Price', m.price],
+  ].filter(([, v]) => v).map(([k, v]) => `<div class="fact"><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span></div>`).join('');
+  const related = machines.filter((x) => x.category === m.category && x.id !== m.id).slice(0, 4);
+
+  const content = `
+  <article class="machine-detail">
+    <header class="machine-hero">
+      <div class="wrap machine-hero-grid">
+        <div class="machine-hero-copy">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="/machines">Machines</a> <span aria-hidden="true">/</span>
+            <a href="/machines?category=${encodeURIComponent(m.category)}">${esc(m.category)}</a>
+          </nav>
+          <div class="machine-meta" data-reveal>
+            <span class="flag">${esc(m.brand)}</span>
+            <span class="flag-stock">${esc(m.status)} &middot; ${esc(m.stock)}</span>
+          </div>
+          <h1 data-reveal>${esc(m.model)}</h1>
+          <p class="lede" data-reveal>${esc(m.blurb)}</p>
+          <div class="hero-actions" data-reveal>
+            <a href="/contact" class="btn">Request a quote <span class="arw">&rsaquo;</span></a>
+            <a href="/machines?category=${encodeURIComponent(m.category)}" class="btn ghost">More ${esc(m.category.toLowerCase())} <span class="arw">&rsaquo;</span></a>
+          </div>
+        </div>
+        <div class="machine-hero-media" data-reveal data-para="-24">${media(machineImage(m), { alt: m.name, eager: true })}</div>
+      </div>
+    </header>
+
+    <section class="section-pad">
+      <div class="wrap">
+        <div class="spec-table" data-reveal>${specCells}</div>
+      </div>
+    </section>
+
+    <section class="section-pad alt">
+      <div class="wrap detail-cols">
+        <div class="overview" data-reveal>
+          <h2>About this machine</h2>
+          <p>${esc(m.overview)}</p>
+          <ul class="feature-list">${features}</ul>
+        </div>
+        <aside class="detail-aside" data-reveal>
+          <div class="fact-block">${facts}</div>
+          <div class="tag-row">${(m.services || []).map((s) => `<span>${esc(s)}</span>`).join('')}</div>
+          <a href="/contact" class="btn sm" style="margin-top:18px">Enquire about this machine <span class="arw">&rsaquo;</span></a>
+        </aside>
+      </div>
+    </section>
+
+    ${related.length ? `
+    <section class="section-pad">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <h2>Other ${esc(m.category.toLowerCase())}.</h2>
+        </div>
+        <div class="mcard-grid">${related.map(machineCard).join('')}</div>
+      </div>
+    </section>` : ''}
+
+    <section class="section-pad">
+      <div class="wrap next-nav" data-reveal>
+        <a href="/machines/${esc(next.id)}">
+          <span><span class="lbl">Next machine</span><br><span class="nm">${esc(next.name)}</span></span>
+          <span class="arw">&rsaquo;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <div class="cta-inner" data-reveal>
+          <div>
+            <h2>Want to see the ${esc(m.model)} run?</h2>
+            <p>Come and load with it here, or ask us to bring one to your site for a demonstration.</p>
+          </div>
+          <a href="/contact" class="btn">Book a demonstration <span class="arw">&rsaquo;</span></a>
+        </div>
+      </div>
+    </section>
   </article>`;
+
+  return {
+    file: `machines/${m.id}.html`,
+    active: 'machines',
+    bodyClass: 'page-machine',
+    title: `${m.name} for sale | ${COMPANY}`,
+    description: `${m.name}: ${m.blurb} New ${m.category.toLowerCase().replace(/s$/, '')} supplied and serviced by VMAX Machine Ltd.`,
+    content,
+  };
+}
+
+/** Every machine page, each pointing at the next one in the catalogue. */
+const machinePages = machines.map((m, i) => machinePage(m, machines[(i + 1) % machines.length]));
 
 /* ---------- Services listing ---------- */
 const servicesContent = `
   ${pageHeader({
-    eyebrow: 'Support',
     title: 'Services.',
-    sub: 'Sales, used, parts, field service, hire, finance, training and transport, all under one roof.',
+    sub: 'Sales, servicing, breakdown, parts, warranty, delivery, training and finance, all under one roof.',
     image: images.servicesHeader,
     alt: 'VMAX workshop',
   })}
@@ -371,7 +476,6 @@ const serviceContent = `
 /* ---------- Apply ---------- */
 const applyContent = `
   ${pageHeader({
-    eyebrow: 'Careers',
     title: 'Apply.',
     sub: 'One form, read by the workshop manager you would work for. We reply to everyone.',
     image: images.careersHeader,
@@ -423,7 +527,6 @@ const applyContent = `
 /* ---------- Careers ---------- */
 const careersContent = `
   ${pageHeader({
-    eyebrow: 'Careers',
     title: 'Work on big iron.',
     sub: 'Technicians, field engineers, parts people and drivers. If you would rather be paid for what you can fix than for what you can say, write to us.',
     image: images.careersHeader,
@@ -432,7 +535,6 @@ const careersContent = `
   <section class="section-pad">
     <div class="wrap careers-intro" data-reveal>
       <div>
-        <span class="eyebrow">Life at VMAX</span>
         <h2>Tools bought. Training paid. Overtime honoured.</h2>
       </div>
       <p>Our technicians work on machines from twenty tonnes to sixty, in a heated workshop with the lifting gear and diagnostic kit to do the job properly. We pay for manufacturer training, we buy the specialist tools when someone asks for them, and a job that runs late is paid late, not absorbed. Apprentices get a qualified technician beside them from the first week rather than a broom.</p>
@@ -441,7 +543,6 @@ const careersContent = `
   <section class="section-pad alt">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <span class="eyebrow">Open roles</span>
         <h2>Where we are hiring.</h2>
         <p>If your trade is not listed, write to us anyway and say what you want to work on.</p>
       </div>
@@ -455,7 +556,6 @@ const careersContent = `
 /* ---------- Contact ---------- */
 const contactContent = `
   ${pageHeader({
-    eyebrow: 'Sales desk',
     title: 'Request a quote.',
     sub: 'Tell us the material, the hours and the ground. A sales engineer comes back with a machine, a price and a date.',
     image: images.contactHeader,
@@ -571,18 +671,16 @@ const adminContent = `
 const notFoundContent = `
   <section class="notfound">
     <div class="wrap">
-      <span class="eyebrow">Error 404</span>
       <h1>Off the <span class="mark">haul road</span>.</h1>
       <p>This page has moved or never existed. The links below will get you back on site.</p>
       <div class="hero-actions"><a href="/" class="btn">Back to home <span class="arw">&rsaquo;</span></a><a href="/machines" class="btn ghost">Browse machines <span class="arw">&rsaquo;</span></a></div>
     </div>
   </section>`;
 
-module.exports = [
-  { file: 'index.html', active: '', bodyClass: 'page-home', title: `${COMPANY} | Heavy Machinery Sales, Parts and Service`, description: 'VMAX Machine Ltd sells new and certified used heavy plant: wheel loaders, excavators, dozers, articulated haulers, graders and telehandlers, backed by parts, field service, hire and finance.', content: indexContent },
-  { file: 'machines.html', active: 'machines', bodyClass: 'page-machines', title: `Machines for sale | ${COMPANY}`, description: 'New and certified used heavy machinery for sale: wheel loaders, excavators, dozers, haulers, graders, backhoe loaders, compaction and telehandlers.', content: machinesContent, extraScripts: ['/js/machines.js'] },
-  { file: 'machine.html', active: 'machines', bodyClass: 'page-machine', title: `Machine | ${COMPANY}`, description: 'Machine specification, features and price.', content: machineContent, extraScripts: ['/js/machine.js'] },
-  { file: 'services.html', active: 'services', bodyClass: 'page-services', title: `Services | ${COMPANY}`, description: 'Machine sales, certified used equipment, genuine parts and attachments, field service, rental, finance, training and transport.', content: servicesContent, extraScripts: ['/js/services.js'] },
+const pages = [
+  { file: 'index.html', active: '', bodyClass: 'page-home', title: `${COMPANY} | New Heavy Machinery Sales and Servicing`, description: 'VMAX Machine Ltd supplies brand new heavy machinery from Caterpillar, Volvo, Komatsu, JCB, John Deere, Genie and more: excavators, loaders, dozers, tractors, drill rigs, aerial lifts and site power, with servicing, parts and warranty behind every machine.', content: indexContent },
+  { file: 'machines.html', active: 'machines', bodyClass: 'page-machines', title: `Machines for sale | ${COMPANY}`, description: 'Brand new heavy machinery for sale across 17 classes and 27 brands: excavators, wheel loaders, dozers, haulers, graders, tractors, drill rigs, aerial lifts, forklifts, cranes and site power.', content: machinesContent, extraScripts: ['/js/machines.js'] },
+  { file: 'services.html', active: 'services', bodyClass: 'page-services', title: `Services | ${COMPANY}`, description: 'New machine sales, scheduled servicing, field service and breakdown, genuine parts, warranty, delivery and commissioning, training, finance and leasing.', content: servicesContent, extraScripts: ['/js/services.js'] },
   { file: 'service.html', active: 'services', bodyClass: 'page-service', title: `Service | ${COMPANY}`, description: 'Service detail.', content: serviceContent, extraScripts: ['/js/service.js'] },
   { file: 'apply.html', active: 'careers', bodyClass: 'page-apply', title: `Apply | ${COMPANY}`, description: 'Apply to VMAX Machine Ltd. One form, read by the manager you would work for.', content: applyContent, extraScripts: ['/js/apply.js'] },
   { file: 'careers.html', active: 'careers', bodyClass: 'page-careers', title: `Careers | ${COMPANY}`, description: 'Open roles at VMAX Machine Ltd for technicians, field service engineers, parts advisors, drivers and apprentices.', content: careersContent, extraScripts: ['/js/careers.js'] },
@@ -593,3 +691,6 @@ module.exports = [
     content: adminContent, extraScripts: ['/js/supabase-lite.js', '/js/admin.js'] },
   { file: '404.html', active: '', bodyClass: 'page-404', title: `Page not found | ${COMPANY}`, description: 'Page not found.', content: notFoundContent },
 ];
+
+/* The fixed pages, then one page per machine. */
+module.exports = pages.concat(machinePages);

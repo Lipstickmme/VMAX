@@ -326,6 +326,9 @@ async function until(check, what, timeout = 10000) {
     });
       const hidden = await reader.evaluate(() =>
         Array.from(document.querySelectorAll('[data-reveal]'))
+          // Something deliberately hidden is not a failed reveal: the machine
+          // list holds later batches back behind `hidden` until asked for.
+          .filter((el) => !el.closest('[hidden]'))
           .filter((el) => getComputedStyle(el).opacity !== '1' || el.getBoundingClientRect().height === 0)
           .map((el) => `${el.tagName}.${el.className} "${(el.textContent || '').trim().slice(0, 30)}"`)
       );

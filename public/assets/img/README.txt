@@ -2,26 +2,104 @@ VMAX MACHINE LTD - IMAGE DROP FOLDER
 ====================================
 
 Drop photographs in here using the file names below. Nothing else needs
-changing: the next build picks them up automatically, and any name that is
-still missing shows a labelled placeholder on the page instead of a broken
-image, so it is always obvious what is outstanding.
+changing: the next build picks them up, and any name still missing shows a
+labelled placeholder carrying the file name it wants, so it is always obvious
+what is outstanding.
 
 Accepted formats, best first: .webp  .avif  .jpg  .jpeg  .png
-Names are matched without regard to case, so VMAX1.JPG works as well as vmax1.jpg.
+Names are matched without regard to case.
 
-MACHINE PHOTOGRAPHS (one per machine, cut out on white if possible)
-  vmax1.jpg    VX-L350 Wheel Loader
-  vmax2.jpg    VX-L260 Wheel Loader
-  vmax3.jpg    VX-L220 Wheel Loader
-  vmax4.jpg    VX-H200 High Lift Loader
-  vmax5.jpg    VX-E480 Crawler Excavator
-  vmax6.jpg    VX-E220 Crawler Excavator
-  vmax7.jpg    VX-D90 Crawler Dozer
-  vmax8.jpg    VX-A45 Articulated Hauler
-  vmax9.jpg    VX-G160 Motor Grader
-  vmax10.jpg   VX-B120 Backhoe Loader
-  vmax11.jpg   VX-R140 Soil Compactor
-  vmax12.jpg   VX-T70 Telehandler
+TWO WAYS TO DO THE MACHINES
+  1. One photograph per CLASS, which covers every machine in it. Quickest.
+  2. One photograph per MACHINE, which overrides the class picture.
+
+CLASS PHOTOGRAPHS (17 files covers the whole catalogue)
+  vmax-wheel-loaders.jpg       Wheel Loaders
+  vmax-excavators.jpg          Excavators
+  vmax-dozers.jpg              Dozers
+  vmax-articulated-haulers.jpg Articulated Haulers
+  vmax-motor-graders.jpg       Motor Graders
+  vmax-backhoe-loaders.jpg     Backhoe Loaders
+  vmax-compaction.jpg          Compaction
+  vmax-telehandlers.jpg        Telehandlers
+  vmax-tractors.jpg            Tractors
+  vmax-drill-rigs.jpg          Drill Rigs
+  vmax-aerial-lifts.jpg        Aerial Lifts
+  vmax-forklifts.jpg           Forklifts
+  vmax-skid-steers.jpg         Skid Steers
+  vmax-cranes.jpg              Cranes
+  vmax-site-dumpers.jpg        Site Dumpers
+  vmax-crushing-screening.jpg  Crushing & Screening
+  vmax-power-lighting.jpg      Power & Lighting
+
+PER-MACHINE PHOTOGRAPHS (optional, one per machine)
+  Wheel Loaders
+    vmax-caterpillar-950-gc.jpg        Caterpillar 950 GC
+    vmax-volvo-l120h.jpg               Volvo L120H
+    vmax-komatsu-wa320-8.jpg           Komatsu WA320-8
+    vmax-vmax-vx-l350.jpg              VMAX VX-L350
+  Excavators
+    vmax-caterpillar-320-gc.jpg        Caterpillar 320 GC
+    vmax-caterpillar-336.jpg           Caterpillar 336
+    vmax-komatsu-pc210lc-11.jpg        Komatsu PC210LC-11
+    vmax-hitachi-zx135us-7.jpg         Hitachi ZX135US-7
+    vmax-volvo-ec380e.jpg              Volvo EC380E
+    vmax-kubota-u27-4.jpg              Kubota U27-4
+    vmax-vmax-vx-e480.jpg              VMAX VX-E480
+  Dozers
+    vmax-caterpillar-d6-xe.jpg         Caterpillar D6 XE
+    vmax-komatsu-d51px-24.jpg          Komatsu D51PX-24
+    vmax-vmax-vx-d90.jpg               VMAX VX-D90
+  Articulated Haulers
+    vmax-volvo-a40g.jpg                Volvo A40G
+    vmax-caterpillar-730.jpg           Caterpillar 730
+    vmax-vmax-vx-a45.jpg               VMAX VX-A45
+  Motor Graders
+    vmax-caterpillar-140.jpg           Caterpillar 140
+    vmax-vmax-vx-g160.jpg              VMAX VX-G160
+  Backhoe Loaders
+    vmax-jcb-3cx.jpg                   JCB 3CX
+    vmax-caterpillar-428.jpg           Caterpillar 428
+    vmax-vmax-vx-b120.jpg              VMAX VX-B120
+  Compaction
+    vmax-bomag-bw-213-d-5.jpg          Bomag BW 213 D-5
+    vmax-wacker-neuson-rd18.jpg        Wacker Neuson RD18
+    vmax-vmax-vx-r140.jpg              VMAX VX-R140
+  Telehandlers
+    vmax-jcb-540-140.jpg               JCB 540-140
+    vmax-manitou-mt-1840.jpg           Manitou MT 1840
+    vmax-vmax-vx-t70.jpg               VMAX VX-T70
+  Tractors
+    vmax-john-deere-6120m.jpg          John Deere 6120M
+    vmax-new-holland-t6-180.jpg        New Holland T6.180
+    vmax-massey-ferguson-mf-5s-135.jpg Massey Ferguson MF 5S.135
+  Drill Rigs
+    vmax-epiroc-smartroc-t35.jpg       Epiroc SmartROC T35
+    vmax-sandvik-dp1500i.jpg           Sandvik DP1500i
+  Aerial Lifts
+    vmax-genie-s-65-xc.jpg             Genie S-65 XC
+    vmax-genie-gs-3246.jpg             Genie GS-3246
+    vmax-jlg-1930es.jpg                JLG 1930ES
+  Forklifts
+    vmax-toyota-8fbm25t.jpg            Toyota 8FBM25T
+    vmax-hyster-h8-0ft9.jpg            Hyster H8.0FT9
+    vmax-linde-h35d.jpg                Linde H35D
+  Skid Steers
+    vmax-bobcat-t770.jpg               Bobcat T770
+    vmax-caterpillar-262d3.jpg         Caterpillar 262D3
+    vmax-kubota-svl75-3.jpg            Kubota SVL75-3
+  Cranes
+    vmax-liebherr-ltm-1050-3-1.jpg     Liebherr LTM 1050-3.1
+    vmax-grove-gmk3060l.jpg            Grove GMK3060L
+  Site Dumpers
+    vmax-thwaites-9-tonne-swivel.jpg   Thwaites 9 Tonne Swivel
+    vmax-wacker-neuson-dw60.jpg        Wacker Neuson DW60
+  Crushing & Screening
+    vmax-terex-finlay-j-1170.jpg       Terex Finlay J-1170
+    vmax-metso-lokotrack-lt120.jpg     Metso Lokotrack LT120
+  Power & Lighting
+    vmax-caterpillar-de110-gc.jpg      Caterpillar DE110 GC
+    vmax-atlas-copco-hilight-v5-plus.jpg Atlas Copco HiLight V5+
 
 HERO SLIDESHOW (wide, landscape, machines working)
   vmaxhero1.jpg
@@ -29,19 +107,19 @@ HERO SLIDESHOW (wide, landscape, machines working)
   vmaxhero3.jpg
 
 SECTION AND PAGE ARTWORK (landscape)
-  vmaxfleet.jpg      Equipment range section
-  vmaxyard.jpg       Yard / stats section
-  vmaxworkshop.jpg   Services section and services page header
-  vmaxparts.jpg      Parts and attachments artwork
-  vmaxcontact.jpg    Contact section and contact page header
-  vmaxcareers.jpg    Careers page header
-  vmaxmachines.jpg   Machines page header
+  vmaxfleet.jpg          Equipment range section
+  vmaxyard.jpg           Yard, warranty artwork
+  vmaxworkshop.jpg       Servicing section and services page header
+  vmaxparts.jpg          Parts and attachments artwork
+  vmaxservice.jpg        Field service artwork
+  vmaxtransport.jpg      Delivery artwork
+  vmaxcontact.jpg        Contact section and page header
+  vmaxcareers.jpg        Careers page header
+  vmaxmachines.jpg       Machines page header
 
-LOGOS (public/assets/brand/, see the README in that folder)
-  vmaxlogo.png       Wordmark for dark backgrounds (white or yellow type)
-  vmaxlogo-black.png Wordmark for light backgrounds (black type)
+LOGOS (public/assets/brand/)
+  vmaxlogo.png        Wordmark for dark backgrounds
+  vmaxlogo-black.png  Wordmark for light backgrounds
 
-ICONS (public/, optional)
-  favicon.png        512 x 512
-  favicon.ico        32 x 32
-  apple-touch-icon.png  180 x 180
+ICONS (public/) - already drawn as the V mark by `npm run gen:favicon`.
+  favicon.svg  favicon.png  favicon.ico  apple-touch-icon.png

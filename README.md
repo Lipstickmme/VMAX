@@ -15,7 +15,7 @@ is dropped into `public/assets/`, so adding pictures is an upload, not an edit. 
 - **Backend:** Node.js + Express (single production dependency)
 - **Frontend:** hand-written HTML / CSS / vanilla JS, assembled from shared
   partials by a tiny build step (no framework)
-- **Data:** flat JSON files for content; enquiries, chat and inbound mail persisted to
+- **Data:** flat JSON files for content, with `src/data/machines.json` generated from `scripts/generate-machines.js`; enquiries, chat and inbound mail persisted to
   Supabase (Postgres) in production, or `data/` locally
 - **Auth:** Supabase anonymous sign-in for visitors, password sign-in for staff, with
   row level security deciding what each can see
@@ -28,8 +28,8 @@ is dropped into `public/assets/`, so adding pictures is an upload, not an edit. 
 | URL              | Page                                                    |
 | ---------------- | ------------------------------------------------------- |
 | `/`              | Landing: hero, machine classes, the range, why VMAX, services, quote form |
-| `/machines`      | Sales inventory, filterable by machine class            |
-| `/machines/:id`  | One machine: spec table, features, stock facts, next machine |
+| `/machines`      | Sales inventory, filterable by class and by brand       |
+| `/machines/:id`  | One page per machine, built at build time: specs, features, stock facts |
 | `/services`      | The eight departments, each linking to its own page     |
 | `/services/:id`  | One department: what it covers, what you get, which machines |
 | `/careers`       | Open roles in the workshop, field service, parts and transport |
@@ -58,7 +58,11 @@ than together, and all of it stops under `prefers-reduced-motion`.
 
 Listings are rendered at **build time** rather than fetched, so the range, the
 inventory and every spec row are in the HTML and the site reads with JavaScript
-switched off. The filter on `/machines` then hides and shows what is already there.
+switched off. The filters on `/machines` then hide and show what is already
+there, a batch at a time.
+
+Every machine also has its **own built page** under `public/machines/<id>.html`,
+served at `/machines/<id>`: indexable, instant, and readable without JavaScript.
 
 The form in section 6 is the same component as the one on `/contact`: both post to
 `/api/contact`, so both land in `enquiries` and appear on the sales desk.
@@ -172,6 +176,8 @@ where a third-party desk would take over instead.
 ```bash
 npm install
 cp .env.example .env   # optional: adjust PORT, rate limits, notify email
+npm run gen:machines   # rebuild src/data/machines.json from the class templates
+npm run gen:favicon    # redraw the V favicon in every size
 npm run build          # generate public/*.html from src/site (also runs on start)
 npm start              # http://localhost:3000
 npm run dev            # build + watch mode
@@ -279,12 +285,13 @@ are present, so adding an optimised copy beside a heavy original is enough to se
 
 | Files | Where they appear |
 | ----- | ----------------- |
-| `vmax1` ... `vmax12` | One per machine, in the order they are listed in `src/data/machines.json` |
+| `vmax-<brand>-<model>` | One per machine, e.g. `vmax-caterpillar-320-gc` |
+| `vmax-<class>` | The class fallback, e.g. `vmax-excavators`, used until a machine has its own |
 | `vmaxhero1` ... `vmaxhero3` | The home hero slideshow |
 | `vmaxfleet`, `vmaxyard`, `vmaxworkshop`, `vmaxparts`, `vmaxcontact` | Section artwork |
 | `vmaxmachines`, `vmaxcareers` | Page headers |
 | `vmaxlogo` (light), `vmaxlogo-black` (dark) | Wordmark, in `public/assets/brand/` |
-| `favicon.png`, `favicon.ico`, `apple-touch-icon.png` | In `public/` |
+| `favicon.svg`, `favicon.png`, `favicon.ico`, `apple-touch-icon.png` | Drawn by `npm run gen:favicon`: the V mark. Replace only if you want a different icon. |
 
 Until a file is there the page draws a **labelled plate** carrying the name it wants,
 hazard-striped and holding the exact box the photograph will occupy, so an outstanding

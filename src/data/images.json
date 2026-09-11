@@ -1,21 +1,119 @@
 {
-  "_comment": "Every image the site asks for. Each slot names the files it will use, best first, and nothing else: no artwork ships with the site. Drop a file with one of these names into public/assets/img (or public/assets/brand for logos) and the next build picks it up, matched without regard to case, with .webp .avif .jpg .jpeg .png and .svg all accepted. Until the file is there the page draws a labelled placeholder carrying the file name it wants, so an outstanding upload is obvious rather than broken. Machine photographs are named per machine in machines.json.",
+  "_comment": "Every image the site asks for. Each slot names the files it will use, best first, and nothing else: no artwork ships with the site. Drop a file with one of these names into public/assets/img (or public/assets/brand for logos) and the next build picks it up, matched without regard to case, with .webp .avif .jpg .jpeg .png and .svg all accepted. Until the file is there the page draws a labelled placeholder carrying the file name it wants, so an outstanding upload is obvious rather than broken. Machine photographs are named per machine in machines.json (vmax-<brand>-<model>), and each falls back to its class picture (vmax-<class>), so one photograph per class is enough to start with.",
   "slots": {
-    "logoLight": { "prefer": ["vmaxlogo", "vmaxlogo-white", "vmax-logo"], "label": "VMAX wordmark, light on dark" },
-    "logoDark": { "prefer": ["vmaxlogo-black", "vmaxlogo-dark", "vmaxlogo"], "label": "VMAX wordmark, dark on light" },
-    "fleet": { "prefer": ["vmaxfleet", "vmax1"], "label": "Equipment range" },
-    "yard": { "prefer": ["vmaxyard", "vmax8"], "label": "The yard" },
-    "workshop": { "prefer": ["vmaxworkshop", "vmax7"], "label": "Workshop and service" },
-    "parts": { "prefer": ["vmaxparts", "vmax5"], "label": "Parts and attachments" },
-    "contact": { "prefer": ["vmaxcontact", "vmax2"], "label": "Contact" },
-    "machinesHeader": { "prefer": ["vmaxmachines", "vmaxfleet", "vmax1"], "label": "Machines page header" },
-    "servicesHeader": { "prefer": ["vmaxworkshop", "vmax7"], "label": "Services page header" },
-    "careersHeader": { "prefer": ["vmaxcareers", "vmaxworkshop"], "label": "Careers page header" },
-    "contactHeader": { "prefer": ["vmaxcontact", "vmaxyard"], "label": "Contact page header" }
+    "logoLight": {
+      "prefer": [
+        "vmaxlogo",
+        "vmaxlogo-white",
+        "vmax-logo"
+      ],
+      "label": "VMAX wordmark, light on dark"
+    },
+    "logoDark": {
+      "prefer": [
+        "vmaxlogo-black",
+        "vmaxlogo-dark",
+        "vmaxlogo"
+      ],
+      "label": "VMAX wordmark, dark on light"
+    },
+    "fleet": {
+      "prefer": [
+        "vmaxfleet",
+        "vmax1"
+      ],
+      "label": "Equipment range"
+    },
+    "yard": {
+      "prefer": [
+        "vmaxyard",
+        "vmax8"
+      ],
+      "label": "The yard"
+    },
+    "workshop": {
+      "prefer": [
+        "vmaxworkshop",
+        "vmax7"
+      ],
+      "label": "Workshop and service"
+    },
+    "parts": {
+      "prefer": [
+        "vmaxparts",
+        "vmax5"
+      ],
+      "label": "Parts and attachments"
+    },
+    "contact": {
+      "prefer": [
+        "vmaxcontact",
+        "vmax2"
+      ],
+      "label": "Contact"
+    },
+    "machinesHeader": {
+      "prefer": [
+        "vmaxmachines",
+        "vmaxfleet",
+        "vmax1"
+      ],
+      "label": "Machines page header"
+    },
+    "servicesHeader": {
+      "prefer": [
+        "vmaxworkshop",
+        "vmax7"
+      ],
+      "label": "Services page header"
+    },
+    "careersHeader": {
+      "prefer": [
+        "vmaxcareers",
+        "vmaxworkshop"
+      ],
+      "label": "Careers page header"
+    },
+    "contactHeader": {
+      "prefer": [
+        "vmaxcontact",
+        "vmaxyard"
+      ],
+      "label": "Contact page header"
+    },
+    "service": {
+      "prefer": [
+        "vmaxservice",
+        "vmaxworkshop"
+      ],
+      "label": "Field service"
+    },
+    "transport": {
+      "prefer": [
+        "vmaxtransport",
+        "vmaxyard"
+      ],
+      "label": "Delivery"
+    }
   },
   "heroSlides": [
-    { "prefer": ["vmaxhero1"], "label": "Hero slide 1" },
-    { "prefer": ["vmaxhero2"], "label": "Hero slide 2" },
-    { "prefer": ["vmaxhero3"], "label": "Hero slide 3" }
+    {
+      "prefer": [
+        "vmaxhero1"
+      ],
+      "label": "Hero slide 1"
+    },
+    {
+      "prefer": [
+        "vmaxhero2"
+      ],
+      "label": "Hero slide 2"
+    },
+    {
+      "prefer": [
+        "vmaxhero3"
+      ],
+      "label": "Hero slide 3"
+    }
   ]
 }
