@@ -1,0 +1,731 @@
+[
+  {
+    "group": "Scenes and page artwork",
+    "brand": "VMAX",
+    "file": "vmaxhero1.jpg",
+    "where": "First hero slide on the home page",
+    "title": "Hero slide 1",
+    "description": "The first thing anyone sees. Landscape, wide, machines working. The left of the frame sits under the headline on smaller screens, so keep the busy detail on the right.",
+    "prompt": "A working construction site at golden hour: a yellow tracked excavator loading a dump truck, dust in the low sun, distant crane silhouettes, deep depth of field, photorealistic wide editorial photograph, calm uncluttered sky on the left third for text, no people in the foreground, no text, no watermark, 16:9"
+  },
+  {
+    "group": "Scenes and page artwork",
+    "brand": "VMAX",
+    "file": "vmaxhero2.jpg",
+    "where": "Second hero slide",
+    "title": "Hero slide 2",
+    "description": "Second in the rotation. Different subject and time of day from slide 1 so the crossfade reads as a change.",
+    "prompt": "A wheel loader filling a hopper in a quarry on an overcast morning, wet stone, tyre tracks in crushed aggregate, cool grey light, photorealistic wide editorial photograph, horizon low in frame, no people, no text, no watermark, 16:9"
+  },
+  {
+    "group": "Scenes and page artwork",
+    "brand": "VMAX",
+    "file": "vmaxhero3.jpg",
+    "where": "Third hero slide",
+    "title": "Hero slide 3",
+    "description": "Third in the rotation. Somewhere agricultural or civil, to show the range.",
+    "prompt": "A green tractor and a telehandler working a grain yard at dusk, warm floodlights on the shed, long shadows, photorealistic wide editorial photograph, uncluttered sky, no people, no text, no watermark, 16:9"
+  },
+  {
+    "group": "Scenes and page artwork",
+    "brand": "VMAX",
+    "file": "vmaxfleet.jpg",
+    "where": "Equipment range section on the home page, and the machines page header fallback — also the New Machine Sales page",
+    "title": "The fleet",
+    "description": "A line-up. Several machine classes together, reading as a dealer with stock rather than one machine.",
+    "prompt": "A row of brand-new yellow construction machines parked in line on clean tarmac at a dealership yard, excavator, wheel loader, dozer and telehandler side by side, morning light, photorealistic wide commercial photograph, no people, no text, no watermark, 21:9"
+  },
+  {
+    "group": "Scenes and page artwork",
+    "brand": "VMAX",
+    "file": "vmaxyard.jpg",
+    "where": "Warranty section artwork and the contact page header fallback — also the Warranty and Extended Cover page",
+    "title": "The yard",
+    "description": "The place itself: fenced, surfaced, organised. Sells competence rather than a machine.",
+    "prompt": "An aerial three-quarter view of a heavy equipment dealership yard, rows of new yellow machines on clean hardstanding, a steel workshop building behind, low sun, photorealistic wide commercial photograph, no people, no text, no watermark, 21:9"
+  },
+  {
+    "group": "Scenes and page artwork",
+    "brand": "VMAX",
+    "file": "vmaxworkshop.jpg",
+    "where": "Servicing section and the services page header — also the Scheduled Servicing page",
+    "title": "The workshop",
+    "description": "Inside the building: lifting gear, clean floor, a machine stripped for work. This is what the servicing half of the business looks like.",
+    "prompt": "The interior of a heavy plant workshop, an excavator on the floor with its engine cover open under an overhead gantry crane, tool boards, epoxy floor with bay markings, bright even industrial lighting, photorealistic wide commercial photograph, no people, no text, no watermark, 16:9"
+  },
+  {
+    "group": "Scenes and page artwork",
+    "brand": "VMAX",
+    "file": "vmaxparts.jpg",
+    "where": "Parts and attachments section — also the Genuine Parts and Attachments page",
+    "title": "Parts and attachments",
+    "description": "The parts counter or the shelf behind it. Filters, wear parts, teeth, hoses, attachments, stacked and organised.",
+    "prompt": "A heavy equipment parts store: steel shelving stacked with boxed oil and air filters, hydraulic hoses coiled on hooks, bucket teeth and cutting edges on a pallet in the foreground, clean warehouse lighting, photorealistic commercial photograph, shallow depth of field on the foreground parts, no people, no text, no watermark, 16:9"
+  },
+  {
+    "group": "Scenes and page artwork",
+    "brand": "VMAX",
+    "file": "vmaxservice.jpg",
+    "where": "Field service and breakdown section — also the Field Service and Breakdown page",
+    "title": "Field service",
+    "description": "A service van on site beside a machine. Shows the support rather than the sale.",
+    "prompt": "A white service van with its side door open beside a yellow excavator on a muddy construction site, toolboxes and hose reels visible inside the van, overcast daylight, photorealistic wide documentary photograph, no readable branding, no people in focus, no text, no watermark, 16:9"
+  },
+  {
+    "group": "Scenes and page artwork",
+    "brand": "VMAX",
+    "file": "vmaxtransport.jpg",
+    "where": "Delivery and commissioning section — also the Delivery and Commissioning page",
+    "title": "Delivery",
+    "description": "A machine being delivered: low-loader, ramps, straps. The moment the customer sees.",
+    "prompt": "A brand-new yellow excavator strapped onto a low-loader trailer being delivered to a site, chains and ratchet straps visible, early morning light, photorealistic wide commercial photograph, no readable branding on the truck, no people, no text, no watermark, 21:9"
+  },
+  {
+    "group": "Scenes and page artwork",
+    "brand": "VMAX",
+    "file": "vmaxcareers.jpg",
+    "where": "Careers and apply page headers, and the training section — also the Operator and Technician Training page",
+    "title": "Careers",
+    "description": "People at work, hands and tools rather than faces. Technicians in the workshop.",
+    "prompt": "A heavy equipment technician in clean workwear and safety glasses working on a hydraulic pump at a workshop bench, torque wrench in hand, shallow depth of field, warm workshop lighting, photorealistic documentary photograph, face turned away or out of frame, no text, no watermark, 16:9"
+  },
+  {
+    "group": "Scenes and page artwork",
+    "brand": "VMAX",
+    "file": "vmaxcontact.jpg",
+    "where": "Quote section and the contact page header — also the Finance and Leasing page",
+    "title": "Contact",
+    "description": "Where an enquiry lands: the sales desk, or the yard entrance. Approachable and tidy.",
+    "prompt": "A bright dealership sales office looking out through glass onto a yard of new yellow machines, a desk with a laptop and a machine spec sheet, soft daylight, photorealistic interior commercial photograph, no people, no text, no watermark, 16:9"
+  },
+  {
+    "group": "Scenes and page artwork",
+    "brand": "VMAX",
+    "file": "vmaxmachines.jpg",
+    "where": "Machines page header",
+    "title": "Machines page header",
+    "description": "A header for the inventory: many machines, orderly, at an angle.",
+    "prompt": "A diagonal row of new yellow excavators and loaders parked precisely on a dealership forecourt, seen from a low three-quarter angle, clear sky, photorealistic wide commercial photograph, no people, no text, no watermark, 21:9"
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-wheel-loaders.jpg",
+    "where": "Stands in for every machine in Wheel Loaders that has no photograph of its own",
+    "title": "Wheel Loaders (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 4 wheel loaders on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded four-wheel articulated loading shovel with a wide front bucket on a Z-bar linkage and a high glazed cab in plain safety yellow with a matt black chassis and no maker's badging anywhere, bucket resting flat on the ground, cutting edge clean. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-excavators.jpg",
+    "where": "Stands in for every machine in Excavators that has no photograph of its own",
+    "title": "Excavators (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 7 excavators on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded tracked hydraulic excavator with a boom, dipper arm and toothed digging bucket, cab on the left of the upper structure in plain safety yellow with a matt black chassis and no maker's badging anywhere, boom folded and bucket resting on the ground beside the tracks. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-dozers.jpg",
+    "where": "Stands in for every machine in Dozers that has no photograph of its own",
+    "title": "Dozers (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 3 dozers on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded tracked crawler dozer with a wide semi-U blade on push arms and a rear ripper in plain safety yellow with a matt black chassis and no maker's badging anywhere, blade lowered to the ground, tracks square to the camera. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-articulated-haulers.jpg",
+    "where": "Stands in for every machine in Articulated Haulers that has no photograph of its own",
+    "title": "Articulated Haulers (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 3 articulated haulers on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded six-wheel articulated dump truck with a hinge behind the cab and a raised open tipping body in plain safety yellow with a matt black chassis and no maker's badging anywhere, body lowered flat, tailgate-free open box visible. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-motor-graders.jpg",
+    "where": "Stands in for every machine in Motor Graders that has no photograph of its own",
+    "title": "Motor Graders (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 2 motor graders on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded long six-wheel motor grader with a mouldboard blade slung under the frame between the axles in plain safety yellow with a matt black chassis and no maker's badging anywhere, blade angled slightly, front wheels leaning. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-backhoe-loaders.jpg",
+    "where": "Stands in for every machine in Backhoe Loaders that has no photograph of its own",
+    "title": "Backhoe Loaders (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 3 backhoe loaders on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded wheeled backhoe loader with a front loading shovel and a rear excavator arm on stabiliser legs in plain safety yellow with a matt black chassis and no maker's badging anywhere, front shovel lowered, rear arm folded over the machine in travel position. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-compaction.jpg",
+    "where": "Stands in for every machine in Compaction that has no photograph of its own",
+    "title": "Compaction (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 3 compaction on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded single-drum vibratory roller with a wide steel drum at the front and rubber tyres at the rear in plain safety yellow with a matt black chassis and no maker's badging anywhere, drum straight, operator platform and canopy visible. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-telehandlers.jpg",
+    "where": "Stands in for every machine in Telehandlers that has no photograph of its own",
+    "title": "Telehandlers (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 3 telehandlers on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded telescopic handler with a long extending boom over the cab and pallet forks at the head in plain safety yellow with a matt black chassis and no maker's badging anywhere, boom retracted and lowered, forks on the ground. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-tractors.jpg",
+    "where": "Stands in for every machine in Tractors that has no photograph of its own",
+    "title": "Tractors (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 3 tractors on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded agricultural tractor with large rear tyres, a glazed cab, front linkage and rear three-point linkage in plain safety yellow with a matt black chassis and no maker's badging anywhere, front loader removed, linkage arms visible at the rear. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-drill-rigs.jpg",
+    "where": "Stands in for every machine in Drill Rigs that has no photograph of its own",
+    "title": "Drill Rigs (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 2 drill rigs on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded tracked surface drill rig with a tall articulated drilling boom, feed beam and dust hood in plain safety yellow with a matt black chassis and no maker's badging anywhere, boom folded into transport position over the tracks. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-aerial-lifts.jpg",
+    "where": "Stands in for every machine in Aerial Lifts that has no photograph of its own",
+    "title": "Aerial Lifts (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 3 aerial lifts on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded self-propelled access platform with a work basket, guard rails and an extending boom or scissor stack in plain safety yellow with a matt black chassis and no maker's badging anywhere, platform fully lowered, chassis level. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-forklifts.jpg",
+    "where": "Stands in for every machine in Forklifts that has no photograph of its own",
+    "title": "Forklifts (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 3 forklifts on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded counterbalance forklift truck with a vertical mast, forks and an overhead guard in plain safety yellow with a matt black chassis and no maker's badging anywhere, mast lowered, forks just off the floor. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-skid-steers.jpg",
+    "where": "Stands in for every machine in Skid Steers that has no photograph of its own",
+    "title": "Skid Steers (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 3 skid steers on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded compact loader with a small bucket, side-entry cab and a universal attachment plate in plain safety yellow with a matt black chassis and no maker's badging anywhere, bucket flat on the ground, loader arms down. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-cranes.jpg",
+    "where": "Stands in for every machine in Cranes that has no photograph of its own",
+    "title": "Cranes (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 2 cranes on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded all-terrain mobile crane with a long telescopic boom, multiple axles and extended outriggers in plain safety yellow with a matt black chassis and no maker's badging anywhere, boom fully retracted and resting on the boom rest, outriggers stowed. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-site-dumpers.jpg",
+    "where": "Stands in for every machine in Site Dumpers that has no photograph of its own",
+    "title": "Site Dumpers (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 2 site dumpers on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded compact four-wheel site dumper with a front tipping skip and an open operator seat with roll bar in plain safety yellow with a matt black chassis and no maker's badging anywhere, skip level and empty. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-crushing-screening.jpg",
+    "where": "Stands in for every machine in Crushing & Screening that has no photograph of its own",
+    "title": "Crushing & Screening (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 2 crushing & screening on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded tracked mobile crushing plant with a feed hopper, conveyor and dust guarding in plain safety yellow with a matt black chassis and no maker's badging anywhere, conveyors folded into transport position. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Class fallbacks",
+    "file": "vmax-power-lighting.jpg",
+    "where": "Stands in for every machine in Power & Lighting that has no photograph of its own",
+    "title": "Power & Lighting (class fallback)",
+    "brand": "Unbranded",
+    "description": "One photograph covering all 2 power & lighting on the site. Upload this before the per-machine shots and the whole class is covered.",
+    "prompt": "A generic unbranded towable site power unit in a sound-attenuated canopy on a road trailer chassis in plain safety yellow with a matt black chassis and no maker's badging anywhere, canopy doors closed, drawbar visible. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Wheel Loaders",
+    "file": "vmax-caterpillar-950-gc.jpg",
+    "where": "Card and page for Caterpillar 950 GC (/machines/caterpillar-950-gc)",
+    "title": "Caterpillar 950 GC",
+    "brand": "Caterpillar",
+    "description": "A 18,700 kg loading shovel taking a 3.1 m³ bucket, with load-sensing hydraulics and a cab set up for a full shift. Falls back to vmax-wheel-loaders.jpg until this file exists.",
+    "prompt": "A brand-new Caterpillar 950 GC four-wheel articulated loading shovel with a wide front bucket on a Z-bar linkage and a high glazed cab, bucket capacity 3.1 m³, operating weight 18,700 kg. Caterpillar hi-vis yellow bodywork with a black chassis, black undercarriage and dark grey cab glazing frames, bucket resting flat on the ground, cutting edge clean. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Wheel Loaders",
+    "file": "vmax-volvo-l120h.jpg",
+    "where": "Card and page for Volvo L120H (/machines/volvo-l120h)",
+    "title": "Volvo L120H",
+    "brand": "Volvo",
+    "description": "A 20,500 kg loading shovel taking a 3.6 m³ bucket, with load-sensing hydraulics and a cab set up for a full shift. Falls back to vmax-wheel-loaders.jpg until this file exists.",
+    "prompt": "A brand-new Volvo L120H four-wheel articulated loading shovel with a wide front bucket on a Z-bar linkage and a high glazed cab, bucket capacity 3.6 m³, operating weight 20,500 kg. Volvo construction yellow bodywork with dark grey undercarriage, black cab frame and a grey roof, bucket resting flat on the ground, cutting edge clean. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Wheel Loaders",
+    "file": "vmax-komatsu-wa320-8.jpg",
+    "where": "Card and page for Komatsu WA320-8 (/machines/komatsu-wa320-8)",
+    "title": "Komatsu WA320-8",
+    "brand": "Komatsu",
+    "description": "A 15,600 kg loading shovel taking a 2.7 m³ bucket, with load-sensing hydraulics and a cab set up for a full shift. Falls back to vmax-wheel-loaders.jpg until this file exists.",
+    "prompt": "A brand-new Komatsu WA320-8 four-wheel articulated loading shovel with a wide front bucket on a Z-bar linkage and a high glazed cab, bucket capacity 2.7 m³, operating weight 15,600 kg. Komatsu yellow-orange bodywork with dark grey undercarriage and black cab pillars, bucket resting flat on the ground, cutting edge clean. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Wheel Loaders",
+    "file": "vmax-vmax-vx-l350.jpg",
+    "where": "Card and page for VMAX VX-L350 (/machines/vmax-vx-l350)",
+    "title": "VMAX VX-L350",
+    "brand": "VMAX",
+    "description": "A 23,800 kg loading shovel taking a 4.2 m³ bucket, with load-sensing hydraulics and a cab set up for a full shift. Falls back to vmax-wheel-loaders.jpg until this file exists.",
+    "prompt": "A brand-new VMAX VX-L350 four-wheel articulated loading shovel with a wide front bucket on a Z-bar linkage and a high glazed cab, bucket capacity 4.2 m³, operating weight 23,800 kg. VMAX house livery: safety yellow bodywork, matt black chassis and a black V mark on the counterweight, bucket resting flat on the ground, cutting edge clean. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Excavators",
+    "file": "vmax-caterpillar-320-gc.jpg",
+    "where": "Card and page for Caterpillar 320 GC (/machines/caterpillar-320-gc)",
+    "title": "Caterpillar 320 GC",
+    "brand": "Caterpillar",
+    "description": "A 21,500 kg excavator digging to 6.7 m, with twin auxiliary circuits and machine-control mounting as standard. Falls back to vmax-excavators.jpg until this file exists.",
+    "prompt": "A brand-new Caterpillar 320 GC tracked hydraulic excavator with a boom, dipper arm and toothed digging bucket, cab on the left of the upper structure, bucket capacity 1.19 m³, operating weight 21,500 kg. Caterpillar hi-vis yellow bodywork with a black chassis, black undercarriage and dark grey cab glazing frames, boom folded and bucket resting on the ground beside the tracks. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Excavators",
+    "file": "vmax-caterpillar-336.jpg",
+    "where": "Card and page for Caterpillar 336 (/machines/caterpillar-336)",
+    "title": "Caterpillar 336",
+    "brand": "Caterpillar",
+    "description": "A 36,600 kg excavator digging to 7.5 m, with twin auxiliary circuits and machine-control mounting as standard. Falls back to vmax-excavators.jpg until this file exists.",
+    "prompt": "A brand-new Caterpillar 336 tracked hydraulic excavator with a boom, dipper arm and toothed digging bucket, cab on the left of the upper structure, bucket capacity 2.1 m³, operating weight 36,600 kg. Caterpillar hi-vis yellow bodywork with a black chassis, black undercarriage and dark grey cab glazing frames, boom folded and bucket resting on the ground beside the tracks. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Excavators",
+    "file": "vmax-komatsu-pc210lc-11.jpg",
+    "where": "Card and page for Komatsu PC210LC-11 (/machines/komatsu-pc210lc-11)",
+    "title": "Komatsu PC210LC-11",
+    "brand": "Komatsu",
+    "description": "A 22,400 kg excavator digging to 6.6 m, with twin auxiliary circuits and machine-control mounting as standard. Falls back to vmax-excavators.jpg until this file exists.",
+    "prompt": "A brand-new Komatsu PC210LC-11 tracked hydraulic excavator with a boom, dipper arm and toothed digging bucket, cab on the left of the upper structure, bucket capacity 1.2 m³, operating weight 22,400 kg. Komatsu yellow-orange bodywork with dark grey undercarriage and black cab pillars, boom folded and bucket resting on the ground beside the tracks. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Excavators",
+    "file": "vmax-hitachi-zx135us-7.jpg",
+    "where": "Card and page for Hitachi ZX135US-7 (/machines/hitachi-zx135us-7)",
+    "title": "Hitachi ZX135US-7",
+    "brand": "Hitachi",
+    "description": "A 13,600 kg excavator digging to 5.5 m, with twin auxiliary circuits and machine-control mounting as standard. Falls back to vmax-excavators.jpg until this file exists.",
+    "prompt": "A brand-new Hitachi ZX135US-7 tracked hydraulic excavator with a boom, dipper arm and toothed digging bucket, cab on the left of the upper structure, bucket capacity 0.5 m³, operating weight 13,600 kg. Hitachi orange and light grey bodywork with a dark grey undercarriage, boom folded and bucket resting on the ground beside the tracks. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Excavators",
+    "file": "vmax-volvo-ec380e.jpg",
+    "where": "Card and page for Volvo EC380E (/machines/volvo-ec380e)",
+    "title": "Volvo EC380E",
+    "brand": "Volvo",
+    "description": "A 38,000 kg excavator digging to 7.5 m, with twin auxiliary circuits and machine-control mounting as standard. Falls back to vmax-excavators.jpg until this file exists.",
+    "prompt": "A brand-new Volvo EC380E tracked hydraulic excavator with a boom, dipper arm and toothed digging bucket, cab on the left of the upper structure, bucket capacity 2.2 m³, operating weight 38,000 kg. Volvo construction yellow bodywork with dark grey undercarriage, black cab frame and a grey roof, boom folded and bucket resting on the ground beside the tracks. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Excavators",
+    "file": "vmax-kubota-u27-4.jpg",
+    "where": "Card and page for Kubota U27-4 (/machines/kubota-u27-4)",
+    "title": "Kubota U27-4",
+    "brand": "Kubota",
+    "description": "A 2,600 kg excavator digging to 2.7 m, with twin auxiliary circuits and machine-control mounting as standard. Falls back to vmax-excavators.jpg until this file exists.",
+    "prompt": "A brand-new Kubota U27-4 tracked hydraulic excavator with a boom, dipper arm and toothed digging bucket, cab on the left of the upper structure, bucket capacity 0.08 m³, operating weight 2,600 kg. Kubota orange bodywork with black cab frame and dark grey tracks, boom folded and bucket resting on the ground beside the tracks. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Excavators",
+    "file": "vmax-vmax-vx-e480.jpg",
+    "where": "Card and page for VMAX VX-E480 (/machines/vmax-vx-e480)",
+    "title": "VMAX VX-E480",
+    "brand": "VMAX",
+    "description": "A 47,800 kg excavator digging to 7.9 m, with twin auxiliary circuits and machine-control mounting as standard. Falls back to vmax-excavators.jpg until this file exists.",
+    "prompt": "A brand-new VMAX VX-E480 tracked hydraulic excavator with a boom, dipper arm and toothed digging bucket, cab on the left of the upper structure, bucket capacity 2.6 m³, operating weight 47,800 kg. VMAX house livery: safety yellow bodywork, matt black chassis and a black V mark on the counterweight, boom folded and bucket resting on the ground beside the tracks. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Dozers",
+    "file": "vmax-caterpillar-d6-xe.jpg",
+    "where": "Card and page for Caterpillar D6 XE (/machines/caterpillar-d6-xe)",
+    "title": "Caterpillar D6 XE",
+    "brand": "Caterpillar",
+    "description": "A 23,600 kg crawler dozer with a 3.9 m³ blade, sealed track chain and factory grade control. Falls back to vmax-dozers.jpg until this file exists.",
+    "prompt": "A brand-new Caterpillar D6 XE tracked crawler dozer with a wide semi-U blade on push arms and a rear ripper, engine output 158 kW, operating weight 23,600 kg. Caterpillar hi-vis yellow bodywork with a black chassis, black undercarriage and dark grey cab glazing frames, blade lowered to the ground, tracks square to the camera. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Dozers",
+    "file": "vmax-komatsu-d51px-24.jpg",
+    "where": "Card and page for Komatsu D51PX-24 (/machines/komatsu-d51px-24)",
+    "title": "Komatsu D51PX-24",
+    "brand": "Komatsu",
+    "description": "A 13,600 kg crawler dozer with a 3.1 m³ blade, sealed track chain and factory grade control. Falls back to vmax-dozers.jpg until this file exists.",
+    "prompt": "A brand-new Komatsu D51PX-24 tracked crawler dozer with a wide semi-U blade on push arms and a rear ripper, engine output 96 kW, operating weight 13,600 kg. Komatsu yellow-orange bodywork with dark grey undercarriage and black cab pillars, blade lowered to the ground, tracks square to the camera. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Dozers",
+    "file": "vmax-vmax-vx-d90.jpg",
+    "where": "Card and page for VMAX VX-D90 (/machines/vmax-vx-d90)",
+    "title": "VMAX VX-D90",
+    "brand": "VMAX",
+    "description": "A 28,600 kg crawler dozer with a 7.8 m³ blade, sealed track chain and factory grade control. Falls back to vmax-dozers.jpg until this file exists.",
+    "prompt": "A brand-new VMAX VX-D90 tracked crawler dozer with a wide semi-U blade on push arms and a rear ripper, engine output 205 kW, operating weight 28,600 kg. VMAX house livery: safety yellow bodywork, matt black chassis and a black V mark on the counterweight, blade lowered to the ground, tracks square to the camera. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Articulated Haulers",
+    "file": "vmax-volvo-a40g.jpg",
+    "where": "Card and page for Volvo A40G (/machines/volvo-a40g)",
+    "title": "Volvo A40G",
+    "brand": "Volvo",
+    "description": "A 39,000 kg payload hauler with permanent six-wheel drive, retarder braking and an exhaust-heated body. Falls back to vmax-articulated-haulers.jpg until this file exists.",
+    "prompt": "A brand-new Volvo A40G six-wheel articulated dump truck with a hinge behind the cab and a raised open tipping body, rated payload 39,000 kg, body volume 24 m³. Volvo construction yellow bodywork with dark grey undercarriage, black cab frame and a grey roof, body lowered flat, tailgate-free open box visible. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Articulated Haulers",
+    "file": "vmax-caterpillar-730.jpg",
+    "where": "Card and page for Caterpillar 730 (/machines/caterpillar-730)",
+    "title": "Caterpillar 730",
+    "brand": "Caterpillar",
+    "description": "A 28,000 kg payload hauler with permanent six-wheel drive, retarder braking and an exhaust-heated body. Falls back to vmax-articulated-haulers.jpg until this file exists.",
+    "prompt": "A brand-new Caterpillar 730 six-wheel articulated dump truck with a hinge behind the cab and a raised open tipping body, rated payload 28,000 kg, body volume 17.4 m³. Caterpillar hi-vis yellow bodywork with a black chassis, black undercarriage and dark grey cab glazing frames, body lowered flat, tailgate-free open box visible. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Articulated Haulers",
+    "file": "vmax-vmax-vx-a45.jpg",
+    "where": "Card and page for VMAX VX-A45 (/machines/vmax-vx-a45)",
+    "title": "VMAX VX-A45",
+    "brand": "VMAX",
+    "description": "A 45,000 kg payload hauler with permanent six-wheel drive, retarder braking and an exhaust-heated body. Falls back to vmax-articulated-haulers.jpg until this file exists.",
+    "prompt": "A brand-new VMAX VX-A45 six-wheel articulated dump truck with a hinge behind the cab and a raised open tipping body, rated payload 45,000 kg, body volume 27 m³. VMAX house livery: safety yellow bodywork, matt black chassis and a black V mark on the counterweight, body lowered flat, tailgate-free open box visible. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Motor Graders",
+    "file": "vmax-caterpillar-140.jpg",
+    "where": "Card and page for Caterpillar 140 (/machines/caterpillar-140)",
+    "title": "Caterpillar 140",
+    "brand": "Caterpillar",
+    "description": "A 4.3 m mouldboard grader with all-wheel drive, joystick steering and 3D machine-control mounts. Falls back to vmax-motor-graders.jpg until this file exists.",
+    "prompt": "A brand-new Caterpillar 140 long six-wheel motor grader with a mouldboard blade slung under the frame between the axles, engine output 138 kW, blade width 4.3 m. Caterpillar hi-vis yellow bodywork with a black chassis, black undercarriage and dark grey cab glazing frames, blade angled slightly, front wheels leaning. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Motor Graders",
+    "file": "vmax-vmax-vx-g160.jpg",
+    "where": "Card and page for VMAX VX-G160 (/machines/vmax-vx-g160)",
+    "title": "VMAX VX-G160",
+    "brand": "VMAX",
+    "description": "A 4.3 m mouldboard grader with all-wheel drive, joystick steering and 3D machine-control mounts. Falls back to vmax-motor-graders.jpg until this file exists.",
+    "prompt": "A brand-new VMAX VX-G160 long six-wheel motor grader with a mouldboard blade slung under the frame between the axles, engine output 160 kW, blade width 4.3 m. VMAX house livery: safety yellow bodywork, matt black chassis and a black V mark on the counterweight, blade angled slightly, front wheels leaning. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Backhoe Loaders",
+    "file": "vmax-jcb-3cx.jpg",
+    "where": "Card and page for JCB 3CX (/machines/jcb-3cx)",
+    "title": "JCB 3CX",
+    "brand": "JCB",
+    "description": "A 8,070 kg backhoe with a four-in-one front shovel, sideshift carriage and 5.46 m of dig depth. Falls back to vmax-backhoe-loaders.jpg until this file exists.",
+    "prompt": "A brand-new JCB 3CX wheeled backhoe loader with a front loading shovel and a rear excavator arm on stabiliser legs, loader capacity 1 m³, max dig depth 5.46 m. JCB yellow bodywork with black chassis and a black cab frame, front shovel lowered, rear arm folded over the machine in travel position. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Backhoe Loaders",
+    "file": "vmax-caterpillar-428.jpg",
+    "where": "Card and page for Caterpillar 428 (/machines/caterpillar-428)",
+    "title": "Caterpillar 428",
+    "brand": "Caterpillar",
+    "description": "A 8,700 kg backhoe with a four-in-one front shovel, sideshift carriage and 5.5 m of dig depth. Falls back to vmax-backhoe-loaders.jpg until this file exists.",
+    "prompt": "A brand-new Caterpillar 428 wheeled backhoe loader with a front loading shovel and a rear excavator arm on stabiliser legs, loader capacity 1.03 m³, max dig depth 5.5 m. Caterpillar hi-vis yellow bodywork with a black chassis, black undercarriage and dark grey cab glazing frames, front shovel lowered, rear arm folded over the machine in travel position. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Backhoe Loaders",
+    "file": "vmax-vmax-vx-b120.jpg",
+    "where": "Card and page for VMAX VX-B120 (/machines/vmax-vx-b120)",
+    "title": "VMAX VX-B120",
+    "brand": "VMAX",
+    "description": "A 8,900 kg backhoe with a four-in-one front shovel, sideshift carriage and 5.9 m of dig depth. Falls back to vmax-backhoe-loaders.jpg until this file exists.",
+    "prompt": "A brand-new VMAX VX-B120 wheeled backhoe loader with a front loading shovel and a rear excavator arm on stabiliser legs, loader capacity 1.1 m³, max dig depth 5.9 m. VMAX house livery: safety yellow bodywork, matt black chassis and a black V mark on the counterweight, front shovel lowered, rear arm folded over the machine in travel position. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Compaction",
+    "file": "vmax-bomag-bw-213-d-5.jpg",
+    "where": "Card and page for Bomag BW 213 D-5 (/machines/bomag-bw-213-d-5)",
+    "title": "Bomag BW 213 D-5",
+    "brand": "Bomag",
+    "description": "A 12,500 kg roller on a 2.13 m drum, with compaction metering and pass counting on the screen. Falls back to vmax-compaction.jpg until this file exists.",
+    "prompt": "A brand-new Bomag BW 213 D-5 single-drum vibratory roller with a wide steel drum at the front and rubber tyres at the rear, operating weight 12,500 kg, drum width 2.13 m. Bomag yellow bodywork with a black drum frame and black cab posts, drum straight, operator platform and canopy visible. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Compaction",
+    "file": "vmax-wacker-neuson-rd18.jpg",
+    "where": "Card and page for Wacker Neuson RD18 (/machines/wacker-neuson-rd18)",
+    "title": "Wacker Neuson RD18",
+    "brand": "Wacker Neuson",
+    "description": "A 1,600 kg roller on a 0.9 m drum, with compaction metering and pass counting on the screen. Falls back to vmax-compaction.jpg until this file exists.",
+    "prompt": "A brand-new Wacker Neuson RD18 single-drum vibratory roller with a wide steel drum at the front and rubber tyres at the rear, operating weight 1,600 kg, drum width 0.9 m. Wacker Neuson yellow bodywork with black roll bars and dark grey drums, drum straight, operator platform and canopy visible. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Compaction",
+    "file": "vmax-vmax-vx-r140.jpg",
+    "where": "Card and page for VMAX VX-R140 (/machines/vmax-vx-r140)",
+    "title": "VMAX VX-R140",
+    "brand": "VMAX",
+    "description": "A 14,200 kg roller on a 2.1 m drum, with compaction metering and pass counting on the screen. Falls back to vmax-compaction.jpg until this file exists.",
+    "prompt": "A brand-new VMAX VX-R140 single-drum vibratory roller with a wide steel drum at the front and rubber tyres at the rear, operating weight 14,200 kg, drum width 2.1 m. VMAX house livery: safety yellow bodywork, matt black chassis and a black V mark on the counterweight, drum straight, operator platform and canopy visible. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Telehandlers",
+    "file": "vmax-jcb-540-140.jpg",
+    "where": "Card and page for JCB 540-140 (/machines/jcb-540-140)",
+    "title": "JCB 540-140",
+    "brand": "JCB",
+    "description": "A 4,000 kg telehandler reaching 13.8 m, with stabilisers, on-screen load charts and a hydraulic attachment lock. Falls back to vmax-telehandlers.jpg until this file exists.",
+    "prompt": "A brand-new JCB 540-140 telescopic handler with a long extending boom over the cab and pallet forks at the head, max lift capacity 4,000 kg, max lift height 13.8 m. JCB yellow bodywork with black chassis and a black cab frame, boom retracted and lowered, forks on the ground. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Telehandlers",
+    "file": "vmax-manitou-mt-1840.jpg",
+    "where": "Card and page for Manitou MT 1840 (/machines/manitou-mt-1840)",
+    "title": "Manitou MT 1840",
+    "brand": "Manitou",
+    "description": "A 4,000 kg telehandler reaching 17.5 m, with stabilisers, on-screen load charts and a hydraulic attachment lock. Falls back to vmax-telehandlers.jpg until this file exists.",
+    "prompt": "A brand-new Manitou MT 1840 telescopic handler with a long extending boom over the cab and pallet forks at the head, max lift capacity 4,000 kg, max lift height 17.5 m. manufacturer livery, boom retracted and lowered, forks on the ground. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Telehandlers",
+    "file": "vmax-vmax-vx-t70.jpg",
+    "where": "Card and page for VMAX VX-T70 (/machines/vmax-vx-t70)",
+    "title": "VMAX VX-T70",
+    "brand": "VMAX",
+    "description": "A 7,000 kg telehandler reaching 17 m, with stabilisers, on-screen load charts and a hydraulic attachment lock. Falls back to vmax-telehandlers.jpg until this file exists.",
+    "prompt": "A brand-new VMAX VX-T70 telescopic handler with a long extending boom over the cab and pallet forks at the head, max lift capacity 7,000 kg, max lift height 17 m. VMAX house livery: safety yellow bodywork, matt black chassis and a black V mark on the counterweight, boom retracted and lowered, forks on the ground. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Tractors",
+    "file": "vmax-john-deere-6120m.jpg",
+    "where": "Card and page for John Deere 6120M (/machines/john-deere-6120m)",
+    "title": "John Deere 6120M",
+    "brand": "John Deere",
+    "description": "A 120 horsepower tractor with 5,800 kg on the rear linkage, creep-speed transmission and loader mounts fitted. Falls back to vmax-tractors.jpg until this file exists.",
+    "prompt": "A brand-new John Deere 6120M agricultural tractor with large rear tyres, a glazed cab, front linkage and rear three-point linkage, engine output 88 kW (120 hp), rear lift capacity 5,800 kg. John Deere green bodywork with yellow wheel rims and a black cab frame, front loader removed, linkage arms visible at the rear. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Tractors",
+    "file": "vmax-new-holland-t6-180.jpg",
+    "where": "Card and page for New Holland T6.180 (/machines/new-holland-t6-180)",
+    "title": "New Holland T6.180",
+    "brand": "New Holland",
+    "description": "A 175 horsepower tractor with 7,864 kg on the rear linkage, creep-speed transmission and loader mounts fitted. Falls back to vmax-tractors.jpg until this file exists.",
+    "prompt": "A brand-new New Holland T6.180 agricultural tractor with large rear tyres, a glazed cab, front linkage and rear three-point linkage, engine output 132 kW (175 hp), rear lift capacity 7,864 kg. New Holland blue bodywork with a white roof and black wheel rims, front loader removed, linkage arms visible at the rear. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Tractors",
+    "file": "vmax-massey-ferguson-mf-5s-135.jpg",
+    "where": "Card and page for Massey Ferguson MF 5S.135 (/machines/massey-ferguson-mf-5s-135)",
+    "title": "Massey Ferguson MF 5S.135",
+    "brand": "Massey Ferguson",
+    "description": "A 135 horsepower tractor with 6,000 kg on the rear linkage, creep-speed transmission and loader mounts fitted. Falls back to vmax-tractors.jpg until this file exists.",
+    "prompt": "A brand-new Massey Ferguson MF 5S.135 agricultural tractor with large rear tyres, a glazed cab, front linkage and rear three-point linkage, engine output 99 kW (135 hp), rear lift capacity 6,000 kg. Massey Ferguson red bodywork with a silver-grey roof and black rims, front loader removed, linkage arms visible at the rear. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Drill Rigs",
+    "file": "vmax-epiroc-smartroc-t35.jpg",
+    "where": "Card and page for Epiroc SmartROC T35 (/machines/epiroc-smartroc-t35)",
+    "title": "Epiroc SmartROC T35",
+    "brand": "Epiroc",
+    "description": "A surface drill rig for 64 - 115 mm holes, with automatic rod handling, dust control and on-board hole navigation. Falls back to vmax-drill-rigs.jpg until this file exists.",
+    "prompt": "A brand-new Epiroc SmartROC T35 tracked surface drill rig with a tall articulated drilling boom, feed beam and dust hood, hole diameter 64 - 115 mm, engine output 168 kW. Epiroc yellow bodywork with dark grey booms and black tracks, boom folded into transport position over the tracks. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Drill Rigs",
+    "file": "vmax-sandvik-dp1500i.jpg",
+    "where": "Card and page for Sandvik DP1500i (/machines/sandvik-dp1500i)",
+    "title": "Sandvik DP1500i",
+    "brand": "Sandvik",
+    "description": "A surface drill rig for 89 - 140 mm holes, with automatic rod handling, dust control and on-board hole navigation. Falls back to vmax-drill-rigs.jpg until this file exists.",
+    "prompt": "A brand-new Sandvik DP1500i tracked surface drill rig with a tall articulated drilling boom, feed beam and dust hood, hole diameter 89 - 140 mm, engine output 242 kW. Sandvik orange and dark grey bodywork with black tracks, boom folded into transport position over the tracks. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Aerial Lifts",
+    "file": "vmax-genie-s-65-xc.jpg",
+    "where": "Card and page for Genie S-65 XC (/machines/genie-s-65-xc)",
+    "title": "Genie S-65 XC",
+    "brand": "Genie",
+    "description": "A 21.8 m working height platform carrying 300 kg, with proportional controls and rough-terrain four-wheel drive. Falls back to vmax-aerial-lifts.jpg until this file exists.",
+    "prompt": "A brand-new Genie S-65 XC self-propelled access platform with a work basket, guard rails and an extending boom or scissor stack, platform capacity 300 kg, operating weight 12,100 kg. Genie white and blue livery with yellow safety rails and a grey chassis, platform fully lowered, chassis level. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Aerial Lifts",
+    "file": "vmax-genie-gs-3246.jpg",
+    "where": "Card and page for Genie GS-3246 (/machines/genie-gs-3246)",
+    "title": "Genie GS-3246",
+    "brand": "Genie",
+    "description": "A 11.75 m working height platform carrying 320 kg, with proportional controls and non-marking tyres for indoor work. Falls back to vmax-aerial-lifts.jpg until this file exists.",
+    "prompt": "A brand-new Genie GS-3246 self-propelled access platform with a work basket, guard rails and an extending boom or scissor stack, platform capacity 320 kg, operating weight 2,830 kg. Genie white and blue livery with yellow safety rails and a grey chassis, platform fully lowered, chassis level. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Aerial Lifts",
+    "file": "vmax-jlg-1930es.jpg",
+    "where": "Card and page for JLG 1930ES (/machines/jlg-1930es)",
+    "title": "JLG 1930ES",
+    "brand": "JLG",
+    "description": "A 7.72 m working height platform carrying 227 kg, with proportional controls and non-marking tyres for indoor work. Falls back to vmax-aerial-lifts.jpg until this file exists.",
+    "prompt": "A brand-new JLG 1930ES self-propelled access platform with a work basket, guard rails and an extending boom or scissor stack, platform capacity 227 kg, operating weight 1,450 kg. JLG orange boom and platform with a charcoal grey chassis, platform fully lowered, chassis level. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Forklifts",
+    "file": "vmax-toyota-8fbm25t.jpg",
+    "where": "Card and page for Toyota 8FBM25T (/machines/toyota-8fbm25t)",
+    "title": "Toyota 8FBM25T",
+    "brand": "Toyota",
+    "description": "A 2,500 kg electric counterbalance truck lifting to 3 m, with side-shift and fork positioning. Falls back to vmax-forklifts.jpg until this file exists.",
+    "prompt": "A brand-new Toyota 8FBM25T counterbalance forklift truck with a vertical mast, forks and an overhead guard, lift height 3 m, service weight 4,100 kg. Toyota silver-grey bodywork with orange accents and a black overhead guard, mast lowered, forks just off the floor. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Forklifts",
+    "file": "vmax-hyster-h8-0ft9.jpg",
+    "where": "Card and page for Hyster H8.0FT9 (/machines/hyster-h8-0ft9)",
+    "title": "Hyster H8.0FT9",
+    "brand": "Hyster",
+    "description": "A 8,000 kg diesel counterbalance truck lifting to 3 m, with side-shift and fork positioning. Falls back to vmax-forklifts.jpg until this file exists.",
+    "prompt": "A brand-new Hyster H8.0FT9 counterbalance forklift truck with a vertical mast, forks and an overhead guard, lift height 3 m, service weight 11,400 kg. Hyster yellow bodywork with a black mast and black overhead guard, mast lowered, forks just off the floor. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Forklifts",
+    "file": "vmax-linde-h35d.jpg",
+    "where": "Card and page for Linde H35D (/machines/linde-h35d)",
+    "title": "Linde H35D",
+    "brand": "Linde",
+    "description": "A 3,500 kg diesel counterbalance truck lifting to 3.3 m, with side-shift and fork positioning. Falls back to vmax-forklifts.jpg until this file exists.",
+    "prompt": "A brand-new Linde H35D counterbalance forklift truck with a vertical mast, forks and an overhead guard, lift height 3.3 m, service weight 5,400 kg. Linde red bodywork with a dark grey mast and black overhead guard, mast lowered, forks just off the floor. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Skid Steers",
+    "file": "vmax-bobcat-t770.jpg",
+    "where": "Card and page for Bobcat T770 (/machines/bobcat-t770)",
+    "title": "Bobcat T770",
+    "brand": "Bobcat",
+    "description": "A 1,565 kg rated compact track loader with high-flow auxiliaries and a universal attachment plate. Falls back to vmax-skid-steers.jpg until this file exists.",
+    "prompt": "A brand-new Bobcat T770 compact loader with a small bucket, side-entry cab and a universal attachment plate, rated capacity 1,565 kg, operating weight 5,050 kg. Bobcat white bodywork with orange accents and a black cab frame, bucket flat on the ground, loader arms down. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Skid Steers",
+    "file": "vmax-caterpillar-262d3.jpg",
+    "where": "Card and page for Caterpillar 262D3 (/machines/caterpillar-262d3)",
+    "title": "Caterpillar 262D3",
+    "brand": "Caterpillar",
+    "description": "A 1,225 kg rated skid steer with high-flow auxiliaries and a universal attachment plate. Falls back to vmax-skid-steers.jpg until this file exists.",
+    "prompt": "A brand-new Caterpillar 262D3 compact loader with a small bucket, side-entry cab and a universal attachment plate, rated capacity 1,225 kg, operating weight 3,650 kg. Caterpillar hi-vis yellow bodywork with a black chassis, black undercarriage and dark grey cab glazing frames, bucket flat on the ground, loader arms down. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Skid Steers",
+    "file": "vmax-kubota-svl75-3.jpg",
+    "where": "Card and page for Kubota SVL75-3 (/machines/kubota-svl75-3)",
+    "title": "Kubota SVL75-3",
+    "brand": "Kubota",
+    "description": "A 1,180 kg rated compact track loader with high-flow auxiliaries and a universal attachment plate. Falls back to vmax-skid-steers.jpg until this file exists.",
+    "prompt": "A brand-new Kubota SVL75-3 compact loader with a small bucket, side-entry cab and a universal attachment plate, rated capacity 1,180 kg, operating weight 4,200 kg. Kubota orange bodywork with black cab frame and dark grey tracks, bucket flat on the ground, loader arms down. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Cranes",
+    "file": "vmax-liebherr-ltm-1050-3-1.jpg",
+    "where": "Card and page for Liebherr LTM 1050-3.1 (/machines/liebherr-ltm-1050-3-1)",
+    "title": "Liebherr LTM 1050-3.1",
+    "brand": "Liebherr",
+    "description": "A 50 tonne crane with 38 m of main boom, load moment protection and outrigger position sensing. Falls back to vmax-cranes.jpg until this file exists.",
+    "prompt": "A brand-new Liebherr LTM 1050-3.1 all-terrain mobile crane with a long telescopic boom, multiple axles and extended outriggers, main boom 38 m, gross weight 36,000 kg. Liebherr pale yellow and white livery with grey outriggers, boom fully retracted and resting on the boom rest, outriggers stowed. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Cranes",
+    "file": "vmax-grove-gmk3060l.jpg",
+    "where": "Card and page for Grove GMK3060L (/machines/grove-gmk3060l)",
+    "title": "Grove GMK3060L",
+    "brand": "Grove",
+    "description": "A 60 tonne crane with 48 m of main boom, load moment protection and outrigger position sensing. Falls back to vmax-cranes.jpg until this file exists.",
+    "prompt": "A brand-new Grove GMK3060L all-terrain mobile crane with a long telescopic boom, multiple axles and extended outriggers, main boom 48 m, gross weight 36,000 kg. Grove white bodywork with dark blue accents and grey outriggers, boom fully retracted and resting on the boom rest, outriggers stowed. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Site Dumpers",
+    "file": "vmax-thwaites-9-tonne-swivel.jpg",
+    "where": "Card and page for Thwaites 9 Tonne Swivel (/machines/thwaites-9-tonne-swivel)",
+    "title": "Thwaites 9 Tonne Swivel",
+    "brand": "Thwaites",
+    "description": "A 9,000 kg payload dumper with a 5.4 m³ skip, four-wheel drive and roll-over protection. Falls back to vmax-site-dumpers.jpg until this file exists.",
+    "prompt": "A brand-new Thwaites 9 Tonne Swivel compact four-wheel site dumper with a front tipping skip and an open operator seat with roll bar, rated payload 9,000 kg, skip volume 5.4 m³. Thwaites bright yellow bodywork with a black roll bar and black skip edge, skip level and empty. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Site Dumpers",
+    "file": "vmax-wacker-neuson-dw60.jpg",
+    "where": "Card and page for Wacker Neuson DW60 (/machines/wacker-neuson-dw60)",
+    "title": "Wacker Neuson DW60",
+    "brand": "Wacker Neuson",
+    "description": "A 6,000 kg payload dumper with a 3.3 m³ skip, four-wheel drive and roll-over protection. Falls back to vmax-site-dumpers.jpg until this file exists.",
+    "prompt": "A brand-new Wacker Neuson DW60 compact four-wheel site dumper with a front tipping skip and an open operator seat with roll bar, rated payload 6,000 kg, skip volume 3.3 m³. Wacker Neuson yellow bodywork with black roll bars and dark grey drums, skip level and empty. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Crushing & Screening",
+    "file": "vmax-terex-finlay-j-1170.jpg",
+    "where": "Card and page for Terex Finlay J-1170 (/machines/terex-finlay-j-1170)",
+    "title": "Terex Finlay J-1170",
+    "brand": "Terex Finlay",
+    "description": "A tracked plant rated to 400 tonnes an hour, with hydraulic setting adjustment, metal detection and radio remote tracking. Falls back to vmax-crushing-screening.jpg until this file exists.",
+    "prompt": "A brand-new Terex Finlay J-1170 tracked mobile crushing plant with a feed hopper, conveyor and dust guarding, throughput up to 400 t/h, operating weight 51,500 kg. Terex Finlay red and dark grey plant livery with yellow guarding, conveyors folded into transport position. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Crushing & Screening",
+    "file": "vmax-metso-lokotrack-lt120.jpg",
+    "where": "Card and page for Metso Lokotrack LT120 (/machines/metso-lokotrack-lt120)",
+    "title": "Metso Lokotrack LT120",
+    "brand": "Metso",
+    "description": "A tracked plant rated to 400 tonnes an hour, with hydraulic setting adjustment, metal detection and radio remote tracking. Falls back to vmax-crushing-screening.jpg until this file exists.",
+    "prompt": "A brand-new Metso Lokotrack LT120 tracked mobile crushing plant with a feed hopper, conveyor and dust guarding, throughput up to 400 t/h, operating weight 58,000 kg. Metso dark blue-grey plant livery with orange guarding, conveyors folded into transport position. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Power & Lighting",
+    "file": "vmax-caterpillar-de110-gc.jpg",
+    "where": "Card and page for Caterpillar DE110 GC (/machines/caterpillar-de110-gc)",
+    "title": "Caterpillar DE110 GC",
+    "brand": "Caterpillar",
+    "description": "A 110 kVA set with a bunded tank, 24 hours of autonomy and remote monitoring. Falls back to vmax-power-lighting.jpg until this file exists.",
+    "prompt": "A brand-new Caterpillar DE110 GC towable site power unit in a sound-attenuated canopy on a road trailer chassis, prime output 110 kVA, tank autonomy 24 h. Caterpillar hi-vis yellow bodywork with a black chassis, black undercarriage and dark grey cab glazing frames, canopy doors closed, drawbar visible. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Power & Lighting",
+    "file": "vmax-atlas-copco-hilight-v5-plus.jpg",
+    "where": "Card and page for Atlas Copco HiLight V5+ (/machines/atlas-copco-hilight-v5-plus)",
+    "title": "Atlas Copco HiLight V5+",
+    "brand": "Atlas Copco",
+    "description": "A 4 x 350 W LED set with a bunded tank, 26 hours of autonomy and remote monitoring. Falls back to vmax-power-lighting.jpg until this file exists.",
+    "prompt": "A brand-new Atlas Copco HiLight V5+ towable site power unit in a sound-attenuated canopy on a road trailer chassis, prime output 4 x 350 W LED, tank autonomy 26 h. Atlas Copco yellow canopy with dark grey chassis, canopy doors closed, drawbar visible. photorealistic commercial product photograph, three-quarter front view from slightly below eye level, complete machine in frame with clearance around it, spotless and unused, isolated on a pure white seamless background with a soft contact shadow, even diffused studio lighting, no people, no text, no watermark, no logos other than the machine's own, sharp detail throughout, 4:3."
+  },
+  {
+    "group": "Logos",
+    "brand": "VMAX",
+    "file": "vmaxlogo.png",
+    "where": "Site header and footer (dark backgrounds)",
+    "title": "Wordmark, light",
+    "description": "Optional: the site sets the mark in type until this exists, and the typeset version is a finished mark, not a gap. A transparent PNG or SVG.",
+    "prompt": "A flat vector wordmark reading VMAX in a heavy condensed industrial sans-serif, the V enclosed in a rounded safety-yellow tile, the letters MAX in white, transparent background, no gradients, no 3D, no shadow, high contrast, logo design"
+  },
+  {
+    "group": "Logos",
+    "brand": "VMAX",
+    "file": "vmaxlogo-black.png",
+    "where": "Staff desk at /admin (light backgrounds)",
+    "title": "Wordmark, dark",
+    "description": "The same mark with black lettering, for white backgrounds.",
+    "prompt": "A flat vector wordmark reading VMAX in a heavy condensed industrial sans-serif, the V enclosed in a rounded safety-yellow tile, the letters MAX in near-black, transparent background, no gradients, no 3D, no shadow, high contrast, logo design"
+  }
+]

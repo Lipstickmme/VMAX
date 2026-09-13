@@ -9,6 +9,9 @@ what is outstanding.
 Accepted formats, best first: .webp  .avif  .jpg  .jpeg  .png
 Names are matched without regard to case.
 
+For what each file should actually show, and a prompt for generating one, see
+docs/IMAGE-BRIEF.md in the repository root.
+
 TWO WAYS TO DO THE MACHINES
   1. One photograph per CLASS, which covers every machine in it. Quickest.
   2. One photograph per MACHINE, which overrides the class picture.

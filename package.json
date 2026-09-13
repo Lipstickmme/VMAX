@@ -13,7 +13,8 @@
     "test": "node test/api.test.js",
     "test:browser": "node test/browser.test.js && node test/fallback.test.js",
     "gen:machines": "node scripts/generate-machines.js",
-    "gen:favicon": "node scripts/make-favicon.js"
+    "gen:favicon": "node scripts/make-favicon.js",
+    "gen:brief": "node scripts/image-brief.js && node scripts/build-image-brief-page.js"
   },
   "engines": {
     "node": ">=18"
