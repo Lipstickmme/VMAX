@@ -39,7 +39,10 @@ function aurora() {
  * dropped in as vmaxlogo. Typeset is the default rather than the fallback: it
  * is the same mark either way, and the page never shows a gap.
  */
-function wordmark({ tone = 'light', small = false } = {}) {
+function wordmark({ tone = 'dark', small = false } = {}) {
+  // `tone` names the ground the mark sits on: the site's surfaces are light,
+  // so the dark-ink wordmark is the default and the light one waits for a
+  // dark surface to be used on.
   const img = tone === 'dark' ? images.logoDark : images.logoLight;
   if (img && img.src) {
     return `<img class="brand-logo" src="${img.src}" alt="${COMPANY}" />`;
@@ -111,7 +114,7 @@ function nav(active = '') {
   return `
   <header class="nav" id="nav">
     <a class="brand" href="/" aria-label="${COMPANY} home">
-      ${wordmark({ tone: 'light' })}
+      ${wordmark({ tone: 'dark' })}
     </a>
     <nav class="nav-links" id="navlinks">
       ${link('/machines', 'Machines', 'machines')}
@@ -132,7 +135,7 @@ function footer() {
   <footer class="footer">
     <div class="wrap footer-top">
       <div class="footer-brand">
-        ${wordmark({ tone: 'light' })}
+        ${wordmark({ tone: 'dark' })}
         <p>Brand new plant from the makers we represent, sold, delivered and serviced by the people who specified it.</p>
       </div>
       <div class="col">

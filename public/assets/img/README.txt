@@ -12,6 +12,20 @@ Names are matched without regard to case.
 For what each file should actually show, and a prompt for generating one, see
 docs/IMAGE-BRIEF.md in the repository root.
 
+WHAT IS ALREADY IN HERE
+  Photographs are supplied as .webp for all 17 classes, 47 of the 50 machines
+  and 9 of the 12 scenes. Drop a same-named file in to replace any of them --
+  a later format in the list above wins, so vmax-volvo-l120h.jpg would sit
+  alongside the .webp without replacing it. Delete the .webp when swapping.
+
+  STILL OUTSTANDING - these fall back to another picture until supplied:
+    vmax-caterpillar-336      shows the Excavators class photograph
+    vmax-volvo-ec380e         shows the Excavators class photograph
+    vmax-grove-gmk3060l       shows the Cranes class photograph
+    vmaxfleet                 shows vmaxhero2
+    vmaxyard                  shows vmaxhero1
+    vmaxmachines              shows vmaxhero1
+
 TWO WAYS TO DO THE MACHINES
   1. One photograph per CLASS, which covers every machine in it. Quickest.
   2. One photograph per MACHINE, which overrides the class picture.
