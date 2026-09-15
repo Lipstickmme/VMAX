@@ -53,6 +53,10 @@ const publicDir = path.join(__dirname, '..', 'public');
 app.use(
   express.static(publicDir, {
     extensions: ['html'],
+    // public/machines and public/services are folders of built pages, not
+    // browsable directories: without this, /machines is answered with a
+    // redirect to /machines/ before the page route below ever sees it.
+    redirect: false,
     setHeaders(res, filePath) {
       // Long cache for static media (hero slides, logos); versioned per deploy.
       if (/\.(webp|png|jpg|jpeg|svg|mp4|woff2?)$/i.test(filePath)) {
@@ -75,8 +79,12 @@ app.get('/machines/:id', (req, res, next) => {
   res.sendFile(file, (err) => (err ? next() : undefined));
 });
 app.get('/services', sendPage('services.html'));
-// Service detail pages resolve the id client-side from the path.
-app.get('/services/:id', sendPage('service.html'));
+// Each department has its own page, built at build time, same as the machines.
+app.get('/services/:id', (req, res, next) => {
+  if (!/^[a-z0-9-]+$/.test(req.params.id)) return next();
+  const file = path.join(publicDir, 'services', `${req.params.id}.html`);
+  res.sendFile(file, (err) => (err ? next() : undefined));
+});
 app.get('/careers', sendPage('careers.html'));
 app.get('/apply', sendPage('apply.html'));
 app.get('/contact', sendPage('contact.html'));

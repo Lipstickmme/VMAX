@@ -157,7 +157,9 @@ section { position: relative; }
 }
 /* Where the browser cannot frost, the pane goes opaque rather than muddy. */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .glass, .nav, .mcard, .kpi, .svc, .chat-panel, .chip, form { background: rgba(255, 255, 255, 0.96) !important; }
+  .glass, .nav, .mcard-face, .kpi, .svc, .chat-panel, .chip, .search-bar, form { background: rgba(255, 255, 255, 0.96) !important; }
+  .btn { background: linear-gradient(135deg, var(--yellow-2), var(--yellow)) !important; }
+  .btn.ghost { background: rgba(255, 255, 255, 0.96) !important; }
 }
 
 /* Type ------------------------------------------------------------------ */
@@ -211,19 +213,25 @@ p:last-child { margin-bottom: 0; }
 .section-head.with-action > div { max-width: 760px; }
 
 /* Buttons ---------------------------------------------------------------
-   A pill with a sheen that sweeps once on hover. */
+   A frosted pill. The yellow is laid on at partial strength over a blurred
+   backdrop rather than painted flat, so the button picks up whatever is
+   behind it - the aurora, a photograph, a tinted band - and a bright top
+   edge sits on it like light on glass. A sheen sweeps across once on hover. */
 .btn {
   position: relative;
   display: inline-flex; align-items: center; gap: 10px;
   padding: 16px 28px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(255,255,255,.55);
   border-radius: var(--pill);
-  background: linear-gradient(135deg, var(--yellow-2), var(--yellow));
+  background:
+    linear-gradient(135deg, rgba(255,216,77,.86), rgba(255,196,0,.92)),
+    linear-gradient(180deg, rgba(255,255,255,.5), rgba(255,255,255,0) 58%);
+  backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
   color: var(--ink);
   font-family: var(--font-display);
   font-weight: 700; font-size: 16px; letter-spacing: -0.01em;
   text-decoration: none; cursor: pointer; overflow: hidden;
-  box-shadow: var(--shadow-yellow), inset 0 1px 0 rgba(255,255,255,.6);
+  box-shadow: var(--shadow-yellow), inset 0 1px 0 rgba(255,255,255,.85), inset 0 -1px 0 rgba(184,134,0,.18);
   transition: transform .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
 }
 .btn::after {
@@ -232,7 +240,13 @@ p:last-child { margin-bottom: 0; }
   background: linear-gradient(90deg, transparent, rgba(255,255,255,.75), transparent);
   transition: left .6s var(--ease);
 }
-.btn:hover { transform: translateY(-3px); box-shadow: 0 34px 60px -30px rgba(184,134,0,.85), inset 0 1px 0 rgba(255,255,255,.7); }
+.btn:hover {
+  transform: translateY(-3px);
+  background:
+    linear-gradient(135deg, rgba(255,216,77,.96), rgba(255,196,0,1)),
+    linear-gradient(180deg, rgba(255,255,255,.62), rgba(255,255,255,0) 58%);
+  box-shadow: 0 34px 60px -30px rgba(184,134,0,.85), inset 0 1px 0 rgba(255,255,255,.92), inset 0 -1px 0 rgba(184,134,0,.2);
+}
 .btn:hover::after { left: 120%; }
 .btn:active { transform: translateY(-1px); }
 .btn[disabled] { opacity: .55; cursor: progress; }
@@ -240,13 +254,17 @@ p:last-child { margin-bottom: 0; }
 .btn:hover .arw { transform: translateX(3px); }
 
 .btn.ghost {
-  background: var(--glass);
-  backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
-  border-color: var(--glass-line);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.44));
+  backdrop-filter: var(--blur-strong); -webkit-backdrop-filter: var(--blur-strong);
+  border-color: rgba(255,255,255,.7);
   color: var(--ink);
   box-shadow: var(--shadow), inset 0 1px 0 var(--glass-edge);
 }
-.btn.ghost:hover { background: var(--glass-strong); box-shadow: var(--shadow-lg), inset 0 1px 0 var(--glass-edge); }
+.btn.ghost:hover {
+  background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.62));
+  box-shadow: var(--shadow-lg), inset 0 1px 0 var(--glass-edge);
+}
 
 .btn.sm { padding: 11px 20px; font-size: 14.5px; }
 
@@ -329,11 +347,38 @@ p:last-child { margin-bottom: 0; }
 .nav.open-sheet .nav-toggle span:nth-child(2) { opacity: 0; }
 .nav.open-sheet .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Hero ------------------------------------------------------------------ */
-.hero { padding: clamp(118px, 15vw, 190px) 0 clamp(40px, 5vw, 72px); position: relative; }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.02fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+/* Hero ------------------------------------------------------------------
+   The photograph is the page. It runs edge to edge behind the whole section
+   and drifts slowly as you scroll; a white veil is laid over it, heaviest
+   under the type and thinnest over the machine, so the headline reads as
+   black on white while the picture stays a picture. */
+.hero {
+  position: relative; isolation: isolate;
+  min-height: min(92svh, 920px);
+  display: grid; align-items: center;
+  padding: clamp(124px, 14vw, 180px) 0 clamp(56px, 7vw, 96px);
+}
+.hero-bg { position: absolute; inset: -9% 0; z-index: -2; overflow: hidden; }
+/* The veil. A diagonal wash that clears the right-hand side, a soft top so
+   the nav pill stays legible, and a hard bottom so the section melts into
+   the white page rather than stopping at an edge. */
+.hero-bg::after {
+  content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background:
+    linear-gradient(103deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.93) 26%, rgba(255,255,255,.66) 46%, rgba(255,255,255,.26) 64%, rgba(255,255,255,.14) 100%),
+    radial-gradient(74% 86% at 80% 26%, rgba(255,196,0,.20), transparent 68%),
+    linear-gradient(180deg, rgba(255,255,255,.86) 0%, rgba(255,255,255,0) 22%, rgba(255,255,255,0) 58%, rgba(255,255,255,.85) 88%, #fff 100%);
+}
+/* The slider loses its pane treatment here: no radius, no shadow, no ratio. */
+.hero-bg .slider { border-radius: 0; border: 0; box-shadow: none; height: 100%; background: var(--paper); }
+.hero-bg .slider-track { aspect-ratio: auto; height: 100%; }
+.hero-bg .slide .media, .hero-bg .slide .media img { height: 100%; object-fit: cover; }
+.hero-bg .slider-ui { z-index: 4; justify-content: flex-end; padding: clamp(16px, 3vw, 34px); }
+
+.hero-inner { position: relative; display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
+.hero-copy { max-width: min(680px, 62%); }
 .hero h1 { margin-bottom: 24px; }
-.hero-sub { font-size: clamp(18px, 1.4vw, 23px); color: var(--muted); max-width: 46ch; margin-bottom: 34px; }
+.hero-sub { font-size: clamp(18px, 1.4vw, 23px); color: var(--ink-2); max-width: 44ch; margin-bottom: 34px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 40px; }
 
 /* Three small facts under the fold of the copy, each its own pane. */
@@ -371,11 +416,9 @@ p:last-child { margin-bottom: 0; }
 .slider-arrows button:hover { background: var(--yellow); transform: translateY(-2px); }
 .slider-count { position: absolute; top: 16px; right: 16px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; padding: 7px 13px; border-radius: var(--pill); background: var(--glass-strong); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); border: 1px solid var(--glass-line); }
 
-/* The pane that overlaps the hero slider's lower left corner. */
-.hero-media { position: relative; }
+/* The pane that sits at the foot of the hero, over the clear half of it. */
 .hero-chip {
-  position: absolute; left: -22px; bottom: -26px; z-index: 3;
-  display: flex; align-items: center; gap: 14px;
+  display: flex; align-items: center; gap: 14px; flex: none; margin-bottom: 96px;
   padding: 16px 22px 16px 16px; border-radius: var(--r-lg);
   background: var(--glass-strong); backdrop-filter: var(--blur-strong); -webkit-backdrop-filter: var(--blur-strong);
   border: 1px solid var(--glass-line); box-shadow: var(--shadow-lg), inset 0 1px 0 var(--glass-edge);
@@ -470,17 +513,53 @@ p:last-child { margin-bottom: 0; }
 
 .kpi-wide { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(24px, 3vw, 48px); align-items: center; padding: clamp(24px, 3vw, 40px); border-radius: var(--r-xl); margin-top: 18px; }
 
-/* Machine cards ---------------------------------------------------------- */
+.service-detail .machine-hero h1 { font-size: clamp(38px, 4.4vw, 66px); }
+
+/* Machine cards ----------------------------------------------------------
+   Two faces on one card. The front is the photograph and the four numbers a
+   buyer compares; hovering turns the card over to the sentence behind them
+   and the commercial detail. The link is the whole card either way, so the
+   turn is decoration - nothing is only reachable on the back, and on a
+   touchscreen, where there is no hover, the back is never built. */
 .mcard-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 .mcard {
-  position: relative; display: flex; flex-direction: column;
+  display: grid; perspective: 1600px;
+  text-decoration: none; color: var(--ink);
+  border-radius: var(--r-xl);
+}
+.mcard-inner {
+  position: relative; transform-style: preserve-3d;
+  transition: transform .8s cubic-bezier(.22,.72,.2,1);
+}
+.mcard-face {
   border-radius: var(--r-xl); overflow: hidden;
   background: var(--glass); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
   border: 1px solid var(--glass-line); box-shadow: var(--shadow), inset 0 1px 0 var(--glass-edge);
-  text-decoration: none; color: var(--ink);
-  transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  transition: box-shadow .45s var(--ease);
 }
-.mcard:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg), inset 0 1px 0 var(--glass-edge); }
+/* The front is in normal flow, so it is what gives the card its height. */
+.mcard-front { position: relative; display: flex; flex-direction: column; height: 100%; }
+.mcard-back {
+  position: absolute; inset: 0; transform: rotateY(180deg);
+  display: none; flex-direction: column; padding: 24px 24px 22px;
+  background: linear-gradient(165deg, rgba(255,249,230,.92), rgba(255,255,255,.86) 58%, rgba(255,241,194,.9));
+}
+.mcard-back-code { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--yellow-deep); }
+.mcard-back h3 { font-size: clamp(24px, 2vw, 31px); margin: 8px 0 12px; }
+.mcard-blurb { color: var(--ink-2); font-size: 15.5px; line-height: 1.45; margin: 0 0 18px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.mcard-facts { display: grid; gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: var(--r-sm); overflow: hidden; }
+.b-fact { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 9px 13px; background: rgba(255,255,255,.72); }
+.b-fact .k { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.b-fact .v { font-family: var(--font-display); font-weight: 700; font-size: 14.5px; text-align: right; }
+
+/* The turn itself, only where there is a pointer that can hover. */
+@media (hover: hover) and (pointer: fine) {
+  .mcard-back { display: flex; }
+  .mcard:hover .mcard-inner, .mcard:focus-visible .mcard-inner { transform: rotateY(180deg); }
+  .mcard:hover .mcard-face, .mcard:focus-visible .mcard-face { box-shadow: var(--shadow-lg), inset 0 1px 0 var(--glass-edge); }
+}
+
 .mcard-media { position: relative; margin: 10px 10px 0; border-radius: var(--r-lg); overflow: hidden; background: linear-gradient(160deg, var(--yellow-wash), var(--paper-2)); }
 .mcard-media .media { aspect-ratio: 4 / 3; background: transparent; }
 .mcard:hover .mcard-media img { transform: scale(1.06); }
@@ -524,7 +603,55 @@ p:last-child { margin-bottom: 0; }
 /* Filter bar -------------------------------------------------------------
    Two rows, each a scrolling segmented control: class on top, brand beneath.
    They combine, so a filtered list is one link. */
-.filter-bar { display: grid; gap: 12px; margin-bottom: clamp(20px, 2.4vw, 32px); }
+/* The listing opens on the search rather than on a picture. */
+.listing-top { padding-top: clamp(126px, 14vw, 180px); }
+.listing-head { margin-bottom: clamp(26px, 3vw, 40px); }
+.listing-head h1 { margin-bottom: 18px; }
+.listing-head p { color: var(--muted); font-size: clamp(17px, 1.35vw, 22px); max-width: 56ch; margin: 0; }
+
+.search-bar {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  padding: 10px 10px 10px 8px; margin-bottom: 18px;
+  border-radius: var(--pill);
+  background: var(--glass); backdrop-filter: var(--blur-strong); -webkit-backdrop-filter: var(--blur-strong);
+  border: 1px solid var(--glass-line); box-shadow: var(--shadow), inset 0 1px 0 var(--glass-edge);
+  transition: box-shadow .3s var(--ease), border-color .3s var(--ease);
+}
+.search-bar:focus-within { border-color: rgba(184,134,0,.4); box-shadow: var(--shadow-lg), 0 0 0 4px rgba(255,196,0,.22), inset 0 1px 0 var(--glass-edge); }
+.search-field { position: relative; display: flex; align-items: center; gap: 12px; flex: 1 1 320px; min-width: 0; padding-left: 14px; }
+.search-ico { display: grid; place-items: center; color: var(--muted); flex: none; }
+.search-ico svg { width: 22px; height: 22px; }
+.search-field input {
+  flex: 1; min-width: 0; border: 0; background: transparent; outline: none;
+  font-family: var(--font-display); font-weight: 600; font-size: clamp(16px, 1.3vw, 19px); letter-spacing: -0.01em;
+  color: var(--ink); padding: 12px 0;
+}
+.search-field input::placeholder { color: var(--muted-2); font-weight: 500; }
+.search-field input::-webkit-search-cancel-button { display: none; }
+.search-clear {
+  flex: none; width: 30px; height: 30px; border: 0; border-radius: 50%; cursor: pointer;
+  background: rgba(18,18,18,.07); color: var(--ink); font-size: 18px; line-height: 1;
+  transition: background .25s var(--ease);
+}
+.search-clear:hover { background: var(--yellow); }
+.search-side { display: flex; align-items: center; gap: 16px; flex: none; padding-right: 6px; }
+.search-sort { display: inline-flex; align-items: center; gap: 9px; flex: none; }
+.search-sort > span { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.search-sort select {
+  appearance: none; -webkit-appearance: none; cursor: pointer;
+  font-family: var(--font-display); font-weight: 600; font-size: 15px; color: var(--ink);
+  padding: 10px 34px 10px 16px; border-radius: var(--pill);
+  border: 1px solid var(--glass-line); background: rgba(255,255,255,.72);
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position: right 17px top 50%, right 12px top 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+.search-sort select:focus-visible { outline: 2px solid var(--yellow-deep); outline-offset: 2px; }
+.search-side .filter-count { margin: 0; white-space: nowrap; }
+
+.filter-bar { display: grid; gap: 10px; margin-bottom: clamp(20px, 2.4vw, 32px); }
+.filter-bar .filters { margin-bottom: 0; }
 .filter-row { display: flex; align-items: center; gap: 14px; min-width: 0; }
 .filter-label { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); width: 52px; flex: none; }
 .filter-count { font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 22px; }
@@ -798,6 +925,8 @@ input:focus, select:focus, textarea:focus { outline: none; background: var(--whi
   [data-para] { transform: none; }
   .slide { transition: opacity .2s linear; transform: none; }
   .btn, .mcard, .cat, .svc, .kpi, .role, .service-row { transition: none !important; }
+  .mcard-inner { transition: none !important; transform: none !important; }
+  .mcard-back { display: none !important; }
   .spark i { transition: none; transform: scaleY(1); }
   .meter span { transition: none; }
 }
@@ -854,11 +983,25 @@ input:focus, select:focus, textarea:focus { outline: none; background: var(--whi
     box-shadow: var(--shadow-sm);
   }
 
-  .hero { padding-top: 108px; }
+  /* The copy fills the width, so the veil has to cover the whole frame. */
+  .hero { padding: 132px 0 64px; min-height: 0; }
+  .hero-bg::after {
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(255,255,255,.88) 46%, rgba(255,255,255,.8) 72%, #fff 100%),
+      radial-gradient(90% 60% at 70% 12%, rgba(255,196,0,.2), transparent 70%);
+  }
+  .hero-inner { display: block; }
+  .hero-copy { max-width: none; }
   .hero-facts { grid-template-columns: 1fr; }
-  .hero-chip { position: static; margin-top: 16px; width: 100%; }
+  .hero-chip { margin: 16px 0 0; width: 100%; }
+  .hero-bg .slider-ui { display: none; }
   .slider { border-radius: var(--r-xl); }
   .slider-track { aspect-ratio: 4 / 3; }
+
+  .listing-top { padding-top: 116px; }
+  .search-bar { border-radius: var(--r-lg); padding: 8px; }
+  .search-field { flex: 1 1 100%; padding-left: 10px; }
+  .search-side { width: 100%; justify-content: space-between; padding: 0 8px 4px; }
 
   .section-head.with-action { display: block; }
   .section-head.with-action .btn { margin-top: 22px; }
@@ -868,7 +1011,8 @@ input:focus, select:focus, textarea:focus { outline: none; background: var(--whi
 
   /* The machine card lies down: picture left, model and specs right. */
   .mcard-grid { grid-template-columns: 1fr; gap: 16px; }
-  .mcard { flex-direction: row; align-items: stretch; border-radius: var(--r-lg); }
+  .mcard, .mcard-face { border-radius: var(--r-lg); }
+  .mcard-front { flex-direction: row; align-items: stretch; }
   .mcard-media { width: 38%; max-width: 180px; flex: none; margin: 10px 0 10px 10px; }
   .mcard-media .media { height: 100%; aspect-ratio: auto; min-height: 150px; }
   .mcard-flags { position: static; padding: 0 0 12px; }
@@ -901,7 +1045,7 @@ input:focus, select:focus, textarea:focus { outline: none; background: var(--whi
 }
 
 @media (max-width: 470px) {
-  .mcard { flex-direction: column; }
+  .mcard-front { flex-direction: column; }
   .mcard-media { width: auto; max-width: none; margin: 10px 10px 0; }
   .mcard-media .media { aspect-ratio: 16 / 10; min-height: 0; }
   .mcard-flags { position: absolute; top: 18px; left: 18px; right: 18px; padding: 0; }

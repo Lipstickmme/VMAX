@@ -3,9 +3,10 @@
 const services = require('../data/services.json');
 const images = require('../site/images');
 
-/** Same image treatment as machines: a name in the data, a path only if the file is there. */
+/** Same image treatment as machines: the name in the data, then the photograph
+    named behind it, and a path only if one of the files is actually there. */
 function decorate(s) {
-  return Object.assign({}, s, { image: images.resolveName(s.imageName, s.title) });
+  return Object.assign({}, s, { image: images.resolveName([s.imageName, s.imageFallback], s.title) });
 }
 
 exports.list = (req, res) => {

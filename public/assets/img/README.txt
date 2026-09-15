@@ -22,8 +22,11 @@ WHAT IS ALREADY IN HERE
     vmax-caterpillar-336      shows the Excavators class photograph
     vmax-volvo-ec380e         shows the Excavators class photograph
     vmax-grove-gmk3060l       shows the Cranes class photograph
-    vmaxfleet                 shows vmaxhero2
-    vmaxyard                  shows vmaxhero1
+    vmaxfleet                 shows vmaxhero2 in the yard gallery,
+                              and vmaxhero1 on the New Machine Sales page
+    vmaxyard                  shows vmaxhero1 in the yard gallery,
+                              and vmaxhero2 on the Warranty and Extended
+                              Cover page
     vmaxmachines              shows vmaxhero1
 
 TWO WAYS TO DO THE MACHINES

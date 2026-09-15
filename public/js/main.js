@@ -37,18 +37,37 @@
   function machineCard(m) {
     const specs = (m.specs || []).map((s) => `
             <li class="spec"><span class="spec-ico">${iconRef(s.icon)}</span><span class="spec-val"><span class="spec-k">${esc(s.label)}</span>${esc(s.value)}</span></li>`).join('');
+    const facts = [
+      ['Model year', m.year],
+      ['Stock no.', m.stock],
+      ['Availability', m.status],
+      ['Price', m.price],
+    ].filter((f) => f[1]).map((f) => `<div class="b-fact"><span class="k">${esc(f[0])}</span><span class="v">${esc(f[1])}</span></div>`).join('');
+    const type = String(m.category || '').replace(/s$/, '');
+    const more = [m.name, m.location].concat(m.features || []).filter(Boolean).join(' ');
     return `
-      <a class="mcard" href="/machines/${esc(m.id)}" data-category="${esc(m.category)}" data-brand="${esc(m.brand)}" data-tilt data-reveal>
-        <div class="mcard-flags">
-          <span class="flag">${esc(m.brand)}</span>
-          <span class="flag-stock">${esc(m.status)}</span>
-        </div>
-        <div class="mcard-media">${media(m.image, { alt: m.name, className: 'media-machine' })}</div>
-        <div class="mcard-body">
-          <h3>${esc(m.model)}</h3>
-          <p class="mcard-type">${esc(String(m.category || '').replace(/s$/, ''))}</p>
-          <ul class="specs">${specs}</ul>
-          <span class="mcard-go">View machine <span class="go-pill">${iconRef('arrow')}</span></span>
+      <a class="mcard" href="/machines/${esc(m.id)}" data-category="${esc(m.category)}" data-brand="${esc(m.brand)}" data-more="${esc(more)}" data-reveal>
+        <div class="mcard-inner">
+          <div class="mcard-face mcard-front">
+            <div class="mcard-flags">
+              <span class="flag">${esc(m.brand)}</span>
+              <span class="flag-stock">${esc(m.status)}</span>
+            </div>
+            <div class="mcard-media">${media(m.image, { alt: m.name, className: 'media-machine' })}</div>
+            <div class="mcard-body">
+              <h3>${esc(m.model)}</h3>
+              <p class="mcard-type">${esc(type)}</p>
+              <ul class="specs">${specs}</ul>
+              <span class="mcard-go">View machine <span class="go-pill">${iconRef('arrow')}</span></span>
+            </div>
+          </div>
+          <div class="mcard-face mcard-back" aria-hidden="true">
+            <span class="mcard-back-code">${esc(m.brand)} &middot; ${esc(type)}</span>
+            <h3>${esc(m.model)}</h3>
+            <p class="mcard-blurb">${esc(m.blurb)}</p>
+            <div class="mcard-facts">${facts}</div>
+            <span class="mcard-go">View machine <span class="go-pill">${iconRef('arrow')}</span></span>
+          </div>
         </div>
       </a>`;
   }

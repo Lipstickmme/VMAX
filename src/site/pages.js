@@ -61,19 +61,49 @@ function machineImage(m) {
   return images.resolveName([m.imageName, m.imageFallback], m.name);
 }
 
-function machineCard(m) {
+/* The back of the card. The front carries the four numbers a buyer compares;
+   turning it over gives the sentence behind them and the commercial detail,
+   without a second request. Hidden from assistive technology because the card
+   is one link to a page that says all of it properly. */
+function machineBack(m) {
+  const facts = [
+    ['Model year', m.year],
+    ['Stock no.', m.stock],
+    ['Availability', m.status],
+    ['Price', m.price],
+  ].filter(([, v]) => v).map(([k, v]) => `<div class="b-fact"><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span></div>`).join('');
   return `
-      <a class="mcard" href="/machines/${esc(m.id)}" data-category="${esc(m.category)}" data-brand="${esc(m.brand)}" data-tilt data-reveal>
-        <div class="mcard-flags">
-          <span class="flag">${esc(m.brand)}</span>
-          <span class="flag-stock">${esc(m.status)}</span>
-        </div>
-        <div class="mcard-media">${media(machineImage(m), { alt: m.name, className: 'media-machine' })}</div>
-        <div class="mcard-body">
-          <h3>${esc(m.model)}</h3>
-          <p class="mcard-type">${esc(m.category.replace(/s$/, ''))}</p>
-          <ul class="specs">${(m.specs || []).map(specRow).join('')}</ul>
-          <span class="mcard-go">View machine <span class="go-pill">${iconRef('arrow')}</span></span>
+          <div class="mcard-face mcard-back" aria-hidden="true">
+            <span class="mcard-back-code">${esc(m.brand)} &middot; ${esc(m.category.replace(/s$/, ''))}</span>
+            <h3>${esc(m.model)}</h3>
+            <p class="mcard-blurb">${esc(m.blurb)}</p>
+            <div class="mcard-facts">${facts}</div>
+            <span class="mcard-go">View machine <span class="go-pill">${iconRef('arrow')}</span></span>
+          </div>`;
+}
+
+function machineCard(m) {
+  // Terms a search should find that the card does not print: the features are
+  // on the machine's own page, but someone hunting "hydrostatic" should still
+  // land on it. Everything else is read off the card's own text.
+  const more = [m.name, m.location, ...(m.features || [])].filter(Boolean).join(' ');
+  return `
+      <a class="mcard" href="/machines/${esc(m.id)}" data-category="${esc(m.category)}" data-brand="${esc(m.brand)}" data-more="${esc(more)}" data-reveal>
+        <div class="mcard-inner">
+          <div class="mcard-face mcard-front">
+            <div class="mcard-flags">
+              <span class="flag">${esc(m.brand)}</span>
+              <span class="flag-stock">${esc(m.status)}</span>
+            </div>
+            <div class="mcard-media">${media(machineImage(m), { alt: m.name, className: 'media-machine' })}</div>
+            <div class="mcard-body">
+              <h3>${esc(m.model)}</h3>
+              <p class="mcard-type">${esc(m.category.replace(/s$/, ''))}</p>
+              <ul class="specs">${(m.specs || []).map(specRow).join('')}</ul>
+              <span class="mcard-go">View machine <span class="go-pill">${iconRef('arrow')}</span></span>
+            </div>
+          </div>
+${machineBack(m)}
         </div>
       </a>`;
 }
@@ -132,7 +162,10 @@ const heroSlides = images.heroSlides.map((img, i) =>
 
 const heroSection = `
   <section class="hero" id="top" data-chapter="VMAX">
-    <div class="wrap hero-grid">
+    <div class="hero-bg" data-para="60">
+      ${slider({ id: 'hero-slider', slides: heroSlides, count: false })}
+    </div>
+    <div class="wrap hero-inner">
       <div class="hero-copy">
         <h1 data-reveal>Brand new machines.<br /><span class="mark">Kept working.</span></h1>
         <p class="hero-sub" data-reveal>Factory-new plant from ${brands.length} makers, sold, delivered and serviced by the people who specified it. Nothing second hand, nothing subcontracted.</p>
@@ -146,14 +179,11 @@ const heroSection = `
           <div class="hero-fact"><div class="v">Same day</div><div class="k">Service response</div></div>
         </div>
       </div>
-      <div class="hero-media" data-reveal data-para="-30">
-        ${slider({ id: 'hero-slider', slides: heroSlides })}
-        <div class="hero-chip">
-          <span class="ring">${iconRef('shield')}</span>
-          <div>
-            <div class="v">Full factory warranty</div>
-            <div class="k">On every machine we sell</div>
-          </div>
+      <div class="hero-chip" data-reveal>
+        <span class="ring">${iconRef('shield')}</span>
+        <div>
+          <div class="v">Full factory warranty</div>
+          <div class="k">On every machine we sell</div>
         </div>
       </div>
     </div>
@@ -296,16 +326,39 @@ const indexContent = [
   contactSection,
 ].join('\n');
 
-/* ---------- Machines listing ---------- */
+/* ---------- Machines listing ----------
+   No page header: a buyer who has clicked Machines wants the machines, so the
+   page opens on the search and the grid rather than on a picture they have
+   already seen on the way in. */
 const machinesContent = `
-  ${pageHeader({
-    title: 'Machines.',
-    sub: `Brand new plant from ${brands.length} makers across ${categories.length} classes, supplied to your specification and serviced by us afterwards.`,
-    image: images.machinesHeader,
-    alt: 'VMAX machines',
-  })}
-  <section class="section-pad">
+  <section class="section-pad listing-top">
     <div class="wrap">
+      <div class="listing-head" data-reveal>
+        <h1>Machines.</h1>
+        <p>Brand new plant from ${brands.length} makers across ${categories.length} classes, supplied to your specification and serviced by us afterwards.</p>
+      </div>
+
+      <div class="search-bar" data-reveal>
+        <div class="search-field">
+          <span class="search-ico">${iconRef('search')}</span>
+          <input type="search" id="machine-search" name="q" autocomplete="off" spellcheck="false"
+                 placeholder="Search ${machines.length} machines by model, brand, class or spec"
+                 aria-label="Search machines" />
+          <button type="button" class="search-clear" id="search-clear" aria-label="Clear search" hidden>&times;</button>
+        </div>
+        <div class="search-side">
+          <label class="search-sort" for="machine-sort"><span>Sort</span>
+            <select id="machine-sort">
+              <option value="featured">Featured</option>
+              <option value="model">Model A&ndash;Z</option>
+              <option value="brand">Brand A&ndash;Z</option>
+              <option value="category">Class A&ndash;Z</option>
+            </select>
+          </label>
+          <p class="filter-count" id="filter-count" aria-live="polite">${machines.length} machines</p>
+        </div>
+      </div>
+
       <div class="filter-bar" data-reveal>
         <div class="filter-row">
           <span class="filter-label">Class</span>
@@ -322,11 +375,10 @@ const machinesContent = `
           </div>
         </div>
       </div>
-      <p class="filter-count" id="filter-count" aria-live="polite">${machines.length} machines</p>
       <div class="mcard-grid" id="machines-grid">
         ${machines.map(machineCard).join('')}
       </div>
-      <p class="filter-empty" id="filter-empty" hidden>Nothing in that combination. Clear a filter, or tell us what you are after and we will quote it.</p>
+      <p class="filter-empty" id="filter-empty" hidden>Nothing matches that. Clear the search or a filter, or tell us what you are after and we will quote it.</p>
       <div class="more-wrap"><button type="button" class="btn ghost" id="show-more" hidden>Show more machines <span class="arw">&rsaquo;</span></button></div>
     </div>
   </section>
@@ -453,7 +505,29 @@ function machinePage(m, next) {
 /** Every machine page, each pointing at the next one in the catalogue. */
 const machinePages = machines.map((m, i) => machinePage(m, machines[(i + 1) % machines.length]));
 
-/* ---------- Services listing ---------- */
+/* ---------- Services listing ----------
+   Every department is written into the page at build time rather than fetched
+   and drawn afterwards, so /services and every /services/<id> beneath it is a
+   real file on disk: indexable, instant, and correct with scripts off. */
+
+/** The photograph a department wants: the one it was specified with, then the
+    one named behind it. Same treatment the machine cards get. */
+function serviceImage(s) {
+  return images.resolveName([s.imageName, s.imageFallback], s.title);
+}
+
+const serviceRow = (s) => `
+      <a class="service-row" href="/services/${esc(s.id)}" data-reveal>
+        <div class="service-row-media">${media(serviceImage(s), { alt: s.title })}</div>
+        <div class="service-row-body">
+          <span class="code">${esc(s.code)}</span>
+          <h2>${esc(s.title)}</h2>
+          <p>${esc(s.summary)}</p>
+          <ul>${(s.capabilities || []).slice(0, 4).map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
+        </div>
+        <span class="service-row-go" aria-hidden="true">&rsaquo;</span>
+      </a>`;
+
 const servicesContent = `
   ${pageHeader({
     title: 'Services.',
@@ -463,15 +537,116 @@ const servicesContent = `
   })}
   <section class="section-pad">
     <div class="wrap">
-      <div class="service-index" id="service-index"></div>
+      <div class="service-index">
+        ${services.map(serviceRow).join('')}
+      </div>
     </div>
   </section>`;
 
-/* ---------- Service detail (hydrated by id) ---------- */
-const serviceContent = `
-  <article id="service-detail" class="service-detail" data-loading="true">
-    <div class="wrap page-loading">Loading service&hellip;</div>
+/* ---------- One page per service ----------------------------------------
+   Built to public/services/<id>.html, so the department a visitor clicks is
+   the page they land on rather than an empty shell that has to resolve its
+   own id from the address bar. */
+function servicePage(s, next) {
+  const related = machines.filter((m) => (m.services || []).includes(s.title)).slice(0, 4);
+  const body = (s.body && s.body.length ? s.body : [s.summary]).map((para) => `<p>${esc(para)}</p>`).join('');
+  const capabilities = (s.capabilities || []).map((c) => `<li>${iconRef('check')}<span>${esc(c)}</span></li>`).join('');
+  const deliverables = (s.deliverables || []).map((d) => `<div class="fact"><span class="k">What you get</span><span class="v">${esc(d)}</span></div>`).join('');
+
+  const content = `
+  <article class="service-detail">
+    <header class="machine-hero">
+      <div class="wrap machine-hero-grid">
+        <div class="machine-hero-copy">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="/services">Services</a> <span aria-hidden="true">/</span>
+            <span>${esc(s.title)}</span>
+          </nav>
+          <div class="machine-meta" data-reveal>
+            <span class="flag">${esc(s.code)}</span>
+            <span class="flag-stock">${(s.capabilities || []).length} capabilities</span>
+          </div>
+          <h1 data-reveal>${esc(s.title)}</h1>
+          <p class="lede" data-reveal>${esc(s.lede || s.summary)}</p>
+          <div class="hero-actions" data-reveal>
+            <a href="/contact" class="btn">Talk to the desk <span class="arw">&rsaquo;</span></a>
+            <a href="/services" class="btn ghost">All services <span class="arw">&rsaquo;</span></a>
+          </div>
+        </div>
+        <div class="machine-hero-media" data-reveal data-para="-24">${media(serviceImage(s), { alt: s.title, eager: true })}</div>
+      </div>
+    </header>
+
+    ${capabilities ? `
+    <section class="section-pad">
+      <div class="wrap">
+        <div class="spec-table">
+          ${(s.capabilities || []).map((c, i) => `
+          <div class="cell" data-tilt>${iconRef(s.icon || 'machine')}<div><span class="k">${String(i + 1).padStart(2, '0')} / ${String((s.capabilities || []).length).padStart(2, '0')}</span><span class="v">${esc(c)}</span></div></div>`).join('')}
+        </div>
+      </div>
+    </section>` : ''}
+
+    <section class="section-pad alt">
+      <div class="wrap detail-cols">
+        <div class="overview" data-reveal>
+          <h2>How it works</h2>
+          ${body}
+          <ul class="feature-list">${capabilities}</ul>
+        </div>
+        <aside class="detail-aside" data-reveal>
+          <div class="fact-block">${deliverables}</div>
+          <div class="tag-row">${(s.sectors || []).map((c) => `<span>${esc(c)}</span>`).join('')}</div>
+          <a href="/contact" class="btn sm" style="margin-top:18px">Ask about ${esc(s.title.toLowerCase())} <span class="arw">&rsaquo;</span></a>
+        </aside>
+      </div>
+    </section>
+
+    ${related.length ? `
+    <section class="section-pad">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <h2>Where this applies.</h2>
+          <p>Machines on our books that this department looks after.</p>
+        </div>
+        <div class="mcard-grid">${related.map(machineCard).join('')}</div>
+      </div>
+    </section>` : ''}
+
+    <section class="section-pad">
+      <div class="wrap next-nav" data-reveal>
+        <a href="/services/${esc(next.id)}">
+          <span><span class="lbl">Next service</span><br><span class="nm">${esc(next.title)}</span></span>
+          <span class="arw">&rsaquo;</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <div class="cta-inner" data-reveal>
+          <div>
+            <h2>${esc(s.title)} on your fleet.</h2>
+            <p>Tell us what you run and where it runs, and we will put a plan and a price against it.</p>
+          </div>
+          <a href="/contact" class="btn">Request a quote <span class="arw">&rsaquo;</span></a>
+        </div>
+      </div>
+    </section>
   </article>`;
+
+  return {
+    file: `services/${s.id}.html`,
+    active: 'services',
+    bodyClass: 'page-service',
+    title: `${s.title} | ${COMPANY}`,
+    description: `${s.title}: ${s.lede || s.summary}`,
+    content,
+  };
+}
+
+/** Every service page, each pointing at the next department. */
+const servicePages = services.map((s, i) => servicePage(s, services[(i + 1) % services.length]));
 
 /* ---------- Apply ---------- */
 const applyContent = `
@@ -680,8 +855,7 @@ const notFoundContent = `
 const pages = [
   { file: 'index.html', active: '', bodyClass: 'page-home', title: `${COMPANY} | New Heavy Machinery Sales and Servicing`, description: 'VMAX Machine Ltd supplies brand new heavy machinery from Caterpillar, Volvo, Komatsu, JCB, John Deere, Genie and more: excavators, loaders, dozers, tractors, drill rigs, aerial lifts and site power, with servicing, parts and warranty behind every machine.', content: indexContent },
   { file: 'machines.html', active: 'machines', bodyClass: 'page-machines', title: `Machines for sale | ${COMPANY}`, description: 'Brand new heavy machinery for sale across 17 classes and 27 brands: excavators, wheel loaders, dozers, haulers, graders, tractors, drill rigs, aerial lifts, forklifts, cranes and site power.', content: machinesContent, extraScripts: ['/js/machines.js'] },
-  { file: 'services.html', active: 'services', bodyClass: 'page-services', title: `Services | ${COMPANY}`, description: 'New machine sales, scheduled servicing, field service and breakdown, genuine parts, warranty, delivery and commissioning, training, finance and leasing.', content: servicesContent, extraScripts: ['/js/services.js'] },
-  { file: 'service.html', active: 'services', bodyClass: 'page-service', title: `Service | ${COMPANY}`, description: 'Service detail.', content: serviceContent, extraScripts: ['/js/service.js'] },
+  { file: 'services.html', active: 'services', bodyClass: 'page-services', title: `Services | ${COMPANY}`, description: 'New machine sales, scheduled servicing, field service and breakdown, genuine parts, warranty, delivery and commissioning, training, finance and leasing.', content: servicesContent },
   { file: 'apply.html', active: 'careers', bodyClass: 'page-apply', title: `Apply | ${COMPANY}`, description: 'Apply to VMAX Machine Ltd. One form, read by the manager you would work for.', content: applyContent, extraScripts: ['/js/apply.js'] },
   { file: 'careers.html', active: 'careers', bodyClass: 'page-careers', title: `Careers | ${COMPANY}`, description: 'Open roles at VMAX Machine Ltd for technicians, field service engineers, parts advisors, drivers and apprentices.', content: careersContent, extraScripts: ['/js/careers.js'] },
   { file: 'contact.html', active: 'contact', bodyClass: 'page-contact', title: `Request a quote | ${COMPANY}`, description: 'Contact VMAX Machine Ltd for machine sales, parts, hire and service. Tell us the job and a sales engineer comes back with a machine, a price and a date.', content: contactContent },
@@ -692,5 +866,5 @@ const pages = [
   { file: '404.html', active: '', bodyClass: 'page-404', title: `Page not found | ${COMPANY}`, description: 'Page not found.', content: notFoundContent },
 ];
 
-/* The fixed pages, then one page per machine. */
-module.exports = pages.concat(machinePages);
+/* The fixed pages, then one page per machine and one per service. */
+module.exports = pages.concat(machinePages, servicePages);
