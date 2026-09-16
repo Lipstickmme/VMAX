@@ -3,6 +3,7 @@
 const crypto = require('crypto');
 const storage = require('../utils/storage');
 const notify = require('../utils/notify');
+const { outcome } = require('../utils/formOutcome');
 const roles = require('../data/careers.json');
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -17,6 +18,7 @@ function clean(str, max) {
  * field carries the marker the dashboard reads it back by.
  */
 const APPLICATION_MARKER = 'Application: ';
+const THANKS = 'Thank you. Your application is with the workshop manager and we will come back to you.';
 
 function asEnquiry(record) {
   const lines = [
@@ -49,18 +51,16 @@ function asEnquiry(record) {
  */
 async function persist(record) {
   try {
-    await storage.applications.append(record);
-    return 'applications';
+    return { table: 'applications', landed: await storage.applications.append(record) };
   } catch (err) {
     console.warn('[vmax] applications table unavailable, filing as an enquiry:', err.message);
   }
 
   try {
-    await storage.enquiries.append(asEnquiry(record));
-    return 'enquiries';
+    return { table: 'enquiries', landed: await storage.enquiries.append(asEnquiry(record)) };
   } catch (err) {
     console.error('[vmax] failed to persist application:', err.message);
-    return null;
+    return { table: null, landed: null };
   }
 }
 
@@ -111,18 +111,19 @@ exports.create = async (req, res, next) => {
       ip: req.ip || null,
     };
 
-    let stored = null;
-    if (!trap) {
-      stored = await persist(record);
-      await notify.application(record);
+    if (trap) {
+      // A bot filled the hidden field. Answer as though it worked and drop it.
+      return res.status(201).json({ ok: true, id: record.id, table: null, stored: true, retry: false, message: THANKS });
     }
 
-    return res.status(201).json({
-      ok: true,
-      id: record.id,
-      stored,
-      message: 'Thank you. Your application is with the workshop manager and we will come back to you.',
-    });
+    const { table, landed } = await persist(record);
+    const notified = await notify.application(record);
+
+    // `table` says which of the two it went into, which the desk needs; the
+    // rest says whether it got anywhere a human will actually look.
+    return res.status(201).json(
+      Object.assign({ id: record.id, receivedAt: record.receivedAt, table }, outcome(landed, notified, THANKS))
+    );
   } catch (err) {
     return next(err);
   }

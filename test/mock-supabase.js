@@ -120,8 +120,22 @@ function start({ tables, port = 0, drop = [] }) {
     return false;
   }
 
-  function canWrite(table, row, who) {
+  /**
+   * @param {'insert'|'update'} op  the two are not the same policy: a form may
+   *   file a new row and nothing else, so the insert-only grant from
+   *   0003_public_forms.sql must not also let a stranger triage one.
+   */
+  function canWrite(table, row, who, op) {
     if (who.role === 'service_role') return true;
+
+    // 0003_public_forms.sql: anyone, signed in or not, may INSERT a new
+    // enquiry or application. Reading and triage stay admin-only. Switch
+    // `publicForms` off to stand in for a database still on 0001 alone.
+    if (op === 'insert' && server.publicForms && (table === 'enquiries' || table === 'applications')) {
+      const status = row.status === undefined ? 'new' : row.status;
+      return status === 'new' && (row.notes === undefined || row.notes === null);
+    }
+
     if (who.role !== 'authenticated') return false;
     if (table === 'chat_sessions') return row.visitor_id === who.user.id || isAdmin(who);
     if (table === 'chat_messages') {
@@ -287,7 +301,7 @@ function start({ tables, port = 0, drop = [] }) {
           return fail(res, 409, '23503', `insert or update on table "chat_messages" violates foreign key constraint "chat_messages_session_id_fkey"`);
         }
 
-        if (!canWrite(name, row, who)) {
+        if (!canWrite(name, row, who, 'insert')) {
           return fail(res, 403, '42501', `new row violates row-level security policy for table "${name}"`);
         }
 
@@ -320,7 +334,7 @@ function start({ tables, port = 0, drop = [] }) {
       }
       const rows = table.rows.filter((row) => matches(row, filters) && canRead(name, row, who));
       for (const row of rows) {
-        if (!canWrite(name, { ...row, ...body }, who)) {
+        if (!canWrite(name, { ...row, ...body }, who, 'update')) {
           return fail(res, 403, '42501', `row violates row-level security policy for table "${name}"`);
         }
         Object.assign(row, body);
@@ -333,6 +347,8 @@ function start({ tables, port = 0, drop = [] }) {
   });
 
   server.anonymousEnabled = true;
+  // Whether supabase/migrations/0003_public_forms.sql has been run.
+  server.publicForms = true;
   server.db = db;
   server.users = users;
   server.createUser = (email, password, { admin } = {}) => {

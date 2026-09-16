@@ -70,6 +70,7 @@
     emailAvailable: true,
     settings: null,
     effective: null,
+    health: null,
     drafts: {},
     settingsEditable: true,
   };
@@ -172,6 +173,33 @@
     return li;
   }
 
+  /**
+   * Why the enquiry and application tabs might be empty.
+   *
+   * Live chat is written by the visitor's own browser, so it lands whatever
+   * the server is configured with. A form is written by the server with the
+   * service-role key, and without that key the row went to a JSON file beside
+   * the process - on Vercel, gone at the end of the request. That is the one
+   * fault that looks exactly like nobody having written in, so the desk says
+   * it out loud rather than showing an empty list.
+   */
+  function storageNote() {
+    const health = state.health;
+    if (!health || !health.config) return '';
+    if (health.config.supabaseServiceRoleKey) return '';
+    return 'Heads up: this deployment has no service-role key, so forms are being filed by the '
+      + 'visitor\'s browser rather than by the server. That needs supabase/migrations/'
+      + '0003_public_forms.sql to have been run. If any are still going missing, set '
+      + 'SUPABASE_SERVICE_ROLE_KEY on the deployment and run that migration. Live chat is '
+      + 'unaffected, which is why it fills up while these do not.';
+  }
+
+  /** Put the note under a list, whether or not the list has anything in it. */
+  function noteStorage(list) {
+    const note = storageNote();
+    if (note) list.appendChild(el('li', 'admin-empty', note));
+  }
+
   function fill(list, rows, empty) {
     list.textContent = '';
     if (!rows.length) {
@@ -216,6 +244,7 @@
       ),
       'No enquiries yet. The contact form opens them.'
     );
+    noteStorage(list);
 
     const detail = $('enquiry-detail');
     const row = state.enquiries.find((r) => r.id === state.active.enquiries);
@@ -284,6 +313,7 @@
       ),
       'No applications yet. The apply form on /careers opens them.'
     );
+    noteStorage(list);
 
     if (state.applicationsSource === 'enquiries' && state.applications.length) {
       const note = el('li', 'admin-empty',
@@ -807,6 +837,14 @@
 
     $('admin-who').textContent = user.email || '';
     show('shell');
+    // What the running server can actually see. Read once: it only changes
+    // when the deployment's environment does.
+    try {
+      const res = await fetch('/api/health', { headers: { Accept: 'application/json' } });
+      if (res.ok) state.health = await res.json();
+    } catch (err) {
+      // The desk works without it; it just cannot explain an empty tab.
+    }
     await refreshLists();
     await refreshThread();
   }

@@ -42,11 +42,21 @@ function createStore({ table, file, toRow, fromRow }) {
       return readFromFile();
     },
 
+    /**
+     * Write one record down, and say where it went.
+     *
+     * The caller needs to know: 'supabase' is the desk at /admin, which is the
+     * only place a member of staff will ever look. 'file' is a JSON file beside
+     * the process, which is right for a laptop and worth nothing on a
+     * serverless host, where the disk is gone the moment the request ends.
+     *
+     * @returns {Promise<'supabase'|'file'>}
+     */
     async append(record) {
       const supabase = getSupabase();
       if (supabase) {
         await supabase.insert(table, toRow(record));
-        return record;
+        return 'supabase';
       }
 
       const task = writeChain.then(async () => {
@@ -54,7 +64,7 @@ function createStore({ table, file, toRow, fromRow }) {
         const all = await readFromFile();
         all.push(record);
         await fs.writeFile(filePath(), JSON.stringify(all, null, 2), 'utf8');
-        return record;
+        return 'file';
       });
       writeChain = task.catch(() => {});
       return task;
@@ -118,9 +128,13 @@ const applications = createStore({
   }),
 });
 
+/** Where a write would land right now, without performing one. */
+const backend = () => (getSupabase() ? 'supabase' : 'file');
+
 module.exports = {
   createStore,
   applications,
+  backend,
   // The enquiry store is the original API of this module; callers predate the
   // factory and there is no reason to make them spell it out.
   readAll: enquiries.readAll,

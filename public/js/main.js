@@ -227,7 +227,7 @@
     }
   }
 
-  window.VMAX = { $, $$, esc, fetchJSON, reduceMotion, machineCard, observeReveals, setupSlider, setupTilt, icon, iconRef, media, site };
+  window.VMAX = { $, $$, esc, fetchJSON, reduceMotion, machineCard, observeReveals, setupSlider, setupTilt, icon, iconRef, media, site, fileFromBrowser };
 
   /* Scroll: progress bar, nav state, parallax ------------------------------ */
   const nav = $('#nav');
@@ -322,7 +322,51 @@
     targets.forEach((el) => io.observe(el));
   }
 
-  /* Enquiry form ----------------------------------------------------------- */
+  /* Enquiry form -----------------------------------------------------------
+     The form posts to /api/contact, which writes the row with the server's
+     service-role key. That key is one value in one deployment's environment,
+     and when it is missing the server falls back to a JSON file beside the
+     process - gone at the end of the request on a serverless host - while the
+     visitor is thanked and the desk never sees the enquiry.
+
+     So the reply says what became of it, and when it says `retry` the page
+     files the row itself, with the public key, under the same row level
+     security the live chat has always used. Only if that fails too is the
+     visitor told, rather than thanked for something nobody kept. */
+
+  /** The browser's own Supabase client, made once and shared. Null when the
+      project is not reachable from the page. */
+  let formClientPromise = null;
+  function formClient() {
+    if (formClientPromise) return formClientPromise;
+    formClientPromise = (async () => {
+      if (!window.VmaxSupabase) return null;
+      const cfg = await fetchJSON('/api/public-config');
+      if (!cfg.supabaseUrl || !cfg.supabaseAnonKey) return null;
+      // No sign-in: the insert policy admits anon, so a visitor can leave an
+      // enquiry whether or not anonymous sign-ins are switched on.
+      return window.VmaxSupabase.createClient(cfg.supabaseUrl, cfg.supabaseAnonKey, {
+        storageKey: 'vmax-visitor-auth',
+      });
+    })().catch(() => null);
+    return formClientPromise;
+  }
+
+  /**
+   * File a record the server could not keep.
+   * @returns {Promise<boolean>} whether it reached the database.
+   */
+  async function fileFromBrowser(table, row) {
+    try {
+      const client = await formClient();
+      if (!client) return false;
+      await client.insert(table, row);
+      return true;
+    } catch (err) {
+      console.warn('[vmax] could not file the form from the browser:', err.message);
+      return false;
+    }
+  }
 
   /** Wire every enquiry form on the page. Both post to the same endpoint, so
       both land in `enquiries` and appear on the desk at /admin. */
@@ -375,7 +419,26 @@
       try {
         const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(payload) });
         const data = await res.json().catch(() => ({}));
-        if (res.ok) { form.reset(); statusEl.className = 'form-status ok'; statusEl.textContent = data.message || 'Thank you. Your enquiry has reached the sales desk.'; }
+        if (res.ok) {
+          let kept = data.stored !== false;
+          if (!kept && data.retry) {
+            kept = await fileFromBrowser('enquiries', {
+              id: data.id, created_at: data.receivedAt,
+              name: payload.name, email: payload.email,
+              company: payload.company || null, service: payload.service || null,
+              message: payload.message,
+            });
+          }
+          if (kept || data.notified) {
+            form.reset();
+            statusEl.className = 'form-status ok';
+            statusEl.textContent = data.message || 'Thank you. Your enquiry has reached the sales desk.';
+          } else {
+            // The form keeps what was typed, so it can be copied into an email.
+            statusEl.className = 'form-status bad';
+            statusEl.textContent = `We could not file that. Please email ${site.email} and we will pick it up there.`;
+          }
+        }
         else if (res.status === 422 && data.fields) { Object.entries(data.fields).forEach(([k, v]) => setErr(k, v)); statusEl.className = 'form-status bad'; statusEl.textContent = 'Please correct the highlighted fields.'; }
         else if (res.status === 429) { statusEl.className = 'form-status bad'; statusEl.textContent = 'Too many attempts. Please wait a moment and try again.'; }
         else { statusEl.className = 'form-status bad'; statusEl.textContent = data.message || `Something went wrong. Please email ${site.email}.`; }

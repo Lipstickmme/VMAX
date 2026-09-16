@@ -117,7 +117,7 @@ Two halves of one conversation:
 │   └── fallback.test.js      # chat with anonymous sign-ins off, and with no database
 ├── RECIPE.md                 # how to rebuild this stack on another site
 ├── supabase/
-│   ├── migrations/           # 0001_init.sql, 0002_email.sql
+│   ├── migrations/           # 0001_init.sql, 0002_email.sql, 0003_public_forms.sql
 │   └── grant-admin.sql       # one-off: make yourself an admin
 ├── src/
 │   ├── app.js                # local Express app: pages + API + static
@@ -256,16 +256,34 @@ otherwise, so development works offline with no setup.
 
 Tables are `admins`, `enquiries`, `applications`, `chat_sessions`, `chat_messages`
 and, optionally, `email_threads` / `email_messages`. Create them by running
-[`supabase/migrations/0001_init.sql`](supabase/migrations/0001_init.sql) (and
-[`0002_email.sql`](supabase/migrations/0002_email.sql)) in the Supabase SQL Editor.
-Both are guarded, so re-running one after an edit updates what changed.
+[`supabase/migrations/0001_init.sql`](supabase/migrations/0001_init.sql),
+[`0003_public_forms.sql`](supabase/migrations/0003_public_forms.sql) and, if the site
+receives mail, [`0002_email.sql`](supabase/migrations/0002_email.sql) in the Supabase
+SQL Editor. All are guarded, so re-running one after an edit updates what changed.
 
-Row level security is on everywhere. `enquiries` has no anon policy at all: writes
-arrive through `POST /api/contact` using the `service_role` key. Chat is the one thing
-the browser writes directly, under the visitor's anonymous `auth.uid()`, and staff read
-and answer under their own login checked against `admins`. Keep the `service_role` key
-server side and never behind a `VITE_` or `NEXT_PUBLIC_` prefix, which are inlined into
-browser bundles; the `anon` key is meant to be public.
+Row level security is on everywhere, and nothing but `admins` can read a row. Writes are
+the part worth understanding, because getting it wrong is silent:
+
+- An enquiry or application is written by the server with the `service_role` key, which
+  bypasses RLS. That is the preferred path.
+- `0003_public_forms.sql` also lets **anyone INSERT** a new `enquiries` or `applications`
+  row and nothing else, so when the server has no `service_role` key the page files the
+  record itself with the public key. Without it, a deployment missing that key thanks the
+  visitor while the row goes to a JSON file that a serverless host throws away at the end
+  of the request — the desk stays empty and nothing says why. Reading and triage are
+  still admin-only, so a stranger can leave an enquiry and can never see one.
+- Chat has always been written by the browser, under the visitor's anonymous `auth.uid()`.
+  That is why a half-configured deployment fills its chat tab while the form tabs stay
+  empty.
+
+Staff read and answer under their own login, checked against `admins`. Keep the
+`service_role` key server side and never behind a `VITE_` or `NEXT_PUBLIC_` prefix, which
+are inlined into browser bundles; the `anon` key is meant to be public.
+
+`POST /api/contact` and `POST /api/applications` answer with `stored`, `retry` and
+`notified` so the page knows whether the record actually reached somewhere a person will
+look. When none of them is true the visitor is told to email us instead, and the form
+keeps what they typed.
 
 `GET /api/health?probe=1` reads one row of every column the server uses and names
 anything missing, which is the quickest way to catch tables built from an older copy of

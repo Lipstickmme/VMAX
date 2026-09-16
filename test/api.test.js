@@ -335,7 +335,8 @@ async function withApp(env, fn) {
           message: 'Six years on field service, mostly hydraulics and driveline work.',
         });
         assert.strictEqual(res.status, 201);
-        assert.strictEqual(res.body.stored, 'enquiries', 'it must land somewhere');
+        assert.strictEqual(res.body.table, 'enquiries', 'it must land somewhere');
+        assert.strictEqual(res.body.stored, true, 'and the applicant must be told the truth about it');
         assert.strictEqual(sb.db.enquiries.rows.length, 1);
         const filed = sb.db.enquiries.rows[0];
         assert.match(filed.service, /^Application: /);

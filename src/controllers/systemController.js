@@ -105,7 +105,8 @@ exports.health = async (req, res) => {
 
   if (url && !service) {
     warnings.push(
-      'SUPABASE_URL is set but SUPABASE_SERVICE_ROLE_KEY is not. Enquiries cannot be written; the server falls back to local files, which do not persist on Vercel.'
+      'SUPABASE_URL is set but SUPABASE_SERVICE_ROLE_KEY is not, so the server cannot write an enquiry or an application: it falls back to local files, which do not persist on Vercel. '
+      + 'The page files the record itself with the browser key instead, which needs supabase/migrations/0003_public_forms.sql to have been run. Set the key as well and the server takes it back over.'
     );
   }
   if (url && service && !anon) {

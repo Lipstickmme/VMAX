@@ -99,10 +99,32 @@
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok) {
-        form.reset();
-        describe(null);
-        statusEl.className = 'form-status ok';
-        statusEl.textContent = data.message || 'Thank you. Your application is with the studio.';
+        // Same contract as the enquiry form: when the server could not keep
+        // it, file the row from here with the public key rather than thank
+        // somebody for an application nobody will read.
+        let kept = data.stored !== false;
+        if (!kept && data.retry) {
+          const role = roles.find((r) => r.id === payload.roleId);
+          kept = await M.fileFromBrowser('applications', {
+            id: data.id, created_at: data.receivedAt,
+            name: payload.name, email: payload.email,
+            phone: payload.phone || null,
+            role_id: payload.roleId || null,
+            role_title: role ? role.title : 'Speculative application',
+            portfolio: payload.portfolio || null,
+            experience: payload.experience || null,
+            message: payload.message,
+          });
+        }
+        if (kept || data.notified) {
+          form.reset();
+          describe(null);
+          statusEl.className = 'form-status ok';
+          statusEl.textContent = data.message || 'Thank you. Your application is with the studio.';
+        } else {
+          statusEl.className = 'form-status bad';
+          statusEl.textContent = `We could not file that. Please email ${M.site.email} and we will pick it up there.`;
+        }
       } else if (res.status === 422 && data.fields) {
         Object.entries(data.fields).forEach(([k, v]) => setErr(k, v));
         statusEl.className = 'form-status bad';

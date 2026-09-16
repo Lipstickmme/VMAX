@@ -1,8 +1,12 @@
 'use strict';
 
 /**
- * The two ways the browser can fail to reach Supabase itself. In both the
- * chat must still work, because the server holds the service role.
+ * The ways one half of the Supabase configuration can be missing.
+ *
+ * The first two are the browser failing to reach Supabase itself: in both the
+ * chat must still work, because the server holds the service role. The third
+ * is the other way round, and is the one that quietly lost enquiries - the
+ * server has no service-role key, so the page has to file the form itself.
  */
 
 const assert = require('assert');
@@ -75,6 +79,72 @@ async function chat(browser, base) {
     assert.strictEqual(files.length, 1, 'conversation written to disk');
     console.log('  ok  no Supabase at all: chat works against local files');
     site.close();
+
+    /* --- the other half missing: a browser key but no service-role key ---
+       The server cannot write the row, so the page must file it itself or the
+       enquiry is thanked for and lost. This is what made /admin look empty
+       while the chat tab filled up. */
+    const sb2 = await mock.start({});
+    site = await serve({
+      SUPABASE_URL: `http://127.0.0.1:${sb2.address().port}`,
+      SUPABASE_ANON_KEY: mock.ANON_KEY,
+      DATA_DIR: require('fs').mkdtempSync('/tmp/vmax-noservice-'),
+      CHAT_NOTIFY: 'off',
+    });
+    const base2 = `http://127.0.0.1:${site.address().port}`;
+
+    const page = await browser.newPage();
+    const errs = [];
+    page.on('pageerror', (e) => errs.push(e.message));
+    await page.goto(base2 + '/contact', { waitUntil: 'networkidle' });
+    await page.fill('#contact-form-name', 'Pieter Hoek');
+    await page.fill('#contact-form-email', 'pieter@example.nl');
+    await page.fill('#contact-form-message', 'Quote me a 20 tonne excavator for a six month job.');
+    await page.click('#contact-form [data-submit]');
+    await page.waitForSelector('#contact-form .form-status.ok', { timeout: 15000 });
+
+    assert.strictEqual(sb2.db.enquiries.rows.length, 1,
+      'the browser must file what the server could not: ' + JSON.stringify(sb2.db.enquiries.rows));
+    const filed = sb2.db.enquiries.rows[0];
+    assert.strictEqual(filed.name, 'Pieter Hoek');
+    assert.strictEqual(filed.status, 'new');
+    assert.match(filed.message, /20 tonne excavator/);
+    assert.strictEqual(errs.length, 0, errs.join('\n'));
+    console.log('  ok  no service-role key: the enquiry form files its own row and reaches the desk');
+
+    await page.goto(base2 + '/apply', { waitUntil: 'networkidle' });
+    await page.fill('#apply-name', 'Sanne Vermeer');
+    await page.fill('#apply-email', 'sanne@example.nl');
+    await page.fill('#apply-message', 'Six years on field service, mostly hydraulics and driveline work.');
+    await page.click('#apply-form [data-submit], #apply-submit');
+    await page.waitForSelector('#apply-status.ok', { timeout: 15000 });
+
+    assert.strictEqual(sb2.db.applications.rows.length, 1,
+      'the same for an application: ' + JSON.stringify(sb2.db.applications.rows));
+    assert.strictEqual(sb2.db.applications.rows[0].name, 'Sanne Vermeer');
+    assert.strictEqual(errs.length, 0, errs.join('\n'));
+    console.log('  ok  no service-role key: the apply form files its own row too');
+
+    /* --- and when neither path is open, say so rather than say thank you --- */
+    sb2.publicForms = false;
+    await page.goto(base2 + '/contact', { waitUntil: 'networkidle' });
+    await page.fill('#contact-form-name', 'Lost Enquiry');
+    await page.fill('#contact-form-email', 'lost@example.com');
+    await page.fill('#contact-form-message', 'This one has nowhere at all to go.');
+    await page.click('#contact-form [data-submit]');
+    await page.waitForSelector('#contact-form .form-status.bad', { timeout: 15000 });
+    const said = await page.textContent('#contact-form .form-status');
+    assert.match(said, /could not file/i, said);
+    assert.strictEqual(sb2.db.enquiries.rows.length, 1, 'and nothing new was written');
+    assert.strictEqual(
+      await page.inputValue('#contact-form-message'),
+      'This one has nowhere at all to go.',
+      'the form keeps what was typed so it can be emailed instead'
+    );
+    console.log('  ok  nowhere to file it: the visitor is told, not thanked');
+    await page.close();
+    site.close();
+    sb2.close();
 
     console.log('\nfallback suite passed');
   } catch (err) {

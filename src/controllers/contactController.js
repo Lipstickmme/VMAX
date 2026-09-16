@@ -3,8 +3,10 @@
 const crypto = require('crypto');
 const storage = require('../utils/storage');
 const notify = require('../utils/notify');
+const { outcome } = require('../utils/formOutcome');
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const THANKS = 'Thank you. Your enquiry has reached our engineers.';
 
 function clean(str, max) {
   return String(str == null ? '' : str).trim().slice(0, max);
@@ -41,22 +43,22 @@ exports.create = async (req, res, next) => {
       ip: req.ip || null,
     };
 
-    if (!trap) {
-      // Persist first, then route to the inbox. Both are best effort so a
-      // notification outage never loses the enquiry or fails the request.
-      try {
-        await storage.append(record);
-      } catch (err) {
-        console.error('[vmax] failed to persist enquiry:', err.message);
-      }
-      await notify.enquiry(record);
+    if (trap) {
+      // A bot filled the hidden field. Answer as though it worked and drop it.
+      return res.status(201).json({ ok: true, id: record.id, stored: true, retry: false, message: THANKS });
     }
 
-    return res.status(201).json({
-      ok: true,
-      id: record.id,
-      message: 'Thank you. Your enquiry has reached our engineers.',
-    });
+    // Persist first, then route to the inbox. Both are best effort so a
+    // notification outage never loses the enquiry or fails the request.
+    let landed = null;
+    try {
+      landed = await storage.append(record);
+    } catch (err) {
+      console.error('[vmax] failed to persist enquiry:', err.message);
+    }
+    const notified = await notify.enquiry(record);
+
+    return res.status(201).json(Object.assign({ id: record.id, receivedAt: record.receivedAt }, outcome(landed, notified, THANKS)));
   } catch (err) {
     return next(err);
   }
