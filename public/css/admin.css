@@ -479,3 +479,35 @@
 .admin-row.is-active { border-left: 3px solid var(--yellow); background: var(--yellow-wash); }
 .admin-bubble.out { background: linear-gradient(135deg, var(--yellow-2), var(--yellow)); color: var(--ink); }
 .page-admin { background: var(--paper); }
+
+/* The deployment summary at the foot of Settings. Facts, not controls: it is
+   the answer to "where do the forms actually go", kept where it is findable
+   without standing over the records themselves. */
+.admin-deployment {
+  margin-top: 34px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.admin-deployment h2 { font-size: 15px; margin: 0 0 14px; }
+.admin-deployment .row {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 6px 16px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13.5px;
+}
+.admin-deployment .row:last-child { border-bottom: 0; }
+.admin-deployment .k {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+  padding-top: 3px;
+}
+.admin-deployment .val { color: var(--muted); line-height: 1.55; }
+
+@media (max-width: 720px) {
+  .admin-deployment .row { grid-template-columns: 1fr; }
+}

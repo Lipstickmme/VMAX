@@ -42,9 +42,20 @@ const supabaseAnonKey = () =>
     'VITE_SUPABASE_PUBLISHABLE_KEY'
   );
 
-/** The secret key. `sb_secret_...` under the newer scheme, service_role under the older. */
-const supabaseServiceKey = () =>
-  pick('SUPABASE_SERVICE_ROLE_KEY', 'SUPABASE_SECRET_KEY', 'NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY');
+/**
+ * The secret key. `sb_secret_...` under the newer API keys scheme, service_role
+ * under the older, and named differently again by each integration that injects
+ * it. Reading only one of those names is how a deployment that looks correctly
+ * configured still writes its enquiries to a file nobody reads.
+ */
+const SERVICE_KEY_NAMES = [
+  'SUPABASE_SERVICE_ROLE_KEY',
+  'SUPABASE_SECRET_KEY',
+  'SUPABASE_SERVICE_KEY',
+  'NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY',
+  'VITE_SUPABASE_SERVICE_ROLE_KEY',
+];
+const supabaseServiceKey = () => pick(...SERVICE_KEY_NAMES);
 
 const resendApiKey = () => pick('RESEND_API_KEY');
 const resendWebhookSecret = () => pick('RESEND_WEBHOOK_SECRET');
@@ -97,7 +108,9 @@ const ACCEPTED_NAMES = {
     'NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY',
     'VITE_SUPABASE_PUBLISHABLE_KEY',
   ],
-  supabaseServiceRoleKey: ['SUPABASE_SERVICE_ROLE_KEY', 'SUPABASE_SECRET_KEY'],
+  // The same list the getter reads, so what health advertises and what the
+  // server actually accepts cannot drift apart.
+  supabaseServiceRoleKey: SERVICE_KEY_NAMES,
 };
 
 module.exports = {

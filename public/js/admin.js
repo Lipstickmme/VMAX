@@ -183,21 +183,27 @@
    * fault that looks exactly like nobody having written in, so the desk says
    * it out loud rather than showing an empty list.
    */
-  function storageNote() {
+  /** True when the server has no key of its own and the page files forms. */
+  function browserFilesForms() {
     const health = state.health;
-    if (!health || !health.config) return '';
-    if (health.config.supabaseServiceRoleKey) return '';
-    return 'Heads up: this deployment has no service-role key, so forms are being filed by the '
-      + 'visitor\'s browser rather than by the server. That needs supabase/migrations/'
-      + '0003_public_forms.sql to have been run. If any are still going missing, set '
-      + 'SUPABASE_SERVICE_ROLE_KEY on the deployment and run that migration. Live chat is '
-      + 'unaffected, which is why it fills up while these do not.';
+    return Boolean(health && health.config && !health.config.supabaseServiceRoleKey);
   }
 
-  /** Put the note under a list, whether or not the list has anything in it. */
-  function noteStorage(list) {
-    const note = storageNote();
-    if (note) list.appendChild(el('li', 'admin-empty', note));
+  /**
+   * Why this tab might be empty.
+   *
+   * Only worth saying while it IS empty. Once records are arriving, whichever
+   * path filed them is working by definition, and a standing warning about the
+   * other one is just noise on top of the thing it was warning about. The
+   * standing description lives in Settings instead.
+   */
+  function noteStorage(list, count) {
+    if (count > 0 || !browserFilesForms()) return;
+    list.appendChild(el('li', 'admin-empty',
+      'Nothing here yet. If you were expecting something: this deployment has no service-role key, '
+      + 'so a form is filed by the visitor\'s browser, which needs supabase/migrations/'
+      + '0003_public_forms.sql to have been run. Live chat writes itself either way, which is why '
+      + 'it can fill up while this does not.'));
   }
 
   function fill(list, rows, empty) {
@@ -244,7 +250,7 @@
       ),
       'No enquiries yet. The contact form opens them.'
     );
-    noteStorage(list);
+    noteStorage(list, state.enquiries.length);
 
     const detail = $('enquiry-detail');
     const row = state.enquiries.find((r) => r.id === state.active.enquiries);
@@ -313,7 +319,7 @@
       ),
       'No applications yet. The apply form on /careers opens them.'
     );
-    noteStorage(list);
+    noteStorage(list, state.applications.length);
 
     if (state.applicationsSource === 'enquiries' && state.applications.length) {
       const note = el('li', 'admin-empty',
@@ -697,6 +703,45 @@
     });
 
     panel.appendChild(form);
+    panel.appendChild(deploymentBlock());
+  }
+
+  /**
+   * How this deployment is put together, stated plainly and out of the way.
+   *
+   * There is nothing to act on here most of the time; it is the answer to
+   * "where do the forms actually go", which is the question that is expensive
+   * to work out from the outside once something looks wrong.
+   */
+  function deploymentBlock() {
+    const wrap = el('section', 'admin-deployment');
+    wrap.appendChild(el('h2', null, 'Deployment'));
+
+    const line = (label, text) => {
+      const row = el('div', 'row');
+      row.appendChild(el('div', 'k', label));
+      row.appendChild(el('div', 'val', text));
+      wrap.appendChild(row);
+    };
+
+    if (!state.health || !state.health.config) {
+      wrap.appendChild(el('p', 'admin-sub', 'The server did not answer /api/health, so there is nothing to report here.'));
+      return wrap;
+    }
+
+    const cfg = state.health.config;
+    line('Enquiries and applications', browserFilesForms()
+      ? 'Filed by the visitor\'s browser, under row level security. This needs '
+        + 'supabase/migrations/0003_public_forms.sql. Set SUPABASE_SERVICE_ROLE_KEY on the '
+        + 'deployment if you would rather the server did it.'
+      : 'Written by the server with its service-role key.');
+    line('Live chat', 'Written by the visitor\'s browser under an anonymous login, with the server as a fallback.');
+    line('Enquiry notifications', cfg.resendApiKey && cfg.formTo
+      ? 'Emailed as well as filed here.'
+      : 'Not set up, so this desk is the only copy. Set RESEND_API_KEY and FORM_TO to have them emailed too.');
+    line('Inbound mail', cfg.mailboxAddress ? 'Received into the Email tab.' : 'Not set up.');
+
+    return wrap;
   }
 
   function render() {

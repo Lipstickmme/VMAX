@@ -105,8 +105,10 @@ exports.health = async (req, res) => {
 
   if (url && !service) {
     warnings.push(
-      'SUPABASE_URL is set but SUPABASE_SERVICE_ROLE_KEY is not, so the server cannot write an enquiry or an application: it falls back to local files, which do not persist on Vercel. '
-      + 'The page files the record itself with the browser key instead, which needs supabase/migrations/0003_public_forms.sql to have been run. Set the key as well and the server takes it back over.'
+      'SUPABASE_URL is set but no service-role key is, so the server cannot write to the database itself. '
+      + 'Enquiries and applications are covered: the page files those with the browser key, which is what supabase/migrations/0003_public_forms.sql grants. '
+      + 'Not covered: the server-side chat fallback used when anonymous sign-ins are off, and inbound mail. '
+      + `Set one of: ${config.ACCEPTED_NAMES.supabaseServiceRoleKey.join(', ')}.`
     );
   }
   if (url && service && !anon) {
